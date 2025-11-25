@@ -1,1416 +1,2791 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AI Vision - Presentation New</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Vision - Presentation New</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #1a1a1a;
-            overflow: hidden;
-        }
-        
-        .slideshow-container {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            background: #000;
-        }
-        
-        .slide {
-            display: none;
-            width: 100%;
-            height: 100%;
-            padding: 60px 80px;
-            animation: fadeIn 0.8s ease-in-out;
-            position: relative;
-        }
-        
-        .slide.active {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Slide 1 - Cover */
-        .slide-1 {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        
-        .slide-1 h1 {
-            font-size: 4.5em;
-            color: white;
-            margin-bottom: 20px;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            letter-spacing: 3px;
-        }
-        
-        .slide-1 h2 {
-            font-size: 2.2em;
-            color: rgba(255,255,255,0.9);
-            font-weight: 300;
-            margin-bottom: 40px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        /* Hide slide number on cover slide */
-        .slide-1 .slide-number { display: none; }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #1a1a1a;
+        overflow: hidden;
+      }
 
-        .slide-1 .cover-caption {
-            font-size: 1.0em;
-            color: rgba(255,255,255,0.95);
-            margin-top: 8px;
-            font-weight: 500;
-            opacity: 0.95;
-        }
-        
-        .slide-1 .journey-preview {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 60px;
-        }
-        
-        .journey-step-mini {
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 15px;
-            width: 150px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        
-        .journey-step-mini:hover {
-            transform: translateY(-10px);
-        }
-        
-        .journey-step-mini .step-num {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 10px;
-        }
-        
-        .journey-step-mini .step-name {
-            font-size: 1em;
-            color: white;
-            font-weight: 500;
-        }
+      .slideshow-container {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background: #000;
+      }
 
-        /* Journey overview slide */
-        .slide-journey { background: linear-gradient(135deg,#ffafbd 0%, #ffc3a0 100%); }
+      .slide {
+        display: none;
+        width: 100%;
+        height: 100%;
+        padding: 60px 80px;
+        animation: fadeIn 0.8s ease-in-out;
+        position: relative;
+      }
+
+      .slide.active {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Slide 1 - Cover */
+      .slide-1 {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .slide-1 h1 {
+        font-size: 4.5em;
+        color: white;
+        margin-bottom: 20px;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        letter-spacing: 3px;
+      }
+
+      .slide-1 h2 {
+        font-size: 2.2em;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 300;
+        margin-bottom: 40px;
+      }
+
+      .journey-step-mini {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        border-radius: 15px;
+        width: 150px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .journey-step-mini:hover {
+        transform: translateY(-10px);
+      }
+
+      .journey-step-mini .step-num {
+        font-size: 2.5em;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 10px;
+      }
+
+      .journey-step-mini .step-name {
+        font-size: 1em;
+        color: white;
+        font-weight: 500;
+      }
+
+      /* Journey overview slide */
+      .slide-journey {
+        background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
+      }
+      .journey-steps {
+        display: flex;
+        gap: 18px;
+        justify-content: center;
+        align-items: stretch;
+        margin-top: 30px;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .journey-step {
+        background: rgba(255, 255, 255, 0.12);
+        padding: 18px;
+        border-radius: 14px;
+        width: 220px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        transition:
+          transform 0.25s ease,
+          background 0.25s ease;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .journey-step:hover {
+        transform: translateY(-8px);
+        background: rgba(255, 255, 255, 0.18);
+      }
+      .journey-step .icon {
+        font-size: 2.4em;
+      }
+      .journey-step .step-title {
+        font-weight: 700;
+        color: white;
+        font-size: 1.05em;
+      }
+      .journey-step .step-sub {
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 0.95em;
+      }
+      @media (max-width: 900px) {
         .journey-steps {
-            display: flex;
-            gap: 18px;
-            justify-content: center;
-            align-items: stretch;
-            margin-top: 30px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
+          flex-wrap: wrap;
+          gap: 12px;
         }
         .journey-step {
-            background: rgba(255,255,255,0.12);
-            padding: 18px;
-            border-radius: 14px;
-            width: 220px;
-            text-align: center;
-            display:flex;
-            flex-direction:column;
-            gap:10px;
-            align-items:center;
-            transition: transform 0.25s ease, background 0.25s ease;
-            border: 1px solid rgba(255,255,255,0.06);
+          width: 45%;
         }
-        .journey-step:hover { transform: translateY(-8px); background: rgba(255,255,255,0.18); }
-        .journey-step .icon { font-size: 2.4em; }
-        .journey-step .step-title { font-weight:700; color:white; font-size:1.05em; }
-        .journey-step .step-sub { color: rgba(255,255,255,0.92); font-size:0.95em; }
-        @media (max-width: 900px) { .journey-steps { flex-wrap:wrap; gap:12px; } .journey-step{width:45%;} }
-        
-        /* Slides 2-6 - Detail Steps */
-        .slide-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-        .slide-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-        .slide-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
-        .slide-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
-        .slide-6 { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
-        
-        .slide-header {
-            margin-bottom: 40px;
-        }
-        
-        .slide-number {
-            font-size: 6em;
-            font-weight: bold;
-            color: rgba(255,255,255,0.3);
-            line-height: 0.8;
-            margin-bottom: 10px;
-        }
-        
-        .slide-title {
-            font-size: 3.5em;
-            color: white;
-            font-weight: bold;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        
-        .slide-subtitle {
-            font-size: 1.5em;
-            color: rgba(255,255,255,0.9);
-            font-style: italic;
-            margin-bottom: 30px;
-        }
-        
-        .slide-description {
-            font-size: 1.3em;
-            color: white;
-            line-height: 1.8;
-            margin-bottom: 40px;
-            max-width: 1200px;
-            background: rgba(255,255,255,0.1);
-            padding: 25px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            max-width: 1200px;
-        }
-        
-        .detail-card {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 5px solid white;
-            transition: transform 0.3s ease, background 0.3s ease;
-        }
-        
-        .detail-card:hover {
-            transform: translateX(10px);
-            background: rgba(255,255,255,0.25);
-        }
-        
-        .detail-card .icon {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-        
-        .detail-card .title {
-            font-size: 1.3em;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 8px;
-        }
-        
-        .detail-card .text {
-            font-size: 1.1em;
-            color: rgba(255,255,255,0.95);
-            line-height: 1.6;
-        }
-        
-        .badge {
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-size: 0.9em;
-            font-weight: bold;
-            margin-left: 15px;
-            animation: pulse 2s infinite;
-        }
-        
-        .badge-alert {
-            background: #e74c3c;
-            color: white;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.05); }
-        }
-        
-        /* Slide 7 - Benefits */
-        .slide-7 {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            justify-content: center;
-        }
-        
-        .slide-7 .slide-title {
-            text-align: center;
-            font-size: 4em;
-            margin-bottom: 60px;
-        }
-        
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 35px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+      }
 
-        /* UI preview image and features layout */
+      .journey-warning {
+        background: rgba(192, 57, 43, 0.8);
+        border: 2px solid #e74c3c;
+        border-radius: 12px;
+        padding: 12px 20px;
+        text-align: center;
+        margin-top: 40px; /* increase the space above the warning */
+      }
+
+      /* Hide slide number on cover slide */
+      .slide-1 .slide-number {
+        display: none;
+      }
+
+      .slide-1 .cover-caption {
+        font-size: 1em;
+        color: rgba(255, 255, 255, 0.95);
+        margin-top: 8px;
+        font-weight: 500;
+        opacity: 0.95;
+      }
+
+      .slide-1 .journey-preview {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 60px;
+      }
+
+      /* Slides 2-6 - Detail Steps */
+      .slide-2 {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+      .slide-3 {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+      .slide-4 {
+        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+      }
+      .slide-5 {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      }
+      .slide-6 {
+        background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+      }
+
+      .slide-header {
+        margin-bottom: 40px;
+      }
+
+      .slide-number {
+        font-size: 6em;
+        font-weight: bold;
+        color: rgba(255, 255, 255, 0.3);
+        line-height: 0.8;
+        margin-bottom: 10px;
+      }
+
+      .slide-title {
+        font-size: 3.5em;
+        color: white;
+        font-weight: bold;
+        margin-bottom: 15px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .slide-subtitle {
+        font-size: 1.5em;
+        color: rgba(255, 255, 255, 0.9);
+        font-style: italic;
+        margin-bottom: 30px;
+      }
+
+      .slide-description {
+        font-size: 1.3em;
+        color: white;
+        line-height: 1.8;
+        margin-bottom: 40px;
+        max-width: 1200px;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 25px;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+      }
+
+      .details-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        max-width: 1200px;
+      }
+
+      .detail-card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        padding: 25px;
+        border-radius: 15px;
+        border-left: 5px solid white;
+        transition:
+          transform 0.3s ease,
+          background 0.3s ease;
+      }
+
+      .detail-card:hover {
+        transform: translateX(10px);
+        background: rgba(255, 255, 255, 0.25);
+      }
+
+      .detail-card .icon {
+        font-size: 2em;
+        margin-bottom: 10px;
+      }
+
+      .detail-card .title {
+        font-size: 1.3em;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 8px;
+      }
+
+      .detail-card .text {
+        font-size: 1.1em;
+        color: rgba(255, 255, 255, 0.95);
+        line-height: 1.6;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 8px 20px;
+        border-radius: 25px;
+        font-size: 0.9em;
+        font-weight: bold;
+        margin-left: 15px;
+        animation: pulse 2s infinite;
+      }
+
+      .badge-alert {
+        background: #e74c3c;
+        color: white;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.8;
+          transform: scale(1.05);
+        }
+      }
+
+      /* Slide 7 - Benefits */
+      .slide-7 {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        justify-content: center;
+      }
+
+      .slide-7 .slide-title {
+        text-align: center;
+        font-size: 4em;
+        margin-bottom: 60px;
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 35px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      /* UI preview image and features layout */
+      .ui-features-grid {
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 30px;
+        align-items: start;
+        max-width: 1200px;
+        margin: 18px auto 8px auto;
+      }
+
+      .ui-screenshot {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+      .ui-screenshot img {
+        width: 100%;
+        max-width: 820px;
+        height: auto;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: white;
+        display: block;
+      }
+
+      .features-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 6px 6px 6px 8px;
+      }
+
+      .feature {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+      }
+      .feature .icon {
+        font-size: 1.8em;
+        width: 44px;
+        text-align: center;
+      }
+      .feature .f-title {
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.96);
+        font-size: 1.05em;
+      }
+      .feature .f-text {
+        color: rgba(255, 255, 255, 0.86);
+        font-size: 0.95em;
+        line-height: 1.3;
+      }
+
+      @media (max-width: 900px) {
         .ui-features-grid {
-            display: grid;
-            grid-template-columns: 1fr 420px;
-            gap: 30px;
-            align-items: start;
-            max-width: 1200px;
-            margin: 18px auto 8px auto;
-        }
-
-        .ui-screenshot {
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            padding: 12px;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.04);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+          grid-template-columns: 1fr;
         }
         .ui-screenshot img {
-            width: 100%;
-            max-width: 820px;
-            height: auto;
-            border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.06);
-            background: white;
-            display:block;
+          max-width: 100%;
+          height: auto;
         }
-
         .features-list {
-            display:flex;
-            flex-direction:column;
-            gap:12px;
-            padding: 6px 6px 6px 8px;
+          flex-direction: row;
+          flex-wrap: wrap;
         }
-
         .feature {
-            display:flex;
-            gap:12px;
-            align-items:flex-start;
-            background: rgba(255,255,255,0.03);
-            padding:12px;
-            border-radius:10px;
-            border: 1px solid rgba(255,255,255,0.04);
+          flex: 1 1 calc(50% - 12px);
         }
-        .feature .icon { font-size:1.8em; width:44px; text-align:center; }
-        .feature .f-title { font-weight:700; color:rgba(255,255,255,0.96); font-size:1.05em; }
-        .feature .f-text { color: rgba(255,255,255,0.86); font-size:0.95em; line-height:1.3; }
+      }
 
-        @media (max-width: 900px) {
-            .ui-features-grid { grid-template-columns: 1fr; }
-            .ui-screenshot img { max-width: 100%; height: auto; }
-            .features-list { flex-direction: row; flex-wrap:wrap; }
-            .feature { flex: 1 1 calc(50% - 12px); }
-        }
+      /* Compact icon cards for Slide 4 */
+      .details-grid.compact-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        max-width: 1200px;
+        margin: 30px auto 0 auto;
+      }
 
-        /* Compact icon cards for Slide 4 */
+      .detail-card.compact {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 26px 18px;
+        border-radius: 16px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .detail-card.compact .icon {
+        font-size: 2.6em;
+        line-height: 1;
+      }
+
+      .detail-card.compact .title {
+        font-size: 1.05em;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.95);
+      }
+
+      .detail-card.compact .text {
+        font-size: 0.95em;
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.35;
+        margin-top: 6px;
+        max-width: 260px;
+      }
+
+      @media (max-width: 900px) {
         .details-grid.compact-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 30px auto 0 auto;
+          grid-template-columns: repeat(2, 1fr);
         }
+      }
 
-        .detail-card.compact {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.06);
-            padding: 26px 18px;
-            border-radius: 16px;
-            text-align: center;
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            gap:12px;
+      /* Image row for slides */
+      .image-row {
+        display: flex;
+        gap: 30px;
+        margin-top: 40px;
+        max-width: 1200px;
+        align-items: center;
+      }
+
+      .image-card {
+        flex: 1 1 0;
+        min-width: 0;
+        position: relative;
+        overflow: hidden;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 15px;
+        transition: all 0.4s ease;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .image-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        border-color: rgba(255, 255, 255, 0.4);
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      .image-card img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        object-position: top center;
+        border-radius: 12px;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+
+      .image-card:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Pilot (Slide 4) layout and styles */
+      .pilot-grid {
+        display: flex;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 30px auto 0 auto;
+        align-items: flex-start;
+      }
+
+      .pilot-left {
+        flex: 1 1 0;
+        min-width: 0;
+        padding-right: 20px;
+      }
+
+      .pilot-right {
+        width: 420px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .pilot-image img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 14px;
+        border: 2px solid rgba(255, 255, 255, 0.06);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+        display: block;
+      }
+
+      .pilot-heading {
+        font-size: 1.6em;
+        margin: 0 0 12px 0;
+        color: rgba(255, 255, 255, 0.98);
+      }
+
+      .pilot-list {
+        list-style: none;
+        padding: 0 0 0 18px;
+        margin: 0;
+      }
+
+      .pilot-list li {
+        margin-bottom: 10px;
+        font-size: 1.05em;
+        color: rgba(255, 255, 255, 0.92);
+        line-height: 1.5;
+        position: relative;
+      }
+
+      .pilot-list li:before {
+        content: "•";
+        color: #ffd166;
+        position: absolute;
+        left: -18px;
+        top: 0;
+        font-size: 1.1em;
+      }
+
+      .pilot-cta {
+        display: flex;
+        gap: 12px;
+        margin-top: 14px;
+      }
+      .stat-card {
+        background: rgba(255, 255, 255, 0.04);
+        padding: 12px 14px;
+        border-radius: 12px;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        min-width: 120px;
+      }
+      .stat-card .stat-num {
+        font-size: 1.2em;
+        font-weight: 700;
+        color: white;
+      }
+      .stat-card .stat-sub {
+        font-size: 0.9em;
+        color: rgba(255, 255, 255, 0.82);
+      }
+      .stat-card.accent {
+        background: linear-gradient(90deg, #00c2ff, #0066ff);
+        box-shadow: 0 10px 30px rgba(0, 102, 255, 0.12);
+        border: none;
+      }
+
+      .pilot-notes .note {
+        font-size: 0.95em;
+        color: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.03);
+        padding: 10px 12px;
+        border-radius: 10px;
+      }
+
+      /* KQ image area */
+      .kq-grid {
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 28px;
+        align-items: start;
+        max-width: 1200px;
+        margin-top: 10px;
+      }
+
+      .kq-image {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.03),
+          rgba(255, 255, 255, 0.02)
+        );
+        padding: 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      }
+
+      .kq-image img {
+        width: 100%;
+        height: 520px;
+        object-fit: contain;
+        border-radius: 10px;
+        border: 2px solid rgba(255, 255, 255, 0.04);
+        background: white;
+        transform: translateY(6px) scale(0.98);
+        opacity: 0;
+        animation: kqReveal 700ms ease-out forwards 120ms;
+      }
+
+      .kq-image:hover img {
+        transform: translateY(0) scale(1);
+        filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.5));
+      }
+
+      .kq-caption {
+        font-size: 0.95em;
+        color: rgba(255, 255, 255, 0.86);
+        text-align: center;
+      }
+
+      @keyframes kqReveal {
+        from {
+          opacity: 0;
+          transform: translateY(18px) scale(0.96);
         }
-
-        .detail-card.compact .icon {
-            font-size: 2.6em;
-            line-height: 1;
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(0.995);
         }
+      }
 
-        .detail-card.compact .title {
-            font-size: 1.05em;
-            font-weight: 700;
-            color: rgba(255,255,255,0.95);
-        }
+      /* De-emphasize stat cards in KQ area */
+      .kq-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        max-width: 320px;
+        margin-left: auto;
+      }
+      .detail-card.small {
+        padding: 12px;
+        border-left: none;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .detail-card.small .title {
+        font-size: 1.05em;
+        font-weight: 700;
+      }
+      .detail-card.small .text {
+        font-size: 0.95em;
+        color: rgba(255, 255, 255, 0.82);
+      }
+      .detail-card.small .icon {
+        font-size: 1.4em;
+      }
 
-        .detail-card.compact .text {
-            font-size: 0.95em;
-            color: rgba(255,255,255,0.85);
-            line-height: 1.35;
-            margin-top: 6px;
-            max-width: 260px;
-        }
-
-        @media (max-width: 900px) {
-            .details-grid.compact-cards { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        /* Image row for slides */
-        .image-row {
-            display: flex;
-            gap: 30px;
-            margin-top: 40px;
-            max-width: 1200px;
-            align-items: center;
-        }
-
-        .image-card {
-            flex: 1 1 0;
-            min-width: 0;
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 15px;
-            transition: all 0.4s ease;
-            border: 2px solid rgba(255,255,255,0.2);
-        }
-
-        .image-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            border-color: rgba(255,255,255,0.4);
-            background: rgba(255,255,255,0.15);
-        }
-
-        .image-card img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            object-position: top center;
-            border-radius: 12px;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-
-        .image-card:hover img {
-            transform: scale(1.05);
-        }
-        
-        /* Pilot (Slide 4) layout and styles */
-        .pilot-grid {
-            display: flex;
-            gap: 30px;
-            max-width: 1200px;
-            margin: 30px auto 0 auto;
-            align-items: flex-start;
-        }
-
-        .pilot-left {
-            flex: 1 1 0;
-            min-width: 0;
-            padding-right: 20px;
-        }
-
-        .pilot-right {
-            width: 420px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .pilot-image img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            object-position: center;
-            border-radius: 14px;
-            border: 2px solid rgba(255,255,255,0.06);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.45);
-            display: block;
-        }
-
-        .pilot-heading {
-            font-size: 1.6em;
-            margin: 0 0 12px 0;
-            color: rgba(255,255,255,0.98);
-        }
-
-        .pilot-list {
-            list-style: none;
-            padding: 0 0 0 18px;
-            margin: 0;
-        }
-
-        .pilot-list li {
-            margin-bottom: 10px;
-            font-size: 1.05em;
-            color: rgba(255,255,255,0.92);
-            line-height: 1.5;
-            position: relative;
-        }
-
-        .pilot-list li:before {
-            content: "•";
-            color: #ffd166;
-            position: absolute;
-            left: -18px;
-            top: 0;
-            font-size: 1.1em;
-        }
-
-        .pilot-cta { display:flex; gap:12px; margin-top:14px; }
-        .stat-card { background: rgba(255,255,255,0.04); padding:12px 14px; border-radius:12px; text-align:center; border:1px solid rgba(255,255,255,0.06); min-width:120px; }
-        .stat-card .stat-num { font-size:1.2em; font-weight:700; color:white; }
-        .stat-card .stat-sub { font-size:0.9em; color:rgba(255,255,255,0.82); }
-        .stat-card.accent { background: linear-gradient(90deg,#00c2ff,#0066ff); box-shadow:0 10px 30px rgba(0,102,255,0.12); border:none; }
-
-        .pilot-notes .note { font-size:0.95em; color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.03); padding:10px 12px; border-radius:10px; }
-
-        /* KQ image area */
+      @media (max-width: 1200px) {
         .kq-grid {
-            display: grid;
-            grid-template-columns: 1fr 360px;
-            gap: 28px;
-            align-items: start;
-            max-width: 1200px;
-            margin-top: 10px;
+          grid-template-columns: 1fr;
         }
-
-        .kq-image {
-            background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-            padding: 14px;
-            border-radius: 14px;
-            border: 1px solid rgba(255,255,255,0.06);
-            display:flex;
-            flex-direction:column;
-            gap:10px;
-            justify-content:center;
-            align-items:center;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.45);
-        }
-
         .kq-image img {
-            width: 100%;
-            height: 520px;
-            object-fit: contain;
-            border-radius: 10px;
-            border: 2px solid rgba(255,255,255,0.04);
-            background: white;
-            transform: translateY(6px) scale(0.98);
-            opacity: 0;
-            animation: kqReveal 700ms ease-out forwards 120ms;
+          height: 420px;
         }
+        .kq-stats {
+          max-width: 100%;
+          margin-left: 0;
+          display: flex;
+          gap: 10px;
+        }
+        .detail-card.small {
+          flex: 1 1 0;
+        }
+      }
 
-        .kq-image:hover img { transform: translateY(0) scale(1); filter: drop-shadow(0 18px 40px rgba(0,0,0,0.5)); }
+      @media (max-width: 900px) {
+        .pilot-grid {
+          flex-direction: column;
+        }
+        .pilot-right {
+          width: 100%;
+        }
+      }
 
-        .kq-caption { font-size: 0.95em; color: rgba(255,255,255,0.86); text-align:center; }
+      .benefit-card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        padding: 40px 30px;
+        border-radius: 20px;
+        text-align: center;
+        transition:
+          transform 0.3s ease,
+          background 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+      }
 
-        @keyframes kqReveal {
-            from { opacity: 0; transform: translateY(18px) scale(0.96); }
-            to { opacity: 1; transform: translateY(0) scale(0.995); }
-        }
+      .benefit-card:hover {
+        transform: translateY(-15px);
+        background: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
 
-        /* De-emphasize stat cards in KQ area */
-        .kq-stats { grid-template-columns: 1fr; gap: 12px; max-width: 320px; margin-left: auto; }
-        .detail-card.small { padding: 12px; border-left: none; border-radius: 12px; background: rgba(255,255,255,0.04); }
-        .detail-card.small .title { font-size: 1.05em; font-weight:700; }
-        .detail-card.small .text { font-size: 0.95em; color: rgba(255,255,255,0.82); }
-        .detail-card.small .icon { font-size: 1.4em; }
+      .benefit-card .icon {
+        font-size: 4em;
+        margin-bottom: 20px;
+      }
 
-        @media (max-width: 1200px) {
-            .kq-grid { grid-template-columns: 1fr; }
-            .kq-image img { height: 420px; }
-            .kq-stats { max-width: 100%; margin-left: 0; display: flex; gap: 10px; }
-            .detail-card.small { flex: 1 1 0; }
-        }
+      .benefit-card .title {
+        font-size: 1.8em;
+        color: white;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
 
-        @media (max-width: 900px) {
-            .pilot-grid { flex-direction: column; }
-            .pilot-right { width: 100%; }
-        }
-        
-        .benefit-card {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            padding: 40px 30px;
-            border-radius: 20px;
-            text-align: center;
-            transition: transform 0.3s ease, background 0.3s ease;
-            border: 2px solid rgba(255,255,255,0.2);
-        }
-        
-        .benefit-card:hover {
-            transform: translateY(-15px);
-            background: rgba(255,255,255,0.25);
-            border-color: rgba(255,255,255,0.4);
-        }
-        
-        .benefit-card .icon {
-            font-size: 4em;
-            margin-bottom: 20px;
-        }
-        
-        .benefit-card .title {
-            font-size: 1.8em;
-            color: white;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-        
-        .benefit-card .text {
-            font-size: 1.2em;
-            color: rgba(255,255,255,0.9);
-            line-height: 1.6;
-        }
-        
-        /* Navigation */
-        .nav-controls {
-            display: none;
-        }
-        
-        .nav-btn {
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255,255,255,0.3);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
-        
-        .nav-btn:hover {
-            background: rgba(255,255,255,0.3);
-            transform: scale(1.05);
-        }
-        
-        .nav-btn:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-        
-        .slide-counter {
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            padding: 12px 25px;
-            border-radius: 50px;
-            color: white;
-            font-size: 1.2em;
-            font-weight: bold;
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-        
-        /* Keyboard hint */
+      .benefit-card .text {
+        font-size: 1.2em;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.6;
+      }
+
+      /* Navigation */
+      .nav-controls {
+        display: none;
+      }
+
+      .nav-btn {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-size: 1.1em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: bold;
+      }
+
+      .nav-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.05);
+      }
+
+      .nav-btn:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+
+      .slide-counter {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        padding: 12px 25px;
+        border-radius: 50px;
+        color: white;
+        font-size: 1.2em;
+        font-weight: bold;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+      }
+
+      /* Keyboard hint */
+      .keyboard-hint {
+        display: none;
+      }
+
+      @media print {
+        .nav-controls,
         .keyboard-hint {
-            display: none;
+          display: none;
         }
-        
-        @media print {
-            .nav-controls, .keyboard-hint {
-                display: none;
-            }
-            .slide {
-                page-break-after: always;
-            }
+        .slide {
+          page-break-after: always;
         }
-        
-        @media (max-width: 1200px) {
-            .slide {
-                padding: 40px 50px;
-            }
-            .slide-title {
-                font-size: 2.5em;
-            }
-            .details-grid {
-                grid-template-columns: 1fr;
-            }
-            .benefits-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+      }
+
+      @media (max-width: 1200px) {
+        .slide {
+          padding: 40px 50px;
         }
+        .slide-title {
+          font-size: 2.5em;
+        }
+        .details-grid {
+          grid-template-columns: 1fr;
+        }
+        .benefits-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
-<div class="slideshow-container">
-
-    <!-- Slide 1 - Cover -->
-    <div class="slide slide-1 active">
+  <body>
+    <div class="slideshow-container">
+      <!-- Slide 1 - Cover -->
+      <div class="slide slide-1 active">
         <h1>📹 AI VISION</h1>
         <h2>Ứng dụng AI Vision trong hỗ trợ hoạt động ngân quỹ</h2>
         <!-- <p class="cover-caption">NTK dự án</p> -->
         <div class="journey-preview">
-            <div class="journey-step-mini"><div class="step-num">01</div><div class="step-name">Tổng quan</div></div>
-            <div class="journey-step-mini"><div class="step-num">02</div><div class="step-name">Tiến độ</div></div>
-            <div class="journey-step-mini"><div class="step-num">03</div><div class="step-name">Hành trình</div></div>
-            <div class="journey-step-mini"><div class="step-num">04</div><div class="step-name">Kết quả</div></div>
-            <div class="journey-step-mini"><div class="step-num">05</div><div class="step-name">Khó khăn</div></div>
+          <div class="journey-step-mini">
+            <div class="step-num">01</div>
+            <div class="step-name">Tổng quan</div>
+          </div>
+          <div class="journey-step-mini">
+            <div class="step-num">02</div>
+            <div class="step-name">Tiến độ</div>
+          </div>
+          <div class="journey-step-mini">
+            <div class="step-num">03</div>
+            <div class="step-name">Hành trình</div>
+          </div>
+          <div class="journey-step-mini">
+            <div class="step-num">04</div>
+            <div class="step-name">Kết quả</div>
+          </div>
+          <div class="journey-step-mini">
+            <div class="step-num">05</div>
+            <div class="step-name">Khó khăn</div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- Slide 2: Tổng quan dự án -->
-    
-    <div class="slide slide-2">
-        <div class="slide-header" style="margin-bottom: 20px;">
-            <div class="slide-number">01</div>
-            <h2 class="slide-title">📌 TỔNG QUAN DỰ ÁN</h2>
-            <p class="slide-subtitle">Mục tiêu triển khai AI Vision trong giám sát ngân quỹ</p>
+      <!-- Slide 2: Tổng quan dự án -->
+
+      <div class="slide slide-2">
+        <div class="slide-header" style="margin-bottom: 20px">
+          <div class="slide-number">01</div>
+          <h2 class="slide-title">📌 TỔNG QUAN DỰ ÁN</h2>
+          <p class="slide-subtitle">
+            Mục tiêu triển khai AI Vision trong giám sát ngân quỹ
+          </p>
         </div>
 
         <div class="slide-description">
-            <strong>Phương pháp kiểm soát hiện nay:</strong><br>
-            • Lưu trữ tại server, kiểm tra thủ công qua trích xuất video<br>
-            • Khoảng 7.000 camera trên toàn hệ thống (gồm ~3100 ATM & ~250 kho)<br>
-            • Nhiều rủi ro: không đúng quy trình, gian lận, ra vào ngoài giờ<br><br>
-            🎯 Mục tiêu: Ứng dụng AI Vision để tự động cảnh báo, theo dõi & giảm thiểu rủi ro thất thoát.
+          <strong>Phương pháp kiểm soát hiện nay:</strong><br />
+          • Lưu trữ tại server, kiểm tra thủ công qua trích xuất video<br />
+          • Khoảng 7.000 camera trên toàn hệ thống (gồm ~3100 ATM & ~250 kho)<br />
+          • Nhiều rủi ro: không đúng quy trình, gian lận, ra vào ngoài giờ<br /><br />
+          🎯 Mục tiêu: Ứng dụng AI Vision để tự động cảnh báo, theo dõi & giảm
+          thiểu rủi ro thất thoát.
         </div>
 
-        <div class="image-row" style="margin-top: 0px;">
-            <div class="image-card">
-                <img src="img/2.1.png" alt="Mạng lưới ATM" />
-            </div>
-            <div class="image-card">
-                <img src="img/2.2.png" alt="Sơ đồ kho" />
-            </div>
+        <div class="image-row" style="margin-top: 0px">
+          <div class="image-card">
+            <img src="img/2.1.png" alt="Mạng lưới ATM" />
+          </div>
+          <div class="image-card">
+            <img src="img/2.2.png" alt="Sơ đồ kho" />
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- Slide 3: Giai đoạn phát triển -->
-    <!-- Inserted: So sánh quy trình (from index3) - Slide A -->
-    <div class="slide slide-4">
-        <div class="slide-header" style="margin-bottom: 20px;">
-            <div class="slide-number"> </div>
-            <h2 class="slide-title">🔄 SO SÁNH QUY TRÌNH</h2>
-            <p class="slide-subtitle">Hiệu quả của AI Vision trong giám sát hoạt động</p>
+      <!-- Slide 3: Giai đoạn phát triển -->
+      <!-- Inserted: So sánh quy trình (from index3) - Slide A -->
+      <!-- Slide - Flowchart -->
+      <div
+        class="slide slide-1 active"
+        style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+      >
+        <h1>📹 AI VISION</h1>
+        <h2>Quy trình hiện tại hoạt động ngân quỹ</h2>
+
+        <div class="journey-preview">
+          <div class="journey-step-mini">
+            <div class="step-num">01</div>
+            <div class="step-icon">🏢</div>
+            <div class="step-name">CBVC & KSV</div>
+            <div class="step-desc">mang cassette</div>
+          </div>
+
+          <div class="journey-step-mini">
+            <div class="step-num">02</div>
+            <div class="step-icon">🔓</div>
+            <div class="step-name">KSV mở nắp máy</div>
+          </div>
+
+          <div class="journey-step-mini">
+            <div class="step-num">03</div>
+            <div class="step-icon">💰</div>
+            <div class="step-name">KSV mở khoá két tiền</div>
+          </div>
+
+          <div class="journey-step-mini">
+            <div class="step-num">04</div>
+            <div class="step-icon">🔄</div>
+            <div class="step-name">CBVC tiếp quỹ & khoá két</div>
+          </div>
+
+          <div class="journey-step-mini">
+            <div class="step-num">05</div>
+            <div class="step-icon">📦</div>
+            <div class="step-name">Mang cassette cũ về</div>
+          </div>
+
+          <div class="journey-step-mini">
+            <div class="step-num">06</div>
+            <div class="step-icon">✅</div>
+            <div class="step-name">Kết thúc</div>
+          </div>
+        </div>
+
+        <div class="journey-warning">
+          <div class="warning-title">⚠️ KHÔNG CÓ CẢNH BÁO TỰ ĐỘNG</div>
+          <div class="warning-desc">
+            Chỉ kiểm tra thủ công qua trích xuất video đột xuất hoặc sau khi xảy
+            ra sự cố
+          </div>
+        </div>
+      </div>
+
+      <!-- Inserted: So sánh quy trình (from index3) - Slide B -->
+      <div class="slide slide-5">
+        <div class="slide-header" style="margin-bottom: 20px">
+          <div class="slide-number"></div>
+          <h2 class="slide-title">✅ SO SÁNH QUY TRÌNH</h2>
+          <p class="slide-subtitle">
+            Tự động check-in, giám sát & cảnh báo realtime
+          </p>
         </div>
 
         <div class="flowchart-wrapper">
-            <div class="flowchart-container">
-                <div class="flowchart-section">
-                    <h3 class="flowchart-title warning-bg">❌ QUY TRÌNH HIỆN TẠI</h3>
-                    <svg class="flowchart-svg" viewBox="0 0 1150 420" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="100" cy="180" r="65" fill="#2c3e50" stroke="#e74c3c" stroke-width="4"/>
-                        <text x="100" y="170" text-anchor="middle" fill="#fff" font-size="36">🏢</text>
-                        <text x="100" y="195" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">CBVC & KSV</text>
-                        <text x="100" y="210" text-anchor="middle" fill="#ecf0f1" font-size="12">mang cassette</text>
-                        <path d="M 165 180 L 220 180" stroke="#e74c3c" stroke-width="4" fill="none" marker-end="url(#arrowhead-red)"/>
-                        <rect x="220" y="135" width="140" height="90" rx="12" fill="#34495e" stroke="#e74c3c" stroke-width="3"/>
-                        <text x="290" y="170" text-anchor="middle" fill="#fff" font-size="32">🔓</text>
-                        <text x="290" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">KSV mở</text>
-                        <text x="290" y="218" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">nắp máy</text>
-                        <path d="M 360 180 L 410 180" stroke="#e74c3c" stroke-width="4" fill="none" marker-end="url(#arrowhead-red)"/>
-                        <rect x="410" y="135" width="140" height="90" rx="12" fill="#34495e" stroke="#e74c3c" stroke-width="3"/>
-                        <text x="480" y="170" text-anchor="middle" fill="#fff" font-size="32">💰</text>
-                        <text x="480" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">KSV mở khoá</text>
-                        <text x="480" y="218" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">két tiền</text>
-                        <path d="M 550 180 L 600 180" stroke="#e74c3c" stroke-width="4" fill="none" marker-end="url(#arrowhead-red)"/>
-                        <rect x="600" y="135" width="140" height="90" rx="12" fill="#34495e" stroke="#e74c3c" stroke-width="3"/>
-                        <text x="670" y="170" text-anchor="middle" fill="#fff" font-size="32">🔄</text>
-                        <text x="670" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">CBVC tiếp quỹ</text>
-                        <text x="670" y="218" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">& khoá két</text>
-                        <path d="M 740 180 L 790 180" stroke="#e74c3c" stroke-width="4" fill="none" marker-end="url(#arrowhead-red)"/>
-                        <rect x="790" y="135" width="140" height="90" rx="12" fill="#34495e" stroke="#e74c3c" stroke-width="3"/>
-                        <text x="860" y="170" text-anchor="middle" fill="#fff" font-size="32">📦</text>
-                        <text x="860" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Mang cassette</text>
-                        <text x="860" y="218" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">cũ về</text>
-                        <path d="M 930 180 L 980 180" stroke="#e74c3c" stroke-width="4" fill="none" marker-end="url(#arrowhead-red)"/>
-                        <circle cx="1045" cy="180" r="65" fill="#2c3e50" stroke="#e74c3c" stroke-width="4"/>
-                        <text x="1045" y="175" text-anchor="middle" fill="#fff" font-size="36">✅</text>
-                        <text x="1045" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Kết thúc</text>
-                        <defs>
-                            <marker id="arrowhead-red" markerWidth="12" markerHeight="12" refX="10" refY="3" orient="auto">
-                                <polygon points="0 0, 10 3, 0 6" fill="#e74c3c"/>
-                            </marker>
-                        </defs>
-                        <rect x="30" y="300" width="1090" height="80" rx="12" fill="#c0392b" stroke="#e74c3c" stroke-width="3"/>
-                        <text x="575" y="335" text-anchor="middle" fill="#fff" font-size="20" font-weight="bold">⚠️ KHÔNG CÓ CẢNH BÁO TỰ ĐỘNG</text>
-                        <text x="575" y="365" text-anchor="middle" fill="#ecf0f1" font-size="16">Chỉ kiểm tra thủ công qua trích xuất video đột xuất hoặc sau khi xảy ra sự cố</text>
-                    </svg>
-                </div>
+          <div class="flowchart-container">
+            <div class="flowchart-section ai-section">
+              <h3 class="flowchart-title success-bg">
+                ✅ QUY TRÌNH CÓ AI VISION
+              </h3>
+              <svg
+                class="flowchart-svg"
+                viewBox="0 0 1150 520"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="100"
+                  cy="180"
+                  r="65"
+                  fill="#1e5631"
+                  stroke="#2ecc71"
+                  stroke-width="4"
+                />
+                <text
+                  x="100"
+                  y="170"
+                  text-anchor="middle"
+                  fill="#fff"
+                  font-size="36"
+                >
+                  🏢
+                </text>
+                <text
+                  x="100"
+                  y="195"
+                  text-anchor="middle"
+                  fill="#fff"
+                  font-size="14"
+                  font-weight="bold"
+                >
+                  CBVC & KSV
+                </text>
+                <text
+                  x="100"
+                  y="210"
+                  text-anchor="middle"
+                  fill="#ecf0f1"
+                  font-size="12"
+                >
+                  mang cassette
+                </text>
+                <path
+                  d="M 165 180 L 205 180"
+                  stroke="#2ecc71"
+                  stroke-width="4"
+                  fill="none"
+                  marker-end="url(#arrowhead-green)"
+                />
+                <rect
+                  x="205"
+                  y="135"
+                  width="150"
+                  height="90"
+                  rx="12"
+                  fill="#27ae60"
+                  stroke="#2ecc71"
+                  stroke-width="4"
+                />
+                <rect
+                  x="215"
+                  y="120"
+                  width="90"
+                  height="26"
+                  rx="13"
+                  fill="#f39c12"
+                />
+                <text
+                  x="260"
+                  y="138"
+                  text-anchor="middle"
+                  fill="#000"
+                  font-size="13"
+                  font-weight="bold"
+                >
+                  AI DETECT
+                </text>
+                <text
+                  x="280"
+                  y="170"
+                  text-anchor="middle"
+                  fill="#fff"
+                  font-size="32"
+                >
+                  🤖
+                </text>
+                <text
+                  x="280"
+                  y="200"
+                  text-anchor="middle"
+                  fill="#fff"
+                  font-size="14"
+                  font-weight="bold"
+                >
+                  Check-in
+                </text>
+                <text
+                  x="280"
+                  y="218"
+                  text-anchor="middle"
+                  fill="#fff"
+                  font-size="14"
+                  font-weight="bold"
+                >
+                  khuôn mặt
+                </text>
+                <path
+                  d="M 355 180 L 395 180"
+                  stroke="#2ecc71"
+                  stroke-width="4"
+                  fill="none"
+                  marker-end="url(#arrowhead-green)"
+                />
+                <rect
+                  x="395"
+                  y="135"
+                  width="130"
+                  height="90"
+                  rx="12"
+                  fill="#1e5631"
+                  stroke="#2ecc71"
+                  stroke-width="3"
+                />
+                <text
+                  x="460"
+                  y="170"
+                  text-anchor="middle"
+                  fill="#fff"
+                  font-size="32"
+                >
+                  🔓
+                </text>
+                <text
+                  x="460"
+                  y="200"
+                  text-anchor="middle"
+                  fill="#fff"
+                  font-size="14"
+                  font-weight="bold"
+                >
+                  KSV mở
+                </text>
+                <text
+                  x="460"
+                  y="218"
+                  text-anchor="middle"
+                  fill="#fff"
+                  font-size="14"
+                  font-weight="bold"
+                >
+                  nắp máy
+                </text>
+                <path
+                  d="M 525 180 L 565 180"
+                  stroke="#2ecc71"
+                  stroke-width="4"
+                  fill="none"
+                  marker-end="url(#arrowhead-green)"
+                />
+                <rect
+                  x="565"
+                  y="135"
+                  width="150"
+                  height="90"
+                  rx="12"
+                  fill="#27ae60"
+                  stroke="#2ecc71"
+                  stroke-width="4"
+                />
+                <rect
+                  x="575"
+                  y="120"
+                  width="95"
+                  height="26"
+                  rx="13"
+                  fill="#f39c12"
+                />
+                <text
+                  x="622.5"
+                  y="138"
+                  text-anchor="middle"
+                  fill="#000"
+                  font-size="13"
+                  font-weight="bold"
+                >
+                  AI MONITOR
+                </text>
+                <text
+                  x="640"
+                  y="170"
+                  text-anchor="middle"
+                  fill="#fff"
+                  font-size="32"
+                >
+                  💰
+                </text>
+                <text
+                  x="640"
+                  y="200"
+                  text-anchor="middle"
+                  fill="#fff"
+                  font-size="14"
+                  font-weight="bold"
+                >
+                  KSV mở khoá
+                </text>
+                <text
+                  x="640"
+                  y="218"
+                  text-anchor="middle"
+                  fill="#fff"
+                  font-size="14"
+                  font-weight="bold"
+                >
+                  & tiếp quỹ
+                </text>
+                <path
+                  d="M 715 180 L 755 180"
+                  stroke="#2ecc71"
+                  stroke-width="4"
+                  fill="none"
+                  marker-end="url(#arrowhead-green)"
+                />
+                <rect
+                  x="755"
+                  y="135"
+                  width="150"
+                  height="90"
+                  rx="12"
+                  fill="#27ae60"
+                  stroke="#2ecc71"
+                  stroke-width="4"
+                />
+                <rect
+                  x="765"
+                  y="120"
+                  width="85"
+                  height="26"
+                  rx="13"
+                  fill="#f39c12"
+                />
+                <text
+                  x="807.5"
+                  y="138"
+                  text-anchor="middle"
+                  fill="#000"
+                  font-size="13"
+                  font-weight="bold"
+                >
+                  AI VERIFY
+                </text>
+                <text
+                  x="830"
+                  y="170"
+                  text-anchor="middle"
+                  fill="#fff"
+                  font-size="32"
+                >
+                  📊
+                </text>
+                <text
+                  x="830"
+                  y="200"
+                  text-anchor="middle"
+                  fill="#fff"
+                  font-size="14"
+                  font-weight="bold"
+                >
+                  Giám sát
+                </text>
+                <text
+                  x="830"
+                  y="218"
+                  text-anchor="middle"
+                  fill="#fff"
+                  font-size="14"
+                  font-weight="bold"
+                >
+                  cassette
+                </text>
+                <path
+                  d="M 905 180 L 945 180"
+                  stroke="#2ecc71"
+                  stroke-width="4"
+                  fill="none"
+                  marker-end="url(#arrowhead-green)"
+                />
+                <rect
+                  x="945"
+                  y="135"
+                  width="130"
+                  height="90"
+                  rx="12"
+                  fill="#1e5631"
+                  stroke="#2ecc71"
+                  stroke-width="3"
+                />
+                <text
+                  x="1010"
+                  y="170"
+                  text-anchor="middle"
+                  fill="#fff"
+                  font-size="32"
+                >
+                  🔒
+                </text>
+                <text
+                  x="1010"
+                  y="200"
+                  text-anchor="middle"
+                  fill="#fff"
+                  font-size="14"
+                  font-weight="bold"
+                >
+                  Khoá & mang
+                </text>
+                <text
+                  x="1010"
+                  y="218"
+                  text-anchor="middle"
+                  fill="#fff"
+                  font-size="14"
+                  font-weight="bold"
+                >
+                  cassette về
+                </text>
+                <defs>
+                  <marker
+                    id="arrowhead-green"
+                    markerWidth="12"
+                    markerHeight="12"
+                    refX="10"
+                    refY="3"
+                    orient="auto"
+                  >
+                    <polygon points="0 0, 10 3, 0 6" fill="#2ecc71" />
+                  </marker>
+                </defs>
+                <defs>
+                  <lineargradient id="bannerGrad" x1="0" x2="1">
+                    <stop offset="0" stop-color="#e74c3c" />
+                    <stop offset="1" stop-color="#c0392b" />
+                  </lineargradient>
+                  <filter
+                    id="bannerShadow"
+                    x="-20%"
+                    y="-20%"
+                    width="140%"
+                    height="140%"
+                  >
+                    <fedropshadow
+                      dx="0"
+                      dy="8"
+                      stdDeviation="10"
+                      flood-color="#000"
+                      flood-opacity="0.45"
+                    />
+                  </filter>
+                </defs>
+                <rect
+                  x="30"
+                  y="300"
+                  width="1090"
+                  height="180"
+                  rx="14"
+                  fill="url(#bannerGrad)"
+                  stroke="#ff6b6b"
+                  stroke-width="2"
+                  filter="url(#bannerShadow)"
+                />
+
+                <!-- Banner title -->
+                <text
+                  x="575"
+                  y="335"
+                  text-anchor="middle"
+                  fill="#fff"
+                  font-size="22"
+                  font-weight="800"
+                  font-family="Segoe UI, Arial"
+                >
+                  🚨 CẢNH BÁO TỰ ĐỘNG REALTIME
+                </text>
+                <text
+                  x="575"
+                  y="355"
+                  text-anchor="middle"
+                  fill="#ffecec"
+                  font-size="13"
+                  font-weight="600"
+                  font-family="Segoe UI, Arial"
+                >
+                  Hệ thống tự động gửi cảnh báo khi xảy ra các tình huống sau
+                </text>
+
+                <!-- Left column bullets -->
+                <text
+                  x="200"
+                  y="385"
+                  text-anchor="start"
+                  fill="#fff"
+                  font-size="15"
+                  font-weight="600"
+                  font-family="Segoe UI, Arial"
+                >
+                  <tspan x="200" dy="0">
+                    • Số lượng thành phần không đủ trong quá trình tiếp quỹ
+                  </tspan>
+                  <tspan x="200" dy="24">
+                    • Check-in không thành công hoặc thiếu thành phần tham gia
+                  </tspan>
+                </text>
+
+                <!-- Right column bullets -->
+                <text
+                  x="760"
+                  y="385"
+                  text-anchor="start"
+                  fill="#fff"
+                  font-size="15"
+                  font-weight="600"
+                  font-family="Segoe UI, Arial"
+                >
+                  <tspan x="760" dy="0">• Không thực hiện check-in</tspan>
+                  <tspan x="760" dy="24">
+                    • Thời gian hoạt động bất thường
+                  </tspan>
+                </text>
+              </svg>
             </div>
+          </div>
         </div>
-    </div>
-
-    <!-- Inserted: So sánh quy trình (from index3) - Slide B -->
-    <div class="slide slide-5">
-        <div class="slide-header" style="margin-bottom: 20px;">
-            <div class="slide-number"> </div>
-            <h2 class="slide-title">✅ SO SÁNH QUY TRÌNH</h2>
-            <p class="slide-subtitle">Tự động check-in, giám sát & cảnh báo realtime</p>
-        </div>
-
-        <div class="flowchart-wrapper">
-            <div class="flowchart-container">
-                <div class="flowchart-section ai-section">
-                    <h3 class="flowchart-title success-bg">✅ QUY TRÌNH CÓ AI VISION</h3>
-                    <svg class="flowchart-svg" viewBox="0 0 1150 520" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="100" cy="180" r="65" fill="#1e5631" stroke="#2ecc71" stroke-width="4"/>
-                        <text x="100" y="170" text-anchor="middle" fill="#fff" font-size="36">🏢</text>
-                        <text x="100" y="195" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">CBVC & KSV</text>
-                        <text x="100" y="210" text-anchor="middle" fill="#ecf0f1" font-size="12">mang cassette</text>
-                        <path d="M 165 180 L 205 180" stroke="#2ecc71" stroke-width="4" fill="none" marker-end="url(#arrowhead-green)"/>
-                        <rect x="205" y="135" width="150" height="90" rx="12" fill="#27ae60" stroke="#2ecc71" stroke-width="4"/>
-                        <rect x="215" y="120" width="90" height="26" rx="13" fill="#f39c12"/>
-                        <text x="260" y="138" text-anchor="middle" fill="#000" font-size="13" font-weight="bold">AI DETECT</text>
-                        <text x="280" y="170" text-anchor="middle" fill="#fff" font-size="32">🤖</text>
-                        <text x="280" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Check-in</text>
-                        <text x="280" y="218" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">khuôn mặt</text>
-                        <path d="M 355 180 L 395 180" stroke="#2ecc71" stroke-width="4" fill="none" marker-end="url(#arrowhead-green)"/>
-                        <rect x="395" y="135" width="130" height="90" rx="12" fill="#1e5631" stroke="#2ecc71" stroke-width="3"/>
-                        <text x="460" y="170" text-anchor="middle" fill="#fff" font-size="32">🔓</text>
-                        <text x="460" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">KSV mở</text>
-                        <text x="460" y="218" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">nắp máy</text>
-                        <path d="M 525 180 L 565 180" stroke="#2ecc71" stroke-width="4" fill="none" marker-end="url(#arrowhead-green)"/>
-                        <rect x="565" y="135" width="150" height="90" rx="12" fill="#27ae60" stroke="#2ecc71" stroke-width="4"/>
-                        <rect x="575" y="120" width="95" height="26" rx="13" fill="#f39c12"/>
-                        <text x="622.5" y="138" text-anchor="middle" fill="#000" font-size="13" font-weight="bold">AI MONITOR</text>
-                        <text x="640" y="170" text-anchor="middle" fill="#fff" font-size="32">💰</text>
-                        <text x="640" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">KSV mở khoá</text>
-                        <text x="640" y="218" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">& tiếp quỹ</text>
-                        <path d="M 715 180 L 755 180" stroke="#2ecc71" stroke-width="4" fill="none" marker-end="url(#arrowhead-green)"/>
-                        <rect x="755" y="135" width="150" height="90" rx="12" fill="#27ae60" stroke="#2ecc71" stroke-width="4"/>
-                        <rect x="765" y="120" width="85" height="26" rx="13" fill="#f39c12"/>
-                        <text x="807.5" y="138" text-anchor="middle" fill="#000" font-size="13" font-weight="bold">AI VERIFY</text>
-                        <text x="830" y="170" text-anchor="middle" fill="#fff" font-size="32">📊</text>
-                        <text x="830" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Giám sát</text>
-                        <text x="830" y="218" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">cassette</text>
-                        <path d="M 905 180 L 945 180" stroke="#2ecc71" stroke-width="4" fill="none" marker-end="url(#arrowhead-green)"/>
-                        <rect x="945" y="135" width="130" height="90" rx="12" fill="#1e5631" stroke="#2ecc71" stroke-width="3"/>
-                        <text x="1010" y="170" text-anchor="middle" fill="#fff" font-size="32">🔒</text>
-                        <text x="1010" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Khoá & mang</text>
-                        <text x="1010" y="218" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">cassette về</text>
-                        <defs>
-                            <marker id="arrowhead-green" markerWidth="12" markerHeight="12" refX="10" refY="3" orient="auto">
-                                <polygon points="0 0, 10 3, 0 6" fill="#2ecc71"/>
-                            </marker>
-                        </defs>
-                        <defs>
-                            <linearGradient id="bannerGrad" x1="0" x2="1">
-                                <stop offset="0" stop-color="#e74c3c"/>
-                                <stop offset="1" stop-color="#c0392b"/>
-                            </linearGradient>
-                            <filter id="bannerShadow" x="-20%" y="-20%" width="140%" height="140%">
-                                <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity="0.45"/>
-                            </filter>
-                        </defs>
-                        <rect x="30" y="300" width="1090" height="180" rx="14" fill="url(#bannerGrad)" stroke="#ff6b6b" stroke-width="2" filter="url(#bannerShadow)"/>
-
-                        <!-- Banner title -->
-                        <text x="575" y="335" text-anchor="middle" fill="#fff" font-size="22" font-weight="800" font-family="Segoe UI, Arial">🚨 CẢNH BÁO TỰ ĐỘNG REALTIME</text>
-                        <text x="575" y="355" text-anchor="middle" fill="#ffecec" font-size="13" font-weight="600" font-family="Segoe UI, Arial">Hệ thống tự động gửi cảnh báo khi xảy ra các tình huống sau</text>
-
-                        <!-- Left column bullets -->
-                        <text x="200" y="385" text-anchor="start" fill="#fff" font-size="15" font-weight="600" font-family="Segoe UI, Arial">
-                            <tspan x="200" dy="0">• Số lượng thành phần không đủ trong quá trình tiếp quỹ</tspan>
-                            <tspan x="200" dy="24">• Check-in không thành công hoặc thiếu thành phần tham gia</tspan>
-                        </text>
-
-                        <!-- Right column bullets -->
-                        <text x="760" y="385" text-anchor="start" fill="#fff" font-size="15" font-weight="600" font-family="Segoe UI, Arial">
-                            <tspan x="760" dy="0">• Không thực hiện check-in</tspan>
-                            <tspan x="760" dy="24">• Thời gian hoạt động bất thường</tspan>
-                        </text>
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="slide slide-3">
+      </div>
+      <div class="slide slide-3">
         <div class="slide-header">
-            <div class="slide-number">02</div>
-            <h2 class="slide-title">🛠️ GIAI ĐOẠN PHÁT TRIỂN</h2>
-            <p class="slide-subtitle">Hoàn thành các mô hình AI nhận diện hành vi</p>
+          <div class="slide-number">02</div>
+          <h2 class="slide-title">🛠️ GIAI ĐOẠN PHÁT TRIỂN</h2>
+          <p class="slide-subtitle">
+            Hoàn thành các mô hình AI nhận diện hành vi
+          </p>
         </div>
 
         <div class="details-grid">
-            <div class="detail-card"><div class="icon">🤖</div><div class="title">Xây dựng 04 mô hình AI</div><div class="text">Định danh, đếm người, ATM mở bụng, nhận diện cassette</div></div>
-            <div class="detail-card"><div class="icon">🎯</div><div class="title">Xây dựng kịch bản giám sát</div><div class="text">Theo dõi quy trình tiếp quỹ ATM và cảnh báo tự động</div></div>
-            <div class="detail-card"><div class="icon">💡</div><div class="title">Thử nghiệm thực tế</div><div class="text">Kiểm thử tại VCBC & SGD với quy trình thật</div></div>
-            <div class="detail-card"><div class="icon">⚙️</div><div class="title">Nâng cấp mô hình</div><div class="text">Cải thiện độ chính xác mô hình nhận diện cassette</div></div>
+          <div class="detail-card">
+            <div class="icon">🤖</div>
+            <div class="title">Xây dựng 04 mô hình AI</div>
+            <div class="text">
+              Định danh, đếm người, ATM mở bụng, nhận diện cassette
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">🎯</div>
+            <div class="title">Xây dựng kịch bản giám sát</div>
+            <div class="text">
+              Theo dõi quy trình tiếp quỹ ATM và cảnh báo tự động
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">💡</div>
+            <div class="title">Thử nghiệm thực tế</div>
+            <div class="text">Kiểm thử tại VCBC & SGD với quy trình thật</div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">⚙️</div>
+            <div class="title">Nâng cấp mô hình</div>
+            <div class="text">
+              Cải thiện độ chính xác mô hình nhận diện cassette
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- Slide 4: Giai đoạn thí điểm -->
-    <div class="slide slide-4">
+      <!-- Slide 4: Giai đoạn thí điểm -->
+      <div class="slide slide-4">
         <div class="slide-header">
-            <div class="slide-number">03</div>
-            <h2 class="slide-title">🚀 THÍ ĐIỂM TẠI SGD</h2>
-            <p class="slide-subtitle">Xây dựng hệ thống theo dõi & cảnh báo realtime</p>
+          <div class="slide-number">03</div>
+          <h2 class="slide-title">🚀 THÍ ĐIỂM TẠI SGD</h2>
+          <p class="slide-subtitle">
+            Xây dựng hệ thống theo dõi & cảnh báo realtime
+          </p>
         </div>
 
         <div class="details-grid compact-cards">
-            <div class="detail-card compact"><div class="icon">🏗️</div><div class="title">Kiến trúc & Hạ tầng</div><div class="text">Thống nhất kiến trúc thí điểm tại SGD và định hướng kiến trúc toàn hệ thống.</div></div>
-            <div class="detail-card compact"><div class="icon">🖥️</div><div class="title">GPU</div><div class="text">Nhận máy GPU, cài đặt môi trường, chuẩn bị cho inference realtime.</div></div>
-            <div class="detail-card compact"><div class="icon">🔒</div><div class="title">ANTT</div><div class="text">Đánh giá an ninh thông tin, kiểm thử bảo mật trước khi chạy hệ thống.</div></div>
-            <div class="detail-card compact"><div class="icon">☁️</div><div class="title">Hạ tầng ảo & Kết nối</div><div class="text">Cấp phát hạ tầng ảo và kết nối tập trung tại TSC để vận hành hệ thống.</div></div>
-            <div class="detail-card compact"><div class="icon">🚀</div><div class="title">Triển khai & Ứng dụng</div><div class="text">Pilot realtime đã vận hành: lưu trữ tự động, gửi cảnh báo và phát triển ứng dụng quản lý.</div></div>
-        </div>
-    </div>
-
-    <!-- Slide 5: Customer Journey -->
-    <!-- Slide X: Kết quả dự kiến thí điểm -->
-    <div class="slide slide-8">
-        <div class="slide-header">
-            <div class="slide-number">04</div>
-            <h2 class="slide-title">🏁 KẾT QUẢ DỰ KIẾN GIAI ĐOẠN THÍ ĐIỂM</h2>
-            <p class="slide-subtitle">Mục tiêu & kết quả mong đợi sau 03 tháng</p>
-        </div>
-
-        <div class="details-grid">
-            <div class="detail-card"><div class="icon">⏱️</div><div class="title">Triển khai trong 3 tháng</div><div class="text">Hoàn thiện hệ thống giám sát và triển khai tại SGD trong khung thời gian 03 tháng.</div></div>
-            <div class="detail-card"><div class="icon">🧰</div><div class="title">Hạ tầng & Kết nối</div><div class="text">Hoàn tất cấp phát hạ tầng, kết nối mạng và các thành phần cần thiết cho hoạt động realtime.</div></div>
-            <div class="detail-card"><div class="icon">📦</div><div class="title">Tính năng chính</div><div class="text">Xây dựng và bàn giao: Lưu trữ tự động, Cảnh báo tự động, và mô-đun Quản lý tập trung.</div></div>
-            <div class="detail-card"><div class="icon">🔍</div><div class="title">Đánh giá & Đề xuất</div><div class="text">Đánh giá tổng thể hạ tầng & kết nối ở giai đoạn thí điểm và đề xuất phương án cho triển khai mở rộng.</div></div>
-        </div>
-    </div>
-        <!-- Inserted: User Journey (overview) placed after results slide -->
-        <div class="slide slide-journey">
-            <div class="slide-header">
-                <div class="slide-number"> </div>
-                <h2 class="slide-title">🛣️ HÀNH TRÌNH NGƯỜI DÙNG (User Journey)</h2>
-                <p class="slide-subtitle">Tổng quan các bước chính trước khi vào chi tiết</p>
+          <div class="detail-card compact">
+            <div class="icon">🏗️</div>
+            <div class="title">Kiến trúc & Hạ tầng</div>
+            <div class="text">
+              Thống nhất kiến trúc thí điểm tại SGD và định hướng kiến trúc toàn
+              hệ thống.
             </div>
-
-            <div class="journey-steps">
-                <div class="journey-step">
-                    <div class="icon">1️⃣</div>
-                    <div class="step-title">Chuẩn bị</div>
-                    <div class="step-sub">Check-in & xác thực</div>
-                </div>
-                <div class="journey-step">
-                    <div class="icon">2️⃣</div>
-                    <div class="step-title">Giám sát</div>
-                    <div class="step-sub">Theo dõi realtime</div>
-                </div>
-                <div class="journey-step">
-                    <div class="icon">3️⃣</div>
-                    <div class="step-title">Phân loại</div>
-                    <div class="step-sub">Xác nhận & gán nhãn</div>
-                </div>
-                <div class="journey-step">
-                    <div class="icon">4️⃣</div>
-                    <div class="step-title">Phê duyệt</div>
-                    <div class="step-sub">Đối soát & phê duyệt</div>
-                </div>
-                <div class="journey-step">
-                    <div class="icon">5️⃣</div>
-                    <div class="step-title">Báo cáo</div>
-                    <div class="step-sub">Tổng hợp & phân tích</div>
-                </div>
+          </div>
+          <div class="detail-card compact">
+            <div class="icon">🖥️</div>
+            <div class="title">GPU</div>
+            <div class="text">
+              Nhận máy GPU, cài đặt môi trường, chuẩn bị cho inference realtime.
             </div>
+          </div>
+          <div class="detail-card compact">
+            <div class="icon">🔒</div>
+            <div class="title">ANTT</div>
+            <div class="text">
+              Đánh giá an ninh thông tin, kiểm thử bảo mật trước khi chạy hệ
+              thống.
+            </div>
+          </div>
+          <div class="detail-card compact">
+            <div class="icon">☁️</div>
+            <div class="title">Hạ tầng ảo & Kết nối</div>
+            <div class="text">
+              Cấp phát hạ tầng ảo và kết nối tập trung tại TSC để vận hành hệ
+              thống.
+            </div>
+          </div>
+          <div class="detail-card compact">
+            <div class="icon">🚀</div>
+            <div class="title">Triển khai & Ứng dụng</div>
+            <div class="text">
+              Pilot realtime đã vận hành: lưu trữ tự động, gửi cảnh báo và phát
+              triển ứng dụng quản lý.
+            </div>
+          </div>
         </div>
-    <!-- Replaced Customer Journey with detailed step slides from index2 -->
-    <!-- Step 1: Chuẩn bị & Check-in -->
-    <div class="slide slide-2">
+      </div>
+
+      <!-- Slide 5: Customer Journey -->
+      <!-- Slide X: Kết quả dự kiến thí điểm -->
+      <div class="slide slide-8">
         <div class="slide-header">
-            <div class="slide-number">01</div>
-            <h2 class="slide-title">🔐 CHUẨN BỊ & CHECK-IN</h2>
-            <p class="slide-subtitle">Thực hiện: KSV & CBVC</p>
+          <div class="slide-number">04</div>
+          <h2 class="slide-title">🏁 KẾT QUẢ DỰ KIẾN GIAI ĐOẠN THÍ ĐIỂM</h2>
+          <p class="slide-subtitle">Mục tiêu & kết quả mong đợi sau 03 tháng</p>
+        </div>
+
+        <div class="details-grid">
+          <div class="detail-card">
+            <div class="icon">⏱️</div>
+            <div class="title">Triển khai trong 3 tháng</div>
+            <div class="text">
+              Hoàn thiện hệ thống giám sát và triển khai tại SGD trong khung
+              thời gian 03 tháng.
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">🧰</div>
+            <div class="title">Hạ tầng & Kết nối</div>
+            <div class="text">
+              Hoàn tất cấp phát hạ tầng, kết nối mạng và các thành phần cần
+              thiết cho hoạt động realtime.
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">📦</div>
+            <div class="title">Tính năng chính</div>
+            <div class="text">
+              Xây dựng và bàn giao: Lưu trữ tự động, Cảnh báo tự động, và mô-đun
+              Quản lý tập trung.
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">🔍</div>
+            <div class="title">Đánh giá & Đề xuất</div>
+            <div class="text">
+              Đánh giá tổng thể hạ tầng & kết nối ở giai đoạn thí điểm và đề
+              xuất phương án cho triển khai mở rộng.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Inserted: User Journey (overview) placed after results slide -->
+      <div class="slide slide-journey">
+        <div class="slide-header">
+          <div class="slide-number"></div>
+          <h2 class="slide-title">🛣️ HÀNH TRÌNH NGƯỜI DÙNG (User Journey)</h2>
+          <p class="slide-subtitle">
+            Tổng quan các bước chính trước khi vào chi tiết
+          </p>
+        </div>
+
+        <div class="journey-steps">
+          <div class="journey-step">
+            <div class="icon">1️⃣</div>
+            <div class="step-title">Chuẩn bị</div>
+            <div class="step-sub">Check-in & xác thực</div>
+          </div>
+          <div class="journey-step">
+            <div class="icon">2️⃣</div>
+            <div class="step-title">Giám sát</div>
+            <div class="step-sub">Theo dõi realtime</div>
+          </div>
+          <div class="journey-step">
+            <div class="icon">3️⃣</div>
+            <div class="step-title">Phân loại</div>
+            <div class="step-sub">Xác nhận & gán nhãn</div>
+          </div>
+          <div class="journey-step">
+            <div class="icon">4️⃣</div>
+            <div class="step-title">Phê duyệt</div>
+            <div class="step-sub">Đối soát & phê duyệt</div>
+          </div>
+          <div class="journey-step">
+            <div class="icon">5️⃣</div>
+            <div class="step-title">Báo cáo</div>
+            <div class="step-sub">Tổng hợp & phân tích</div>
+          </div>
+        </div>
+      </div>
+      <!-- Replaced Customer Journey with detailed step slides from index2 -->
+      <!-- Step 1: Chuẩn bị & Check-in -->
+      <div class="slide slide-2">
+        <div class="slide-header">
+          <div class="slide-number">01</div>
+          <h2 class="slide-title">🔐 CHUẨN BỊ & CHECK-IN</h2>
+          <p class="slide-subtitle">Thực hiện: KSV & CBVC</p>
         </div>
         <div class="slide-description">
-            Cán bộ di chuyển đến ATM/quầy tiếp quỹ và thực hiện check-in. Hệ thống AI tự động nhận diện khuôn mặt và xác minh thông tin.
+          Cán bộ di chuyển đến ATM/quầy tiếp quỹ và thực hiện check-in. Hệ thống
+          AI tự động nhận diện khuôn mặt và xác minh thông tin.
         </div>
         <div class="details-grid">
-            <div class="detail-card"><div class="icon">✅</div><div class="title">Nhận diện tự động</div><div class="text">AI xác định KSV & CBVC khi bắt đầu ca trực</div></div>
-            <div class="detail-card"><div class="icon">📅</div><div class="title">Kiểm tra lịch</div><div class="text">So sánh với lịch đăng ký trước đó</div></div>
-            <div class="detail-card"><div class="icon">👥</div><div class="title">Xác thực danh sách</div><div class="text">Đảm bảo thành phần và số lượng theo quy định</div></div>
-            <div class="detail-card"><div class="icon">🚨</div><div class="title">Cảnh báo</div><div class="text">Thông báo ngay nếu phát hiện sai quy trình hoặc thiếu người</div></div>
+          <div class="detail-card">
+            <div class="icon">✅</div>
+            <div class="title">Nhận diện tự động</div>
+            <div class="text">AI xác định KSV & CBVC khi bắt đầu ca trực</div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">📅</div>
+            <div class="title">Kiểm tra lịch</div>
+            <div class="text">So sánh với lịch đăng ký trước đó</div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">👥</div>
+            <div class="title">Xác thực danh sách</div>
+            <div class="text">Đảm bảo thành phần và số lượng theo quy định</div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">🚨</div>
+            <div class="title">Cảnh báo</div>
+            <div class="text">
+              Thông báo ngay nếu phát hiện sai quy trình hoặc thiếu người
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- Step 2: Giám sát thời gian thực -->
-    <div class="slide slide-3">
+      <!-- Step 2: Giám sát thời gian thực -->
+      <div class="slide slide-3">
         <div class="slide-header">
-            <div class="slide-number">02</div>
-            <h2 class="slide-title">👁️ GIÁM SÁT THỜI GIAN THỰC <span class="badge badge-alert">24/7 AUTO</span></h2>
-            <p class="slide-subtitle">Hệ thống: AI Vision tự động</p>
+          <div class="slide-number">02</div>
+          <h2 class="slide-title">
+            👁️ GIÁM SÁT THỜI GIAN THỰC
+            <span class="badge badge-alert">24/7 AUTO</span>
+          </h2>
+          <p class="slide-subtitle">Hệ thống: AI Vision tự động</p>
         </div>
         <div class="slide-description">
-            Trong suốt quá trình tiếp quỹ, AI theo dõi liên tục số lượng người tham gia và phát hiện ngay lập tức các vi phạm quy trình.
+          Trong suốt quá trình tiếp quỹ, AI theo dõi liên tục số lượng người
+          tham gia và phát hiện ngay lập tức các vi phạm quy trình.
         </div>
         <div class="details-grid">
-            <div class="detail-card"><div class="icon">📹</div><div class="title">Giám sát liên tục</div><div class="text">Theo dõi mọi khung hình, không bỏ sót thời điểm quan trọng</div></div>
-            <div class="detail-card"><div class="icon">⏱️</div><div class="title">Phát hiện bất thường nhanh chóng</div><div class="text">Cảnh báo nếu phát hiện thiếu thành phần tham gia trong 10s</div></div>
-            <div class="detail-card"><div class="icon">📧</div><div class="title">Email khẩn cấp</div><div class="text">Gửi thông báo cho cán bộ chuyên trách/lãnh đạo phụ trách ngay lập tức</div></div>
-            <div class="detail-card"><div class="icon">🎯</div><div class="title">Zero delay</div><div class="text">Hành động trong thời gian vàng để giảm thiệt hại</div></div>
+          <div class="detail-card">
+            <div class="icon">📹</div>
+            <div class="title">Giám sát liên tục</div>
+            <div class="text">
+              Theo dõi mọi khung hình, không bỏ sót thời điểm quan trọng
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">⏱️</div>
+            <div class="title">Phát hiện bất thường nhanh chóng</div>
+            <div class="text">
+              Cảnh báo nếu phát hiện thiếu thành phần tham gia trong 10s
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">📧</div>
+            <div class="title">Email khẩn cấp</div>
+            <div class="text">
+              Gửi thông báo cho cán bộ chuyên trách/lãnh đạo phụ trách ngay lập
+              tức
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">🎯</div>
+            <div class="title">Zero delay</div>
+            <div class="text">
+              Hành động trong thời gian vàng để giảm thiệt hại
+            </div>
+          </div>
         </div>
-    </div>
-    
+      </div>
 
-    <!-- Step 3: Phân loại & Xác nhận -->
-    <div class="slide slide-4">
+      <!-- Step 3: Phân loại & Xác nhận -->
+      <div class="slide slide-4">
         <div class="slide-header">
-            <div class="slide-number">03</div>
-            <h2 class="slide-title">✍️ PHÂN LOẠI & XÁC NHẬN</h2>
-            <p class="slide-subtitle">Thực hiện: Cán bộ chuyên trách VCBC/Chi nhánh</p>
+          <div class="slide-number">03</div>
+          <h2 class="slide-title">✍️ PHÂN LOẠI & XÁC NHẬN</h2>
+          <p class="slide-subtitle">
+            Thực hiện: Cán bộ chuyên trách VCBC/Chi nhánh
+          </p>
         </div>
         <div class="slide-description">
-            Cán bộ nhận email thông báo, truy cập video và thông tin để kiểm tra và phân loại sự kiện trong vòng 30 phút.
+          Cán bộ nhận email thông báo, truy cập video và thông tin để kiểm tra
+          và phân loại sự kiện trong vòng 30 phút.
         </div>
         <div class="details-grid">
-            <div class="detail-card"><div class="icon">📬</div><div class="title">Nhận thông báo</div><div class="text">Email kèm video & thông tin chi tiết</div></div>
-            <div class="detail-card"><div class="icon">⏰</div><div class="title">Xử lý nhanh</div><div class="text">Truy cập và xác nhận trong 30 phút</div></div>
-            <div class="detail-card"><div class="icon">🏷️</div><div class="title">4 nhãn chuẩn</div><div class="text">Không phải hoạt động ngân quỹ / Hoạt động ngân quỹ đúng quy trình/ Hoạt động ngân quỹ sai quy trình do cán bộ không check-in/ Hoạt động ngân quỹ sai quy trình do không đủ số lượng thành phần tham gia quy trình
-</div></div>
-            <div class="detail-card"><div class="icon">⚠️</div><div class="title">Cảnh báo khẩn</div><div class="text">Kích hoạt khi phát hiện dấu hiệu gian lận</div></div>
+          <div class="detail-card">
+            <div class="icon">📬</div>
+            <div class="title">Nhận thông báo</div>
+            <div class="text">Email kèm video & thông tin chi tiết</div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">⏰</div>
+            <div class="title">Xử lý nhanh</div>
+            <div class="text">Truy cập và xác nhận trong 30 phút</div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">🏷️</div>
+            <div class="title">4 nhãn chuẩn</div>
+            <div class="text">
+              Không phải hoạt động ngân quỹ / Hoạt động ngân quỹ đúng quy trình/
+              Hoạt động ngân quỹ sai quy trình do cán bộ không check-in/ Hoạt
+              động ngân quỹ sai quy trình do không đủ số lượng thành phần tham
+              gia quy trình
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">⚠️</div>
+            <div class="title">Cảnh báo khẩn</div>
+            <div class="text">Kích hoạt khi phát hiện dấu hiệu gian lận</div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- Step 4: Phê duyệt & Đối soát -->
-    <div class="slide slide-5">
+      <!-- Step 4: Phê duyệt & Đối soát -->
+      <div class="slide slide-5">
         <div class="slide-header">
-            <div class="slide-number">04</div>
-            <h2 class="slide-title">✔️ PHÊ DUYỆT & ĐỐI SOÁT</h2>
-            <p class="slide-subtitle">Thực hiện: Lãnh đạo Phòng</p>
+          <div class="slide-number">04</div>
+          <h2 class="slide-title">✔️ PHÊ DUYỆT & ĐỐI SOÁT</h2>
+          <p class="slide-subtitle">Thực hiện: Lãnh đạo Phòng</p>
         </div>
         <div class="slide-description">
-            Lãnh đạo giám sát tổng thể qua dashboard, phê duyệt thay đổi và đối soát tự động giữa lịch đăng ký và thực tế.
+          Lãnh đạo giám sát tổng thể qua dashboard, phê duyệt thay đổi và đối
+          soát tự động giữa lịch đăng ký và thực tế.
         </div>
         <div class="details-grid">
-            <div class="detail-card"><div class="icon">📊</div><div class="title">Dashboard</div><div class="text">Thống kê realtime, cập nhật liên tục</div></div>
-            <div class="detail-card"><div class="icon">✅</div><div class="title">Phê duyệt</div><div class="text">Xét duyệt nhãn do cán bộ phân loại</div></div>
-            <div class="detail-card"><div class="icon">🔄</div><div class="title">Đối soát 3 lớp</div><div class="text">Lịch đăng ký vs Thực tế vs Thành phần tham gia</div></div>
-            <div class="detail-card"><div class="icon">🚀</div><div class="title">Xử lý</div><div class="text">Chỉ đạo kịp thời khi phát hiện vấn đề nghiêm trọng</div></div>
+          <div class="detail-card">
+            <div class="icon">📊</div>
+            <div class="title">Dashboard</div>
+            <div class="text">Thống kê realtime, cập nhật liên tục</div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">✅</div>
+            <div class="title">Phê duyệt</div>
+            <div class="text">Xét duyệt nhãn do cán bộ phân loại</div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">🔄</div>
+            <div class="title">Đối soát 3 lớp</div>
+            <div class="text">
+              Lịch đăng ký vs Thực tế vs Thành phần tham gia
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">🚀</div>
+            <div class="title">Xử lý</div>
+            <div class="text">
+              Chỉ đạo kịp thời khi phát hiện vấn đề nghiêm trọng
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- Step 5: Báo cáo & Kiểm soát -->
-    <div class="slide slide-6">
+      <!-- Step 5: Báo cáo & Kiểm soát -->
+      <div class="slide slide-6">
         <div class="slide-header">
-            <div class="slide-number">05</div>
-            <h2 class="slide-title">📈 BÁO CÁO & KIỂM SOÁT <span class="badge badge-alert">AUTO REPORT</span></h2>
-            <p class="slide-subtitle">Thực hiện: Lãnh đạo VCBC/CN & Đơn vị kiểm soát rủi ro</p>
+          <div class="slide-number">05</div>
+          <h2 class="slide-title">
+            📈 BÁO CÁO & KIỂM SOÁT
+            <span class="badge badge-alert">AUTO REPORT</span>
+          </h2>
+          <p class="slide-subtitle">
+            Thực hiện: Lãnh đạo VCBC/CN & Đơn vị kiểm soát rủi ro
+          </p>
         </div>
         <div class="slide-description">
-            Báo cáo tổng hợp tự động từ dữ liệu đã được xác thực, hỗ trợ lãnh đạo ra quyết định và kiểm soát rủi ro hiệu quả.
+          Báo cáo tổng hợp tự động từ dữ liệu đã được xác thực, hỗ trợ lãnh đạo
+          ra quyết định và kiểm soát rủi ro hiệu quả.
         </div>
         <div class="details-grid">
-            <div class="detail-card"><div class="icon">📋</div><div class="title">Báo cáo tự động</div><div class="text">Tổng hợp dữ liệu đã được làm sạch và xác thực</div></div>
-            <div class="detail-card"><div class="icon">📉</div><div class="title">Phân tích</div><div class="text">Theo dõi tỷ lệ sai phạm và xu hướng</div></div>
-            <div class="detail-card"><div class="icon">🔍</div><div class="title">Kiểm tra</div><div class="text">Truy xuất video minh chứng bất kỳ lúc nào</div></div>
-            <div class="detail-card"><div class="icon">💡</div><div class="title">Khuyến nghị</div><div class="text">Đề xuất cải tiến dựa trên phân tích</div></div>
+          <div class="detail-card">
+            <div class="icon">📋</div>
+            <div class="title">Báo cáo tự động</div>
+            <div class="text">
+              Tổng hợp dữ liệu đã được làm sạch và xác thực
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">📉</div>
+            <div class="title">Phân tích</div>
+            <div class="text">Theo dõi tỷ lệ sai phạm và xu hướng</div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">🔍</div>
+            <div class="title">Kiểm tra</div>
+            <div class="text">Truy xuất video minh chứng bất kỳ lúc nào</div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">💡</div>
+            <div class="title">Khuyến nghị</div>
+            <div class="text">Đề xuất cải tiến dựa trên phân tích</div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- Benefits -->
-    <div class="slide slide-7">
+      <!-- Benefits -->
+      <div class="slide slide-7">
         <h2 class="slide-title">🎯 HIỆU QUẢ VƯỢT TRỘI</h2>
         <div class="benefits-grid">
-            <div class="benefit-card"><div class="icon">🤖</div><div class="title">Tự động hóa 80%</div><div class="text">Giảm thao tác thủ công từ nhận diện đến báo cáo</div></div>
-            <div class="benefit-card"><div class="icon">⚡</div><div class="title">Phát hiện tức thì</div><div class="text">Cảnh báo nhanh trong 10 giây</div></div>
-            <div class="benefit-card"><div class="icon">🔄</div><div class="title">Đối soát thông minh</div><div class="text">So sánh lịch vs thực tế tự động</div></div>
-            <div class="benefit-card"><div class="icon">🎥</div><div class="title">Minh bạch 100%</div><div class="text">Video lưu trữ đầy đủ, truy xuất dễ dàng</div></div>
-                            <div class="benefit-card">
-                    <div class="icon">🛡️</div>
-                    <div class="title">Giảm rủi ro</div>
-                    <div class="text">Phát hiện gian lận trước khi xảy ra thiệt hại tài chính</div>
-                </div>
-                <div class="benefit-card">
-                    <div class="icon">💰</div>
-                    <div class="title">Tối ưu chi phí</div>
-                    <div class="text">Giảm đáng kể nhân lực giám sát thủ công, tiết kiệm thời gian</div>
-                </div>
+          <div class="benefit-card">
+            <div class="icon">🤖</div>
+            <div class="title">Tự động hóa 80%</div>
+            <div class="text">
+              Giảm thao tác thủ công từ nhận diện đến báo cáo
+            </div>
+          </div>
+          <div class="benefit-card">
+            <div class="icon">⚡</div>
+            <div class="title">Phát hiện tức thì</div>
+            <div class="text">Cảnh báo nhanh trong 10 giây</div>
+          </div>
+          <div class="benefit-card">
+            <div class="icon">🔄</div>
+            <div class="title">Đối soát thông minh</div>
+            <div class="text">So sánh lịch vs thực tế tự động</div>
+          </div>
+          <div class="benefit-card">
+            <div class="icon">🎥</div>
+            <div class="title">Minh bạch 100%</div>
+            <div class="text">Video lưu trữ đầy đủ, truy xuất dễ dàng</div>
+          </div>
+          <div class="benefit-card">
+            <div class="icon">🛡️</div>
+            <div class="title">Giảm rủi ro</div>
+            <div class="text">
+              Phát hiện gian lận trước khi xảy ra thiệt hại tài chính
+            </div>
+          </div>
+          <div class="benefit-card">
+            <div class="icon">💰</div>
+            <div class="title">Tối ưu chi phí</div>
+            <div class="text">
+              Giảm đáng kể nhân lực giám sát thủ công, tiết kiệm thời gian
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- Slide 6: Kết quả thực tế -->
-    <div class="slide slide-6">
+      <!-- Slide 6: Kết quả thực tế -->
+      <div class="slide slide-6">
         <div class="slide-header">
-            <div class="slide-number">05</div>
-            <h2 class="slide-title">📈 KẾT QUẢ THỰC TẾ</h2>
-            <p class="slide-subtitle">Đánh giá mức độ chính xác của chương trình nhận diện</p>
+          <div class="slide-number">05</div>
+          <h2 class="slide-title">📈 KẾT QUẢ THỰC TẾ</h2>
+          <p class="slide-subtitle">
+            Đánh giá mức độ chính xác của chương trình nhận diện
+          </p>
         </div>
         <!-- make a two-column area: image/chart is primary, stats are secondary -->
         <div class="kq-grid">
-            <div class="kq-image">
-                <!-- user image: put file at img/kq.png -->
-                <img src="img/kq.png" alt="Kết quả đánh giá hệ thống" />
-                <div class="kq-caption">Báo cáo đánh kết quả chương trình nhận diện</div>
+          <div class="kq-image">
+            <!-- user image: put file at img/kq.png -->
+            <img src="img/kq.png" alt="Kết quả đánh giá hệ thống" />
+            <div class="kq-caption">
+              Báo cáo đánh kết quả chương trình nhận diện
             </div>
-            <aside>
-                <div class="details-grid kq-stats">
-                    <div class="detail-card small"><div class="icon">🔢</div><div class="title">28 lần</div><div class="text">Tiếp quỹ thực tế</div></div>
-                    <div class="detail-card small"><div class="icon">✔️</div><div class="title">27 lần</div><div class="text">Phát hiện đúng</div></div>
-                    <div class="detail-card small"><div class="icon">⚠️</div><div class="title">10 lần</div><div class="text">Phát hiện nhầm (Đã cải thiện trong thời gian gần đây)</div></div>
-                    <div class="detail-card small"><div class="icon">📅</div><div class="title">24/10 - 18/11</div><div class="text">Thời gian đánh giá</div></div>
+          </div>
+          <aside>
+            <div class="details-grid kq-stats">
+              <div class="detail-card small">
+                <div class="icon">🔢</div>
+                <div class="title">28 lần</div>
+                <div class="text">Tiếp quỹ thực tế</div>
+              </div>
+              <div class="detail-card small">
+                <div class="icon">✔️</div>
+                <div class="title">27 lần</div>
+                <div class="text">Phát hiện đúng</div>
+              </div>
+              <div class="detail-card small">
+                <div class="icon">⚠️</div>
+                <div class="title">10 lần</div>
+                <div class="text">
+                  Phát hiện nhầm (Đã cải thiện trong thời gian gần đây)
                 </div>
-            </aside>
+              </div>
+              <div class="detail-card small">
+                <div class="icon">📅</div>
+                <div class="title">24/10 - 18/11</div>
+                <div class="text">Thời gian đánh giá</div>
+              </div>
+            </div>
+          </aside>
         </div>
-    </div>
+      </div>
 
-    <!-- Slide 7: Chức năng hệ thống -->
-    <div class="slide slide-7">
+      <!-- Slide 7: Chức năng hệ thống -->
+      <div class="slide slide-7">
         <h2 class="slide-title">🖥️ CHỨC NĂNG ỨNG DỤNG QUẢN LÝ</h2>
         <div class="ui-features-grid">
-        <div class="ui-screenshot">
-            <img 
-                src="img/ui.png" 
-                alt="Giao diện ứng dụng quản lý"
-                style="width: 100%; max-width: 800px; height: auto; border-radius: 12px; display: block; margin: 0 auto; box-shadow: 0 6px 16px rgba(0,0,0,0.2);" 
+          <div class="ui-screenshot">
+            <img
+              src="img/ui.png"
+              alt="Giao diện ứng dụng quản lý"
+              style="
+                width: 100%;
+                max-width: 800px;
+                height: auto;
+                border-radius: 12px;
+                display: block;
+                margin: 0 auto;
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+              "
             />
-        </div>
-            <div class="features-list">
-                <div class="feature"><div class="icon">🏠</div><div><div class="f-title">Trang chủ</div><div class="f-text">Tổng quan trạng thái hệ thống, cảnh báo nổi bật.</div></div></div>
-                <div class="feature"><div class="icon">🎥</div><div><div class="f-title">Video</div><div class="f-text">Truy xuất & xem lại đoạn video minh chứng.</div></div></div>
-                <div class="feature"><div class="icon">🌐</div><div><div class="f-title">Chi nhánh</div><div class="f-text">Danh sách chi nhánh, quản lý vị trí và trạng thái.</div></div></div>
-                <div class="feature"><div class="icon">📹</div><div><div class="f-title">Camera</div><div class="f-text">Tình trạng thiết bị, cấu hình & luồng video.</div></div></div>
-                <div class="feature"><div class="icon">👤</div><div><div class="f-title">Cán bộ</div><div class="f-text">Quản lý thông tin nhân sự và quyền truy cập.</div></div></div>
-                <div class="feature"><div class="icon">📊</div><div><div class="f-title">Thống kê</div><div class="f-text">Báo cáo hiệu suất, chỉ số phát hiện và lịch sử.</div></div></div>
-                <div class="feature"><div class="icon">🧾</div><div><div class="f-title">Quản lý Log</div><div class="f-text">Lưu trữ, truy xuất và phân tích log hoạt động để tra soát.</div></div></div>
+          </div>
+          <div class="features-list">
+            <div class="feature">
+              <div class="icon">🏠</div>
+              <div>
+                <div class="f-title">Trang chủ</div>
+                <div class="f-text">
+                  Tổng quan trạng thái hệ thống, cảnh báo nổi bật.
+                </div>
+              </div>
             </div>
+            <div class="feature">
+              <div class="icon">🎥</div>
+              <div>
+                <div class="f-title">Video</div>
+                <div class="f-text">
+                  Truy xuất & xem lại đoạn video minh chứng.
+                </div>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="icon">🌐</div>
+              <div>
+                <div class="f-title">Chi nhánh</div>
+                <div class="f-text">
+                  Danh sách chi nhánh, quản lý vị trí và trạng thái.
+                </div>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="icon">📹</div>
+              <div>
+                <div class="f-title">Camera</div>
+                <div class="f-text">
+                  Tình trạng thiết bị, cấu hình & luồng video.
+                </div>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="icon">👤</div>
+              <div>
+                <div class="f-title">Cán bộ</div>
+                <div class="f-text">
+                  Quản lý thông tin nhân sự và quyền truy cập.
+                </div>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="icon">📊</div>
+              <div>
+                <div class="f-title">Thống kê</div>
+                <div class="f-text">
+                  Báo cáo hiệu suất, chỉ số phát hiện và lịch sử.
+                </div>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="icon">🧾</div>
+              <div>
+                <div class="f-title">Quản lý Log</div>
+                <div class="f-text">
+                  Lưu trữ, truy xuất và phân tích log hoạt động để tra soát.
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- Slide 8: Khó khăn -->
-    <div class="slide slide-5">
+      <!-- Slide 8: Khó khăn -->
+      <div class="slide slide-5">
         <div class="slide-header">
-            <div class="slide-number">06</div>
-            <h2 class="slide-title">⚠️ KHÓ KHĂN & VƯỚNG MẮC</h2>
-            <p class="slide-subtitle">Các vấn đề chính trong triển khai</p>
+          <div class="slide-number">06</div>
+          <h2 class="slide-title">⚠️ KHÓ KHĂN & VƯỚNG MẮC</h2>
+          <p class="slide-subtitle">Các vấn đề chính trong triển khai</p>
         </div>
         <div class="details-grid">
-            <div class="detail-card"><div class="icon">👥</div><div class="title">Thiếu nhân sự</div><div class="text">Chưa có BA, UI, UX</div></div>
-            <div class="detail-card"><div class="icon">🛠️</div><div class="title">Nguồn lực CNTT còn hạn chế</div><div class="text">Không có cán bộ thuộc TT CNTT chuyên trách dự án</div></div>
-            <div class="detail-card"><div class="icon">💻</div><div class="title">Thiết bị chậm</div><div class="text">GPU, hạ tầng triển khai chưa sẵn sàng</div></div>
+          <div class="detail-card">
+            <div class="icon">👥</div>
+            <div class="title">Thiếu nhân sự</div>
+            <div class="text">Chưa có BA, UI, UX</div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">🛠️</div>
+            <div class="title">Nguồn lực CNTT còn hạn chế</div>
+            <div class="text">
+              Không có cán bộ thuộc TT CNTT chuyên trách dự án
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="icon">💻</div>
+            <div class="title">Thiết bị chậm</div>
+            <div class="text">GPU, hạ tầng triển khai chưa sẵn sàng</div>
+          </div>
         </div>
-    </div>
+      </div>
 
-
-<!-- Slide 10: Kết quả khảo sát -->
-    <div class="slide slide-3">
-        <div class="slide-header" style="margin-bottom: 15px;">
-            <div class="slide-number"></div>
-            <h2 class="slide-title" style="font-size: 2.8em; margin-bottom: 8px;">📊 KẾT QUẢ KHẢO SÁT GIAI ĐOẠN THÍ ĐIỂM</h2>
-            <p class="slide-subtitle" style="font-size: 1.2em;">Khảo sát toàn bộ 11 cán bộ VCBC tham gia tiếp quỹ tại ATM Tông Đản trong giai đoạn thí điểm</p>
+      <!-- Slide 10: Kết quả khảo sát -->
+      <div class="slide slide-3">
+        <div class="slide-header" style="margin-bottom: 15px">
+          <div class="slide-number"></div>
+          <h2 class="slide-title" style="font-size: 2.8em; margin-bottom: 8px">
+            📊 KẾT QUẢ KHẢO SÁT GIAI ĐOẠN THÍ ĐIỂM
+          </h2>
+          <p class="slide-subtitle" style="font-size: 1.2em">
+            Khảo sát toàn bộ 11 cán bộ VCBC tham gia tiếp quỹ tại ATM Tông Đản
+            trong giai đoạn thí điểm
+          </p>
         </div>
 
         <!-- Main stats in 2 columns -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 1200px; margin-bottom: 18px;">
-            <!-- Stat 1 -->
-            <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); padding: 18px; border-radius: 12px; border-left: 4px solid #2ecc71;">
-                <div style="font-size: 1em; color: rgba(255,255,255,0.85); margin-bottom: 10px; font-weight: 600;">Có gặp khó khăn không?</div>
-                <div style="display: flex; align-items: center; gap: 25px;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.2em;">✅</div>
-                        <div style="font-size: 2em; font-weight: bold; color: white;">82%</div>
-                        <div style="color: rgba(255,255,255,0.8); font-size: 0.85em;">Không khó khăn</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.2em;">⚠️</div>
-                        <div style="font-size: 2em; font-weight: bold; color: white;">18%</div>
-                        <div style="color: rgba(255,255,255,0.8); font-size: 0.85em;">Có khó khăn</div>
-                    </div>
-                </div>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin-bottom: 18px;
+          "
+        >
+          <!-- Stat 1 -->
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.08);
+              backdrop-filter: blur(10px);
+              padding: 18px;
+              border-radius: 12px;
+              border-left: 4px solid #2ecc71;
+            "
+          >
+            <div
+              style="
+                font-size: 1em;
+                color: rgba(255, 255, 255, 0.85);
+                margin-bottom: 10px;
+                font-weight: 600;
+              "
+            >
+              Có gặp khó khăn không?
             </div>
+            <div style="display: flex; align-items: center; gap: 25px">
+              <div style="text-align: center">
+                <div style="font-size: 2.2em">✅</div>
+                <div style="font-size: 2em; font-weight: bold; color: white">
+                  82%
+                </div>
+                <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.85em">
+                  Không khó khăn
+                </div>
+              </div>
+              <div style="text-align: center">
+                <div style="font-size: 2.2em">⚠️</div>
+                <div style="font-size: 2em; font-weight: bold; color: white">
+                  18%
+                </div>
+                <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.85em">
+                  Có khó khăn
+                </div>
+              </div>
+            </div>
+          </div>
 
-            <!-- Stat 2 -->
-            <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); padding: 18px; border-radius: 12px; border-left: 4px solid #3498db;">
-                <div style="font-size: 1em; color: rgba(255,255,255,0.85); margin-bottom: 10px; font-weight: 600;">Check-in có mất thời gian?</div>
-                <div style="display: flex; align-items: center; gap: 25px;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.2em;">👍</div>
-                        <div style="font-size: 2em; font-weight: bold; color: white;">91%</div>
-                        <div style="color: rgba(255,255,255,0.8); font-size: 0.85em;">Không</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.2em;">⏱️</div>
-                        <div style="font-size: 2em; font-weight: bold; color: white;">9%</div>
-                        <div style="color: rgba(255,255,255,0.8); font-size: 0.85em;">Có chút</div>
-                    </div>
-                </div>
+          <!-- Stat 2 -->
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.08);
+              backdrop-filter: blur(10px);
+              padding: 18px;
+              border-radius: 12px;
+              border-left: 4px solid #3498db;
+            "
+          >
+            <div
+              style="
+                font-size: 1em;
+                color: rgba(255, 255, 255, 0.85);
+                margin-bottom: 10px;
+                font-weight: 600;
+              "
+            >
+              Check-in có mất thời gian?
             </div>
+            <div style="display: flex; align-items: center; gap: 25px">
+              <div style="text-align: center">
+                <div style="font-size: 2.2em">👍</div>
+                <div style="font-size: 2em; font-weight: bold; color: white">
+                  91%
+                </div>
+                <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.85em">
+                  Không
+                </div>
+              </div>
+              <div style="text-align: center">
+                <div style="font-size: 2.2em">⏱️</div>
+                <div style="font-size: 2em; font-weight: bold; color: white">
+                  9%
+                </div>
+                <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.85em">
+                  Có chút
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Highlight: Risk reduction -->
-        <div style="background: linear-gradient(135deg, rgba(46, 204, 113, 0.25), rgba(39, 174, 96, 0.15)); backdrop-filter: blur(10px); padding: 22px; border-radius: 14px; max-width: 1200px; border: 2px solid rgba(46, 204, 113, 0.3); margin-bottom: 18px;">
-            <div style="text-align: center;">
-                <div style="font-size: 1.15em; color: rgba(255,255,255,0.9); margin-bottom: 12px; font-weight: 600;">💡 Có giúp giảm thiểu rủi ro không?</div>
-                <div style="display: flex; align-items: center; justify-content: center; gap: 45px;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 3.2em; margin-bottom: 5px;">✅</div>
-                        <div style="font-size: 3em; font-weight: bold; color: white; text-shadow: 0 3px 8px rgba(0,0,0,0.3);">91%</div>
-                        <div style="color: white; font-size: 1.15em; font-weight: 600; margin-top: 5px;">ĐỒNG Ý</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 3.2em; margin-bottom: 5px;">❓</div>
-                        <div style="font-size: 3em; font-weight: bold; color: white; text-shadow: 0 3px 8px rgba(0,0,0,0.3);">9%</div>
-                        <div style="color: white; font-size: 1.15em; font-weight: 600; margin-top: 5px;">KHÔNG</div>
-                    </div>
-                </div>
+        <div
+          style="
+            background: linear-gradient(
+              135deg,
+              rgba(46, 204, 113, 0.25),
+              rgba(39, 174, 96, 0.15)
+            );
+            backdrop-filter: blur(10px);
+            padding: 22px;
+            border-radius: 14px;
+            max-width: 1200px;
+            border: 2px solid rgba(46, 204, 113, 0.3);
+            margin-bottom: 18px;
+          "
+        >
+          <div style="text-align: center">
+            <div
+              style="
+                font-size: 1.15em;
+                color: rgba(255, 255, 255, 0.9);
+                margin-bottom: 12px;
+                font-weight: 600;
+              "
+            >
+              💡 Có giúp giảm thiểu rủi ro không?
             </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 45px;
+              "
+            >
+              <div style="text-align: center">
+                <div style="font-size: 3.2em; margin-bottom: 5px">✅</div>
+                <div
+                  style="
+                    font-size: 3em;
+                    font-weight: bold;
+                    color: white;
+                    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+                  "
+                >
+                  91%
+                </div>
+                <div
+                  style="
+                    color: white;
+                    font-size: 1.15em;
+                    font-weight: 600;
+                    margin-top: 5px;
+                  "
+                >
+                  ĐỒNG Ý
+                </div>
+              </div>
+              <div style="text-align: center">
+                <div style="font-size: 3.2em; margin-bottom: 5px">❓</div>
+                <div
+                  style="
+                    font-size: 3em;
+                    font-weight: bold;
+                    color: white;
+                    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+                  "
+                >
+                  9%
+                </div>
+                <div
+                  style="
+                    color: white;
+                    font-size: 1.15em;
+                    font-weight: 600;
+                    margin-top: 5px;
+                  "
+                >
+                  KHÔNG
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Key insights - compact -->
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; max-width: 1200px;">
-            <div style="background: rgba(46, 204, 113, 0.15); padding: 15px; border-radius: 10px; border-left: 4px solid #2ecc71;">
-                <div style="font-size: 1.5em; margin-bottom: 6px;">✨</div>
-                <div style="color: white; font-weight: bold; font-size: 1em; margin-bottom: 5px;">Dễ sử dụng</div>
-                <div style="color: rgba(255,255,255,0.85); font-size: 0.85em; line-height: 1.35;">82% không gặp khó khăn</div>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            max-width: 1200px;
+          "
+        >
+          <div
+            style="
+              background: rgba(46, 204, 113, 0.15);
+              padding: 15px;
+              border-radius: 10px;
+              border-left: 4px solid #2ecc71;
+            "
+          >
+            <div style="font-size: 1.5em; margin-bottom: 6px">✨</div>
+            <div
+              style="
+                color: white;
+                font-weight: bold;
+                font-size: 1em;
+                margin-bottom: 5px;
+              "
+            >
+              Dễ sử dụng
             </div>
-            <div style="background: rgba(52, 152, 219, 0.15); padding: 15px; border-radius: 10px; border-left: 4px solid #3498db;">
-                <div style="font-size: 1.5em; margin-bottom: 6px;">⚡</div>
-                <div style="color: white; font-weight: bold; font-size: 1em; margin-bottom: 5px;">Không ảnh hưởng</div>
-                <div style="color: rgba(255,255,255,0.85); font-size: 0.85em; line-height: 1.35;">91% check-in không mất thời gian</div>
+            <div
+              style="
+                color: rgba(255, 255, 255, 0.85);
+                font-size: 0.85em;
+                line-height: 1.35;
+              "
+            >
+              82% không gặp khó khăn
             </div>
-            <div style="background: rgba(241, 196, 15, 0.15); padding: 15px; border-radius: 10px; border-left: 4px solid #f1c40f;">
-                <div style="font-size: 1.5em; margin-bottom: 6px;">🎯</div>
-                <div style="color: white; font-weight: bold; font-size: 1em; margin-bottom: 5px;">Hiệu quả cao</div>
-                <div style="color: rgba(255,255,255,0.85); font-size: 0.85em; line-height: 1.35;">91% tin tưởng giảm rủi ro</div>
+          </div>
+          <div
+            style="
+              background: rgba(52, 152, 219, 0.15);
+              padding: 15px;
+              border-radius: 10px;
+              border-left: 4px solid #3498db;
+            "
+          >
+            <div style="font-size: 1.5em; margin-bottom: 6px">⚡</div>
+            <div
+              style="
+                color: white;
+                font-weight: bold;
+                font-size: 1em;
+                margin-bottom: 5px;
+              "
+            >
+              Không ảnh hưởng
             </div>
+            <div
+              style="
+                color: rgba(255, 255, 255, 0.85);
+                font-size: 0.85em;
+                line-height: 1.35;
+              "
+            >
+              91% check-in không mất thời gian
+            </div>
+          </div>
+          <div
+            style="
+              background: rgba(241, 196, 15, 0.15);
+              padding: 15px;
+              border-radius: 10px;
+              border-left: 4px solid #f1c40f;
+            "
+          >
+            <div style="font-size: 1.5em; margin-bottom: 6px">🎯</div>
+            <div
+              style="
+                color: white;
+                font-weight: bold;
+                font-size: 1em;
+                margin-bottom: 5px;
+              "
+            >
+              Hiệu quả cao
+            </div>
+            <div
+              style="
+                color: rgba(255, 255, 255, 0.85);
+                font-size: 0.85em;
+                line-height: 1.35;
+              "
+            >
+              91% tin tưởng giảm rủi ro
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-
-
-    <!-- Slide 11: Khảo sát đơn vị -->
-    <div class="slide slide-4">
-        <div class="slide-header" style="margin-bottom: 15px;">
-            <div class="slide-number"></div>
-            <h2 class="slide-title" style="font-size: 2.8em; margin-bottom: 8px;">📋 KHẢO SÁT VỀ TRẢI NGHIỆM NGƯỜI DÙNG</h2>
-            <p class="slide-subtitle" style="font-size: 1.2em;">Nhận được phản hồi từ 04 đơn vị: Phòng Quản lý ngân quỹ, Trung tâm Xử lý tiền mặt, Ban Kiểm tra Nội bộ, Phòng Quản lý rủi ro hoạt động</p>
+      <!-- Slide 11: Khảo sát đơn vị -->
+      <div class="slide slide-4">
+        <div class="slide-header" style="margin-bottom: 15px">
+          <div class="slide-number"></div>
+          <h2 class="slide-title" style="font-size: 2.8em; margin-bottom: 8px">
+            📋 KHẢO SÁT VỀ TRẢI NGHIỆM NGƯỜI DÙNG
+          </h2>
+          <p class="slide-subtitle" style="font-size: 1.2em">
+            Nhận được phản hồi từ 04 đơn vị: Phòng Quản lý ngân quỹ, Trung tâm
+            Xử lý tiền mặt, Ban Kiểm tra Nội bộ, Phòng Quản lý rủi ro hoạt động
+          </p>
         </div>
 
         <!-- Main stats in 2 columns -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 1200px; margin-bottom: 18px;">
-            <!-- Stat 1: Tính năng -->
-            <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); padding: 18px; border-radius: 12px; border-left: 4px solid #3498db;">
-                <div style="font-size: 1em; color: rgba(255,255,255,0.85); margin-bottom: 10px; font-weight: 600;">Hài lòng về tính năng?</div>
-                <div style="display: flex; align-items: center; gap: 25px;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.2em;">😊</div>
-                        <div style="font-size: 2em; font-weight: bold; color: white;">60%</div>
-                        <div style="color: rgba(255,255,255,0.8); font-size: 0.85em;">Hài lòng</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.2em;">💭</div>
-                        <div style="font-size: 2em; font-weight: bold; color: white;">40%</div>
-                        <div style="color: rgba(255,255,255,0.8); font-size: 0.85em;">Có góp ý</div>
-                    </div>
-                </div>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin-bottom: 18px;
+          "
+        >
+          <!-- Stat 1: Tính năng -->
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.08);
+              backdrop-filter: blur(10px);
+              padding: 18px;
+              border-radius: 12px;
+              border-left: 4px solid #3498db;
+            "
+          >
+            <div
+              style="
+                font-size: 1em;
+                color: rgba(255, 255, 255, 0.85);
+                margin-bottom: 10px;
+                font-weight: 600;
+              "
+            >
+              Hài lòng về tính năng?
             </div>
-
-            <!-- Stat 2: Giao diện -->
-            <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); padding: 18px; border-radius: 12px; border-left: 4px solid #9b59b6;">
-                <div style="font-size: 1em; color: rgba(255,255,255,0.85); margin-bottom: 10px; font-weight: 600;">Hài lòng về giao diện?</div>
-                <div style="display: flex; align-items: center; gap: 25px;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.2em;">👍</div>
-                        <div style="font-size: 2em; font-weight: bold; color: white;">100%</div>
-                        <div style="color: rgba(255,255,255,0.8); font-size: 0.85em;">Hài lòng</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.2em;">🎨</div>
-                        <div style="font-size: 2em; font-weight: bold; color: white;">0%</div>
-                        <div style="color: rgba(255,255,255,0.8); font-size: 0.85em;">Không hài lòng</div>
-                    </div>
+            <div style="display: flex; align-items: center; gap: 25px">
+              <div style="text-align: center">
+                <div style="font-size: 2.2em">😊</div>
+                <div style="font-size: 2em; font-weight: bold; color: white">
+                  60%
                 </div>
-            </div>    <!-- Slide 10: Kết quả khảo sát -->
-    <div class="slide slide-3">
-        <div class="slide-header" style="margin-bottom: 15px;">
-            <div class="slide-number"></div>
-            <h2 class="slide-title" style="font-size: 2.8em; margin-bottom: 8px;">📊 KẾT QUẢ KHẢO SÁT</h2>
-            <p class="slide-subtitle" style="font-size: 1.2em;">ATM Tông Đản • 11 phản hồi (18-21/11/2025)</p>
-        </div>
+                <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.85em">
+                  Hài lòng
+                </div>
+              </div>
+              <div style="text-align: center">
+                <div style="font-size: 2.2em">💭</div>
+                <div style="font-size: 2em; font-weight: bold; color: white">
+                  40%
+                </div>
+                <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.85em">
+                  Có góp ý
+                </div>
+              </div>
+            </div>
+          </div>
 
-        <!-- Main stats in 2 columns -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 1200px; margin-bottom: 18px;">
+          <!-- Stat 2: Giao diện -->
+          <div
+            style="
+              background: rgba(255, 255, 255, 0.08);
+              backdrop-filter: blur(10px);
+              padding: 18px;
+              border-radius: 12px;
+              border-left: 4px solid #9b59b6;
+            "
+          >
+            <div
+              style="
+                font-size: 1em;
+                color: rgba(255, 255, 255, 0.85);
+                margin-bottom: 10px;
+                font-weight: 600;
+              "
+            >
+              Hài lòng về giao diện?
+            </div>
+            <div style="display: flex; align-items: center; gap: 25px">
+              <div style="text-align: center">
+                <div style="font-size: 2.2em">👍</div>
+                <div style="font-size: 2em; font-weight: bold; color: white">
+                  100%
+                </div>
+                <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.85em">
+                  Hài lòng
+                </div>
+              </div>
+              <div style="text-align: center">
+                <div style="font-size: 2.2em">🎨</div>
+                <div style="font-size: 2em; font-weight: bold; color: white">
+                  0%
+                </div>
+                <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.85em">
+                  Không hài lòng
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 10: Kết quả khảo sát -->
+        </div>
+        <div class="slide slide-3">
+          <div class="slide-header" style="margin-bottom: 15px">
+            <div class="slide-number"></div>
+            <h2
+              class="slide-title"
+              style="font-size: 2.8em; margin-bottom: 8px"
+            >
+              📊 KẾT QUẢ KHẢO SÁT
+            </h2>
+            <p class="slide-subtitle" style="font-size: 1.2em">
+              ATM Tông Đản • 11 phản hồi (18-21/11/2025)
+            </p>
+          </div>
+
+          <!-- Main stats in 2 columns -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 20px;
+              max-width: 1200px;
+              margin-bottom: 18px;
+            "
+          >
             <!-- Stat 1 -->
-            <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); padding: 18px; border-radius: 12px; border-left: 4px solid #2ecc71;">
-                <div style="font-size: 1em; color: rgba(255,255,255,0.85); margin-bottom: 10px; font-weight: 600;">Có gặp khó khăn không?</div>
-                <div style="display: flex; align-items: center; gap: 25px;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.2em;">✅</div>
-                        <div style="font-size: 2em; font-weight: bold; color: white;">82%</div>
-                        <div style="color: rgba(255,255,255,0.8); font-size: 0.85em;">Không khó khăn</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.2em;">⚠️</div>
-                        <div style="font-size: 2em; font-weight: bold; color: white;">18%</div>
-                        <div style="color: rgba(255,255,255,0.8); font-size: 0.85em;">Có khó khăn</div>
-                    </div>
+            <div
+              style="
+                background: rgba(255, 255, 255, 0.08);
+                backdrop-filter: blur(10px);
+                padding: 18px;
+                border-radius: 12px;
+                border-left: 4px solid #2ecc71;
+              "
+            >
+              <div
+                style="
+                  font-size: 1em;
+                  color: rgba(255, 255, 255, 0.85);
+                  margin-bottom: 10px;
+                  font-weight: 600;
+                "
+              >
+                Có gặp khó khăn không?
+              </div>
+              <div style="display: flex; align-items: center; gap: 25px">
+                <div style="text-align: center">
+                  <div style="font-size: 2.2em">✅</div>
+                  <div style="font-size: 2em; font-weight: bold; color: white">
+                    82%
+                  </div>
+                  <div
+                    style="color: rgba(255, 255, 255, 0.8); font-size: 0.85em"
+                  >
+                    Không khó khăn
+                  </div>
                 </div>
+                <div style="text-align: center">
+                  <div style="font-size: 2.2em">⚠️</div>
+                  <div style="font-size: 2em; font-weight: bold; color: white">
+                    18%
+                  </div>
+                  <div
+                    style="color: rgba(255, 255, 255, 0.8); font-size: 0.85em"
+                  >
+                    Có khó khăn
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!-- Stat 2 -->
-            <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); padding: 18px; border-radius: 12px; border-left: 4px solid #3498db;">
-                <div style="font-size: 1em; color: rgba(255,255,255,0.85); margin-bottom: 10px; font-weight: 600;">Check-in có mất thời gian?</div>
-                <div style="display: flex; align-items: center; gap: 25px;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.2em;">👍</div>
-                        <div style="font-size: 2em; font-weight: bold; color: white;">91%</div>
-                        <div style="color: rgba(255,255,255,0.8); font-size: 0.85em;">Không</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.2em;">⏱️</div>
-                        <div style="font-size: 2em; font-weight: bold; color: white;">9%</div>
-                        <div style="color: rgba(255,255,255,0.8); font-size: 0.85em;">Có chút</div>
-                    </div>
+            <div
+              style="
+                background: rgba(255, 255, 255, 0.08);
+                backdrop-filter: blur(10px);
+                padding: 18px;
+                border-radius: 12px;
+                border-left: 4px solid #3498db;
+              "
+            >
+              <div
+                style="
+                  font-size: 1em;
+                  color: rgba(255, 255, 255, 0.85);
+                  margin-bottom: 10px;
+                  font-weight: 600;
+                "
+              >
+                Check-in có mất thời gian?
+              </div>
+              <div style="display: flex; align-items: center; gap: 25px">
+                <div style="text-align: center">
+                  <div style="font-size: 2.2em">👍</div>
+                  <div style="font-size: 2em; font-weight: bold; color: white">
+                    91%
+                  </div>
+                  <div
+                    style="color: rgba(255, 255, 255, 0.8); font-size: 0.85em"
+                  >
+                    Không
+                  </div>
                 </div>
+                <div style="text-align: center">
+                  <div style="font-size: 2.2em">⏱️</div>
+                  <div style="font-size: 2em; font-weight: bold; color: white">
+                    9%
+                  </div>
+                  <div
+                    style="color: rgba(255, 255, 255, 0.8); font-size: 0.85em"
+                  >
+                    Có chút
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <!-- Highlight: Risk reduction -->
+          <div
+            style="
+              background: linear-gradient(
+                135deg,
+                rgba(46, 204, 113, 0.25),
+                rgba(39, 174, 96, 0.15)
+              );
+              backdrop-filter: blur(10px);
+              padding: 22px;
+              border-radius: 14px;
+              max-width: 1200px;
+              border: 2px solid rgba(46, 204, 113, 0.3);
+              margin-bottom: 18px;
+            "
+          >
+            <div style="text-align: center">
+              <div
+                style="
+                  font-size: 1.15em;
+                  color: rgba(255, 255, 255, 0.9);
+                  margin-bottom: 12px;
+                  font-weight: 600;
+                "
+              >
+                💡 Có giúp giảm thiểu rủi ro không?
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 45px;
+                "
+              >
+                <div style="text-align: center">
+                  <div style="font-size: 3.2em; margin-bottom: 5px">✅</div>
+                  <div
+                    style="
+                      font-size: 3em;
+                      font-weight: bold;
+                      color: white;
+                      text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+                    "
+                  >
+                    91%
+                  </div>
+                  <div
+                    style="
+                      color: white;
+                      font-size: 1.15em;
+                      font-weight: 600;
+                      margin-top: 5px;
+                    "
+                  >
+                    ĐỒNG Ý
+                  </div>
+                </div>
+                <div style="text-align: center">
+                  <div style="font-size: 3.2em; margin-bottom: 5px">❓</div>
+                  <div
+                    style="
+                      font-size: 3em;
+                      font-weight: bold;
+                      color: white;
+                      text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+                    "
+                  >
+                    9%
+                  </div>
+                  <div
+                    style="
+                      color: white;
+                      font-size: 1.15em;
+                      font-weight: 600;
+                      margin-top: 5px;
+                    "
+                  >
+                    KHÔNG
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key insights - compact -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 15px;
+              max-width: 1200px;
+            "
+          >
+            <div
+              style="
+                background: rgba(46, 204, 113, 0.15);
+                padding: 15px;
+                border-radius: 10px;
+                border-left: 4px solid #2ecc71;
+              "
+            >
+              <div style="font-size: 1.5em; margin-bottom: 6px">✨</div>
+              <div
+                style="
+                  color: white;
+                  font-weight: bold;
+                  font-size: 1em;
+                  margin-bottom: 5px;
+                "
+              >
+                Dễ sử dụng
+              </div>
+              <div
+                style="
+                  color: rgba(255, 255, 255, 0.85);
+                  font-size: 0.85em;
+                  line-height: 1.35;
+                "
+              >
+                82% không gặp khó khăn
+              </div>
+            </div>
+            <div
+              style="
+                background: rgba(52, 152, 219, 0.15);
+                padding: 15px;
+                border-radius: 10px;
+                border-left: 4px solid #3498db;
+              "
+            >
+              <div style="font-size: 1.5em; margin-bottom: 6px">⚡</div>
+              <div
+                style="
+                  color: white;
+                  font-weight: bold;
+                  font-size: 1em;
+                  margin-bottom: 5px;
+                "
+              >
+                Không ảnh hưởng
+              </div>
+              <div
+                style="
+                  color: rgba(255, 255, 255, 0.85);
+                  font-size: 0.85em;
+                  line-height: 1.35;
+                "
+              >
+                91% check-in không mất thời gian
+              </div>
+            </div>
+            <div
+              style="
+                background: rgba(241, 196, 15, 0.15);
+                padding: 15px;
+                border-radius: 10px;
+                border-left: 4px solid #f1c40f;
+              "
+            >
+              <div style="font-size: 1.5em; margin-bottom: 6px">🎯</div>
+              <div
+                style="
+                  color: white;
+                  font-weight: bold;
+                  font-size: 1em;
+                  margin-bottom: 5px;
+                "
+              >
+                Hiệu quả cao
+              </div>
+              <div
+                style="
+                  color: rgba(255, 255, 255, 0.85);
+                  font-size: 0.85em;
+                  line-height: 1.35;
+                "
+              >
+                91% tin tưởng giảm rủi ro
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Highlight: Risk reduction -->
-        <div style="background: linear-gradient(135deg, rgba(46, 204, 113, 0.25), rgba(39, 174, 96, 0.15)); backdrop-filter: blur(10px); padding: 22px; border-radius: 14px; max-width: 1200px; border: 2px solid rgba(46, 204, 113, 0.3); margin-bottom: 18px;">
-            <div style="text-align: center;">
-                <div style="font-size: 1.15em; color: rgba(255,255,255,0.9); margin-bottom: 12px; font-weight: 600;">💡 Có giúp giảm thiểu rủi ro không?</div>
-                <div style="display: flex; align-items: center; justify-content: center; gap: 45px;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 3.2em; margin-bottom: 5px;">✅</div>
-                        <div style="font-size: 3em; font-weight: bold; color: white; text-shadow: 0 3px 8px rgba(0,0,0,0.3);">91%</div>
-                        <div style="color: white; font-size: 1.15em; font-weight: 600; margin-top: 5px;">ĐỒNG Ý</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 3.2em; margin-bottom: 5px;">❓</div>
-                        <div style="font-size: 3em; font-weight: bold; color: white; text-shadow: 0 3px 8px rgba(0,0,0,0.3);">9%</div>
-                        <div style="color: white; font-size: 1.15em; font-weight: 600; margin-top: 5px;">KHÔNG</div>
-                    </div>
-                </div>
-            </div>
+        <!-- Slide 11: Cảm ơn -->
+        <div class="slide slide-7">
+          <h2 class="slide-title">🎉 XIN CẢM ƠN!</h2>
+          <!-- <p style="text-align:center; color:white; font-size:1.5em;">Câu hỏi & thảo luận</p> -->
         </div>
-
-        <!-- Key insights - compact -->
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; max-width: 1200px;">
-            <div style="background: rgba(46, 204, 113, 0.15); padding: 15px; border-radius: 10px; border-left: 4px solid #2ecc71;">
-                <div style="font-size: 1.5em; margin-bottom: 6px;">✨</div>
-                <div style="color: white; font-weight: bold; font-size: 1em; margin-bottom: 5px;">Dễ sử dụng</div>
-                <div style="color: rgba(255,255,255,0.85); font-size: 0.85em; line-height: 1.35;">82% không gặp khó khăn</div>
-            </div>
-            <div style="background: rgba(52, 152, 219, 0.15); padding: 15px; border-radius: 10px; border-left: 4px solid #3498db;">
-                <div style="font-size: 1.5em; margin-bottom: 6px;">⚡</div>
-                <div style="color: white; font-weight: bold; font-size: 1em; margin-bottom: 5px;">Không ảnh hưởng</div>
-                <div style="color: rgba(255,255,255,0.85); font-size: 0.85em; line-height: 1.35;">91% check-in không mất thời gian</div>
-            </div>
-            <div style="background: rgba(241, 196, 15, 0.15); padding: 15px; border-radius: 10px; border-left: 4px solid #f1c40f;">
-                <div style="font-size: 1.5em; margin-bottom: 6px;">🎯</div>
-                <div style="color: white; font-weight: bold; font-size: 1em; margin-bottom: 5px;">Hiệu quả cao</div>
-                <div style="color: rgba(255,255,255,0.85); font-size: 0.85em; line-height: 1.35;">91% tin tưởng giảm rủi ro</div>
-            </div>
-        </div>
+      </div>
     </div>
 
-
-    <!-- Slide 11: Cảm ơn -->
-    <div class="slide slide-7">
-        <h2 class="slide-title">🎉 XIN CẢM ƠN!</h2>
-        <!-- <p style="text-align:center; color:white; font-size:1.5em;">Câu hỏi & thảo luận</p> -->
+    <!-- Navigation giữ nguyên -->
+    <div class="nav-controls">
+      <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
+        ◀ Trước
+      </button>
+      <span class="slide-counter"
+        ><span id="currentSlide">1</span> /
+        <span id="totalSlides">0</span></span
+      >
+      <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+        Tiếp ▶
+      </button>
     </div>
+    <div class="keyboard-hint">⌨️ Dùng phím ← → để điều hướng</div>
 
+    <script>
+      // Slide numbering that excludes the cover slide (class `slide-1`).
+      // The second DOM slide becomes logical page 1.
+      let currentDomIndex = 0; // current visible slide DOM index (0-based)
+      const slides = Array.from(document.querySelectorAll(".slide"));
+      const hasCover =
+        slides.length > 0 && slides[0].classList.contains("slide-1");
 
-</div>
+      function ensureSlideNumberElement(slide) {
+        let numEl = slide.querySelector(".slide-number");
+        if (!numEl) {
+          const header = slide.querySelector(".slide-header");
+          numEl = document.createElement("div");
+          numEl.className = "slide-number";
+          if (header) header.insertBefore(numEl, header.firstChild);
+          else slide.insertBefore(numEl, slide.firstChild);
+        }
+        return numEl;
+      }
 
-<!-- Navigation giữ nguyên -->
-<div class="nav-controls">
-    <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◀ Trước</button>
-    <span class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">0</span></span>
-    <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Tiếp ▶</button>
-</div>
-<div class="keyboard-hint">⌨️ Dùng phím ← → để điều hướng</div>
+      function renumberAllSlides() {
+        // Slides to be numbered: exclude cover (.slide-1)
+        const numbered = slides.filter(
+          (s) => !(s.classList && s.classList.contains("slide-1")),
+        );
+        numbered.forEach((s, i) => {
+          const el = ensureSlideNumberElement(s);
+          el.textContent = String(i + 1).padStart(2, "0");
+          el.style.display = "";
+        });
 
-<script>
-// Slide numbering that excludes the cover slide (class `slide-1`).
-// The second DOM slide becomes logical page 1.
-let currentDomIndex = 0; // current visible slide DOM index (0-based)
-const slides = Array.from(document.querySelectorAll('.slide'));
-const hasCover = slides.length > 0 && slides[0].classList.contains('slide-1');
+        // Hide number for cover if present
+        if (hasCover) {
+          const coverNum = slides[0].querySelector(".slide-number");
+          if (coverNum) coverNum.style.display = "none";
+        }
 
-function ensureSlideNumberElement(slide) {
-    let numEl = slide.querySelector('.slide-number');
-    if (!numEl) {
-        const header = slide.querySelector('.slide-header');
-        numEl = document.createElement('div');
-        numEl.className = 'slide-number';
-        if (header) header.insertBefore(numEl, header.firstChild);
-        else slide.insertBefore(numEl, slide.firstChild);
-    }
-    return numEl;
-}
+        const totalEl = document.getElementById("totalSlides");
+        if (totalEl) totalEl.textContent = numbered.length;
+      }
 
-function renumberAllSlides() {
-    // Slides to be numbered: exclude cover (.slide-1)
-    const numbered = slides.filter(s => !(s.classList && s.classList.contains('slide-1')));
-    numbered.forEach((s, i) => {
-        const el = ensureSlideNumberElement(s);
-        el.textContent = String(i + 1).padStart(2, '0');
-        el.style.display = '';
-    });
+      function domIndexToLogical(domIdx) {
+        if (hasCover) {
+          if (domIdx === 0) return "";
+          return domIdx; // domIdx 1 => logical 1
+        }
+        return domIdx + 1; // no cover: domIdx 0 => logical 1
+      }
 
-    // Hide number for cover if present
-    if (hasCover) {
-        const coverNum = slides[0].querySelector('.slide-number');
-        if (coverNum) coverNum.style.display = 'none';
-    }
+      function logicalToDomIndex(logical) {
+        // logical is 1-based; return DOM index
+        if (hasCover) return logical; // logical 1 -> dom 1
+        return logical - 1;
+      }
 
-    const totalEl = document.getElementById('totalSlides');
-    if (totalEl) totalEl.textContent = numbered.length;
-}
+      function showSlideDom(domIdx) {
+        const last = slides.length - 1;
+        if (domIdx < 0) domIdx = 0;
+        if (domIdx > last) domIdx = last;
+        currentDomIndex = domIdx;
 
-function domIndexToLogical(domIdx) {
-    if (hasCover) {
-        if (domIdx === 0) return '';
-        return domIdx; // domIdx 1 => logical 1
-    }
-    return domIdx + 1; // no cover: domIdx 0 => logical 1
-}
+        slides.forEach((s) => s.classList.remove("active"));
+        const active = slides[currentDomIndex];
+        if (active) active.classList.add("active");
 
-function logicalToDomIndex(logical) {
-    // logical is 1-based; return DOM index
-    if (hasCover) return logical; // logical 1 -> dom 1
-    return logical - 1;
-}
+        const curEl = document.getElementById("currentSlide");
+        if (curEl) {
+          const logical = domIndexToLogical(currentDomIndex);
+          curEl.textContent = logical === "" ? "" : logical;
+        }
 
-function showSlideDom(domIdx) {
-    const last = slides.length - 1;
-    if (domIdx < 0) domIdx = 0;
-    if (domIdx > last) domIdx = last;
-    currentDomIndex = domIdx;
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        if (prevBtn) prevBtn.disabled = currentDomIndex === (hasCover ? 1 : 0);
+        if (nextBtn) nextBtn.disabled = currentDomIndex === last;
+      }
 
-    slides.forEach(s => s.classList.remove('active'));
-    const active = slides[currentDomIndex];
-    if (active) active.classList.add('active');
+      function changeSlide(delta) {
+        showSlideDom(currentDomIndex + delta);
+      }
 
-    const curEl = document.getElementById('currentSlide');
-    if (curEl) {
-        const logical = domIndexToLogical(currentDomIndex);
-        curEl.textContent = logical === '' ? '' : logical;
-    }
+      // Public: jump to logical slide number (1-based)
+      function goToLogical(logical) {
+        showSlideDom(logicalToDomIndex(logical));
+      }
 
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    if (prevBtn) prevBtn.disabled = (currentDomIndex === (hasCover ? 1 : 0));
-    if (nextBtn) nextBtn.disabled = (currentDomIndex === last);
-}
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowLeft") changeSlide(-1);
+        if (e.key === "ArrowRight") changeSlide(1);
+      });
 
-function changeSlide(delta) { showSlideDom(currentDomIndex + delta); }
-
-// Public: jump to logical slide number (1-based)
-function goToLogical(logical) { showSlideDom(logicalToDomIndex(logical)); }
-
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowLeft') changeSlide(-1);
-    if (e.key === 'ArrowRight') changeSlide(1);
-});
-
-// Initialize numbering and show the cover (or first slide if no cover)
-renumberAllSlides();
-showSlideDom(0);
-</script>
-</body>
+      // Initialize numbering and show the cover (or first slide if no cover)
+      renumberAllSlides();
+      showSlideDom(0);
+    </script>
+  </body>
 </html>
