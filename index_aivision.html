@@ -31,6 +31,9 @@
             padding: 60px 80px;
             animation: fadeIn 0.8s ease-in-out;
             position: relative;
+            /* Default background for slides that don't have a specific .slide-N rule */
+            background: linear-gradient(135deg, #0f1720 0%, #111827 100%);
+            color: white;
         }
         
         .slide.active {
@@ -155,11 +158,14 @@
         }
         
         .slide-number {
-            font-size: 6em;
+            font-size: 1.5em; /* Giảm từ 6em xuống 1.5em */
             font-weight: bold;
-            color: rgba(255,255,255,0.3);
-            line-height: 0.8;
-            margin-bottom: 10px;
+            color: rgba(255,255,255,0.4);
+            line-height: 1;
+            margin-bottom: 0;
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
         }
         
         .slide-title {
@@ -646,6 +652,129 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
+        .detail-card.compact {
+            background: rgba(255,255,255,0.15);
+            border: 2px solid rgba(255,255,255,0.25);
+            padding: 26px 18px;
+            border-radius: 16px;
+            text-align: center;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            gap:12px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .detail-card.compact:hover {
+            background: rgba(255,255,255,0.25);
+            border-color: rgba(255,255,255,0.4);
+            transform: translateY(-5px);
+        }
+
+        .detail-card.compact .icon {
+            font-size: 2.6em;
+            line-height: 1;
+        }
+
+        .detail-card.compact .title {
+            font-size: 1.05em;
+            font-weight: 700;
+            color: rgba(255,255,255,1);
+        }
+
+        .detail-card.compact .text {
+            font-size: 0.95em;
+            color: rgba(255,255,255,0.95);
+            line-height: 1.35;
+            margin-top: 6px;
+            max-width: 260px;
+        }
+
+        /* Slide 8 - Result cards với màu vàng nâu VCB Priority */
+        .slide-8 {
+            background: linear-gradient(135deg, #d4a574 0%, #b8894f 100%) !important;
+        }
+
+        .detail-card.result-card {
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(15px);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 6px solid #c89d5c;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .detail-card.result-card:hover {
+            transform: translateX(10px) translateY(-5px);
+            box-shadow: 0 8px 30px rgba(212,165,116,0.4);
+            background: rgba(255,255,255,1);
+            border-left-color: #e6b975;
+        }
+
+        .detail-card.result-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 2px 4px rgba(200,157,92,0.3));
+        }
+
+        .detail-card.result-card .title {
+            font-size: 1.35em;
+            font-weight: bold;
+            color: #b8894f;
+            margin-bottom: 10px;
+        }
+
+        .detail-card.result-card .text {
+            font-size: 1.1em;
+            color: #2d2d2d;
+            line-height: 1.6;
+        }
+
+        .slide-7 .slide-title {
+            text-align: center;
+            font-size: 3em; /* Giảm từ 4em */
+            margin-bottom: 40px; /* Giảm từ 60px */
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px; /* Giảm từ 35px */
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 30px 24px; /* Giảm từ 40px 30px */
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .benefit-card .icon {
+            font-size: 3em; /* Giảm từ 4em */
+            margin-bottom: 15px; /* Giảm từ 20px */
+        }
+
+        .benefit-card .title {
+            font-size: 1.5em; /* Giảm từ 1.8em */
+            color: white;
+            font-weight: bold;
+            margin-bottom: 12px; /* Giảm từ 15px */
+        }
+
+        .benefit-card .text {
+            font-size: 1.05em; /* Giảm từ 1.2em */
+            color: rgba(255,255,255,0.9);
+            line-height: 1.5; /* Giảm từ 1.6 */
+        }
+
     </style>
 </head>
 
@@ -660,24 +789,35 @@
         <div class="journey-preview">
             <div class="journey-step-mini"><div class="step-num">01</div><div class="step-name">Tổng quan</div></div>
             <div class="journey-step-mini"><div class="step-num">02</div><div class="step-name">Tiến độ</div></div>
-            <div class="journey-step-mini"><div class="step-num">03</div><div class="step-name">Hành trình</div></div>
-            <div class="journey-step-mini"><div class="step-num">04</div><div class="step-name">Kết quả</div></div>
-            <div class="journey-step-mini"><div class="step-num">05</div><div class="step-name">Khó khăn</div></div>
+            <div class="journey-step-mini"><div class="step-num">03</div><div class="step-name">Kết quả</div></div>
+            <div class="journey-step-mini"><div class="step-num">04</div><div class="step-name">Khó khăn</div></div>
+            <div class="journey-step-mini"><div class="step-num">05</div><div class="step-name">Kế hoạch</div></div>
         </div>
     </div>
+
+    <!-- ======================== PHẦN 1: TỔNG QUAN ======================== -->
+    <!-- Slide mở đầu phần 1: TỔNG QUAN -->
+    <div class="slide slide-journey">
+        <div class="slide-header">
+            <div class="slide-number"> </div>
+            <h2 class="slide-title" style="text-align: center; margin-top: 20px;">PHẦN 1: TỔNG QUAN DỰ ÁN</h2>
+            <!-- <p class="slide-subtitle" style="text-align: center; font-size: 1.8em;">Bối cảnh, mục tiêu và phương pháp triển khai</p> -->
+        </div>
+    </div>
+
 
     <!-- Slide 2: Tổng quan dự án -->
     
     <div class="slide slide-2">
         <div class="slide-header" style="margin-bottom: 20px;">
             <div class="slide-number">01</div>
-            <h2 class="slide-title">📌 TỔNG QUAN DỰ ÁN</h2>
+            <h2 class="slide-title">TỔNG QUAN DỰ ÁN</h2>
             <p class="slide-subtitle">Mục tiêu triển khai AI Vision trong giám sát ngân quỹ</p>
         </div>
 
         <div class="slide-description">
             <strong>Phương pháp kiểm soát hiện nay:</strong><br>
-            • Lưu trữ tại server, kiểm tra thủ công qua trích xuất video<br>
+            • Lưu trữ tại server chi nhánh phân tán, kiểm tra thủ công qua trích xuất video<br>
             • Khoảng 7.000 camera trên toàn hệ thống (gồm ~3100 ATM & ~250 kho)<br>
             • Nhiều rủi ro: không đúng quy trình, gian lận, ra vào ngoài giờ<br><br>
             🎯 Mục tiêu: Ứng dụng AI Vision để tự động cảnh báo, theo dõi & giảm thiểu rủi ro thất thoát.
@@ -693,152 +833,219 @@
         </div>
     </div>
 
-    <!-- Slide 3: Giai đoạn phát triển -->
-    <!-- Inserted: So sánh quy trình (from index3) - Slide A -->
-    <div class="slide slide-4">
-        <div class="slide-header" style="margin-bottom: 20px;">
-            <div class="slide-number"> </div>
-            <h2 class="slide-title">🔄 SO SÁNH QUY TRÌNH</h2>
-            <p class="slide-subtitle">Hiệu quả của AI Vision trong giám sát hoạt động</p>
-        </div>
+    
+<!-- Slide 3: Giai đoạn phát triển -->
+<div class="slide slide-4">
+    <div class="slide-header" style="margin-bottom: 15px;">
+        <div class="slide-number"> </div>
+        <h2 class="slide-title">SO SÁNH QUY TRÌNH VẬN HÀNH ATM</h2>
+        <p class="slide-subtitle">Hiệu quả của AI Vision trong giám sát hoạt động vận hành ATM tại VCBC/Chi nhánh</p>
+    </div>
 
-        <div class="flowchart-wrapper">
-            <div class="flowchart-container">
-                <div class="flowchart-section">
-                    <h3 class="flowchart-title warning-bg">❌ QUY TRÌNH HIỆN TẠI</h3>
-                    <svg class="flowchart-svg" viewBox="0 0 1150 420" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="100" cy="180" r="65" fill="#2c3e50" stroke="#e74c3c" stroke-width="4"/>
-                        <text x="100" y="170" text-anchor="middle" fill="#fff" font-size="36">🏢</text>
-                        <text x="100" y="195" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">CBVC & KSV</text>
-                        <text x="100" y="210" text-anchor="middle" fill="#ecf0f1" font-size="12">mang cassette</text>
-                        <path d="M 165 180 L 220 180" stroke="#e74c3c" stroke-width="4" fill="none" marker-end="url(#arrowhead-red)"/>
-                        <rect x="220" y="135" width="140" height="90" rx="12" fill="#34495e" stroke="#e74c3c" stroke-width="3"/>
-                        <text x="290" y="170" text-anchor="middle" fill="#fff" font-size="32">🔓</text>
-                        <text x="290" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">KSV mở</text>
-                        <text x="290" y="218" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">nắp máy</text>
-                        <path d="M 360 180 L 410 180" stroke="#e74c3c" stroke-width="4" fill="none" marker-end="url(#arrowhead-red)"/>
-                        <rect x="410" y="135" width="140" height="90" rx="12" fill="#34495e" stroke="#e74c3c" stroke-width="3"/>
-                        <text x="480" y="170" text-anchor="middle" fill="#fff" font-size="32">💰</text>
-                        <text x="480" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">KSV mở khoá</text>
-                        <text x="480" y="218" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">két tiền</text>
-                        <path d="M 550 180 L 600 180" stroke="#e74c3c" stroke-width="4" fill="none" marker-end="url(#arrowhead-red)"/>
-                        <rect x="600" y="135" width="140" height="90" rx="12" fill="#34495e" stroke="#e74c3c" stroke-width="3"/>
-                        <text x="670" y="170" text-anchor="middle" fill="#fff" font-size="32">🔄</text>
-                        <text x="670" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">CBVC tiếp quỹ</text>
-                        <text x="670" y="218" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">& khoá két</text>
-                        <path d="M 740 180 L 790 180" stroke="#e74c3c" stroke-width="4" fill="none" marker-end="url(#arrowhead-red)"/>
-                        <rect x="790" y="135" width="140" height="90" rx="12" fill="#34495e" stroke="#e74c3c" stroke-width="3"/>
-                        <text x="860" y="170" text-anchor="middle" fill="#fff" font-size="32">📦</text>
-                        <text x="860" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Mang cassette</text>
-                        <text x="860" y="218" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">cũ về</text>
-                        <path d="M 930 180 L 980 180" stroke="#e74c3c" stroke-width="4" fill="none" marker-end="url(#arrowhead-red)"/>
-                        <circle cx="1045" cy="180" r="65" fill="#2c3e50" stroke="#e74c3c" stroke-width="4"/>
-                        <text x="1045" y="175" text-anchor="middle" fill="#fff" font-size="36">✅</text>
-                        <text x="1045" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Kết thúc</text>
-                        <defs>
-                            <marker id="arrowhead-red" markerWidth="12" markerHeight="12" refX="10" refY="3" orient="auto">
-                                <polygon points="0 0, 10 3, 0 6" fill="#e74c3c"/>
-                            </marker>
-                        </defs>
-                        <rect x="30" y="300" width="1090" height="80" rx="12" fill="#c0392b" stroke="#e74c3c" stroke-width="3"/>
-                        <text x="575" y="335" text-anchor="middle" fill="#fff" font-size="20" font-weight="bold">⚠️ KHÔNG CÓ CẢNH BÁO TỰ ĐỘNG</text>
-                        <text x="575" y="365" text-anchor="middle" fill="#ecf0f1" font-size="16">Chỉ kiểm tra thủ công qua trích xuất video đột xuất hoặc sau khi xảy ra sự cố</text>
-                    </svg>
-                </div>
+    <div class="flowchart-wrapper">
+        <div class="flowchart-container">
+            <div class="flowchart-section">
+                <h3 class="flowchart-title warning-bg">❌ QUY TRÌNH HIỆN TẠI</h3>
+
+                <svg class="flowchart-svg" viewBox="0 0 1180 400" xmlns="http://www.w3.org/2000/svg">
+
+                    <!-- Mũi tên nhỏ, màu nhẹ, đồng nhất -->
+                    <defs>
+                        <marker id="arrowhead-light" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+                            <path d="M 1 1 L 9 5 L 1 9 Z" fill="rgba(255,255,255,0.6)" stroke="rgba(255,255,255,0.6)" stroke-width="0.8"/>
+                        </marker>
+                    </defs>
+
+                    <!-- Circle đầu -->
+                    <circle cx="95" cy="170" r="62" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.25)" stroke-width="2.5"/>
+                    <text x="95" y="160" text-anchor="middle" fill="#fff" font-size="36">🏢</text>
+                    <text x="95" y="185" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">CBVC & KSV</text>
+                    <text x="95" y="200" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="12">mang cassette</text>
+
+                    <!-- Arrow 1 -->
+                    <path d="M 157 170 L 195 170" stroke="rgba(255,255,255,0.6)" stroke-width="2.2" fill="none" marker-end="url(#arrowhead-light)"/>
+
+                    <!-- Box 1 -->
+                    <rect x="195" y="125" width="155" height="90" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                    <text x="272.5" y="162" text-anchor="middle" fill="#fff" font-size="32">🔓</text>
+                    <text x="272.5" y="192" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">KSV mở</text>
+                    <text x="272.5" y="208" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">nắp máy</text>
+
+                    <!-- Arrow 2 -->
+                    <path d="M 350 170 L 383 170" stroke="rgba(255,255,255,0.6)" stroke-width="2.2" fill="none" marker-end="url(#arrowhead-light)"/>
+
+                    <!-- Box 2 -->
+                    <rect x="383" y="125" width="155" height="90" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                    <text x="460.5" y="162" text-anchor="middle" fill="#fff" font-size="32">💰</text>
+                    <text x="460.5" y="192" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">KSV mở khoá</text>
+                    <text x="460.5" y="208" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">két tiền</text>
+
+                    <!-- Arrow 3 -->
+                    <path d="M 538 170 L 571 170" stroke="rgba(255,255,255,0.6)" stroke-width="2.2" fill="none" marker-end="url(#arrowhead-light)"/>
+
+                    <!-- Box 3 -->
+                    <rect x="571" y="118" width="175" height="104" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                    <text x="658.5" y="155" text-anchor="middle" fill="#fff" font-size="32">🔄</text>
+                    <text x="658.5" y="182" text-anchor="middle" fill="#fff" font-size="13.5" font-weight="bold">CBVC mở khóa két tiền</text>
+                    <text x="658.5" y="198" text-anchor="middle" fill="#fff" font-size="13.5" font-weight="bold">tiếp quỹ & khoá két</text>
+
+                    <!-- Arrow 4 -->
+                    <path d="M 746 170 L 779 170" stroke="rgba(255,255,255,0.6)" stroke-width="2.2" fill="none" marker-end="url(#arrowhead-light)"/>
+
+                    <!-- Box 4 -->
+                    <rect x="779" y="125" width="155" height="90" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                    <text x="856.5" y="162" text-anchor="middle" fill="#fff" font-size="32">📦</text>
+                    <text x="856.5" y="192" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Mang cassette</text>
+                    <text x="856.5" y="208" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">cũ về</text>
+
+                    <!-- Arrow 5 -->
+                    <path d="M 934 170 L 967 170" stroke="rgba(255,255,255,0.6)" stroke-width="2.2" fill="none" marker-end="url(#arrowhead-light)"/>
+
+                    <!-- Circle cuối -->
+                    <circle cx="1029" cy="170" r="62" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.25)" stroke-width="2.5"/>
+                    <text x="1029" y="165" text-anchor="middle" fill="#fff" font-size="36">✅</text>
+                    <text x="1029" y="190" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Kết thúc</text>
+
+                    <!-- Banner cảnh báo -->
+                    <rect x="30" y="275" width="1120" height="72" rx="12" fill="rgba(192,57,43,0.18)" stroke="rgba(231,76,60,0.4)" stroke-width="2"/>
+                    <text x="590" y="305" text-anchor="middle" fill="#fff" font-size="19" font-weight="bold">⚠️ KHÔNG CÓ CẢNH BÁO TỰ ĐỘNG</text>
+                    <text x="590" y="330" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="15">Chỉ kiểm tra thủ công qua trích xuất video đột xuất hoặc sau khi xảy ra sự cố</text>
+
+                </svg>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Inserted: So sánh quy trình (from index3) - Slide B -->
-    <div class="slide slide-5">
-        <div class="slide-header" style="margin-bottom: 20px;">
-            <div class="slide-number"> </div>
-            <h2 class="slide-title">✅ SO SÁNH QUY TRÌNH</h2>
-            <p class="slide-subtitle">Tự động check-in, giám sát & cảnh báo realtime</p>
-        </div>
 
-        <div class="flowchart-wrapper">
-            <div class="flowchart-container">
-                <div class="flowchart-section ai-section">
-                    <h3 class="flowchart-title success-bg">✅ QUY TRÌNH CÓ AI VISION</h3>
-                    <svg class="flowchart-svg" viewBox="0 0 1150 520" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="100" cy="180" r="65" fill="#1e5631" stroke="#2ecc71" stroke-width="4"/>
-                        <text x="100" y="170" text-anchor="middle" fill="#fff" font-size="36">🏢</text>
-                        <text x="100" y="195" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">CBVC & KSV</text>
-                        <text x="100" y="210" text-anchor="middle" fill="#ecf0f1" font-size="12">mang cassette</text>
-                        <path d="M 165 180 L 205 180" stroke="#2ecc71" stroke-width="4" fill="none" marker-end="url(#arrowhead-green)"/>
-                        <rect x="205" y="135" width="150" height="90" rx="12" fill="#27ae60" stroke="#2ecc71" stroke-width="4"/>
-                        <rect x="215" y="120" width="90" height="26" rx="13" fill="#f39c12"/>
-                        <text x="260" y="138" text-anchor="middle" fill="#000" font-size="13" font-weight="bold">AI DETECT</text>
-                        <text x="280" y="170" text-anchor="middle" fill="#fff" font-size="32">🤖</text>
-                        <text x="280" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Check-in</text>
-                        <text x="280" y="218" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">khuôn mặt</text>
-                        <path d="M 355 180 L 395 180" stroke="#2ecc71" stroke-width="4" fill="none" marker-end="url(#arrowhead-green)"/>
-                        <rect x="395" y="135" width="130" height="90" rx="12" fill="#1e5631" stroke="#2ecc71" stroke-width="3"/>
-                        <text x="460" y="170" text-anchor="middle" fill="#fff" font-size="32">🔓</text>
-                        <text x="460" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">KSV mở</text>
-                        <text x="460" y="218" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">nắp máy</text>
-                        <path d="M 525 180 L 565 180" stroke="#2ecc71" stroke-width="4" fill="none" marker-end="url(#arrowhead-green)"/>
-                        <rect x="565" y="135" width="150" height="90" rx="12" fill="#27ae60" stroke="#2ecc71" stroke-width="4"/>
-                        <rect x="575" y="120" width="95" height="26" rx="13" fill="#f39c12"/>
-                        <text x="622.5" y="138" text-anchor="middle" fill="#000" font-size="13" font-weight="bold">AI MONITOR</text>
-                        <text x="640" y="170" text-anchor="middle" fill="#fff" font-size="32">💰</text>
-                        <text x="640" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">KSV mở khoá</text>
-                        <text x="640" y="218" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">& tiếp quỹ</text>
-                        <path d="M 715 180 L 755 180" stroke="#2ecc71" stroke-width="4" fill="none" marker-end="url(#arrowhead-green)"/>
-                        <rect x="755" y="135" width="150" height="90" rx="12" fill="#27ae60" stroke="#2ecc71" stroke-width="4"/>
-                        <rect x="765" y="120" width="85" height="26" rx="13" fill="#f39c12"/>
-                        <text x="807.5" y="138" text-anchor="middle" fill="#000" font-size="13" font-weight="bold">AI VERIFY</text>
-                        <text x="830" y="170" text-anchor="middle" fill="#fff" font-size="32">📊</text>
-                        <text x="830" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Giám sát</text>
-                        <text x="830" y="218" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">cassette</text>
-                        <path d="M 905 180 L 945 180" stroke="#2ecc71" stroke-width="4" fill="none" marker-end="url(#arrowhead-green)"/>
-                        <rect x="945" y="135" width="130" height="90" rx="12" fill="#1e5631" stroke="#2ecc71" stroke-width="3"/>
-                        <text x="1010" y="170" text-anchor="middle" fill="#fff" font-size="32">🔒</text>
-                        <text x="1010" y="200" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Khoá & mang</text>
-                        <text x="1010" y="218" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">cassette về</text>
-                        <defs>
-                            <marker id="arrowhead-green" markerWidth="12" markerHeight="12" refX="10" refY="3" orient="auto">
-                                <polygon points="0 0, 10 3, 0 6" fill="#2ecc71"/>
-                            </marker>
-                        </defs>
-                        <defs>
-                            <linearGradient id="bannerGrad" x1="0" x2="1">
-                                <stop offset="0" stop-color="#e74c3c"/>
-                                <stop offset="1" stop-color="#c0392b"/>
-                            </linearGradient>
-                            <filter id="bannerShadow" x="-20%" y="-20%" width="140%" height="140%">
-                                <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity="0.45"/>
-                            </filter>
-                        </defs>
-                        <rect x="30" y="300" width="1090" height="180" rx="14" fill="url(#bannerGrad)" stroke="#ff6b6b" stroke-width="2" filter="url(#bannerShadow)"/>
+<!-- Slide 4: So sánh quy trình - QUY TRÌNH CÓ AI VISION -->
+<div class="slide slide-5">
+    <div class="slide-header" style="margin-bottom: 10px;">
+        <div class="slide-number"></div>
+        <h2 class="slide-title">SO SÁNH QUY TRÌNH VẬN HÀNH ATM</h2>
+        <p class="slide-subtitle">Tự động check-in, giám sát & cảnh báo realtime</p>
+    </div>
 
-                        <!-- Banner title -->
-                        <text x="575" y="335" text-anchor="middle" fill="#fff" font-size="22" font-weight="800" font-family="Segoe UI, Arial">🚨 CẢNH BÁO TỰ ĐỘNG REALTIME</text>
-                        <text x="575" y="355" text-anchor="middle" fill="#ffecec" font-size="13" font-weight="600" font-family="Segoe UI, Arial">Hệ thống tự động gửi cảnh báo khi xảy ra các tình huống sau</text>
+    <div class="flowchart-wrapper">
+        <div class="flowchart-container">
+            <div class="flowchart-section">
+                <h3 class="flowchart-title success-bg">✅ QUY TRÌNH CÓ AI VISION</h3>
 
-                        <!-- Left column bullets -->
-                        <text x="200" y="385" text-anchor="start" fill="#fff" font-size="15" font-weight="600" font-family="Segoe UI, Arial">
-                            <tspan x="200" dy="0">• Số lượng thành phần không đủ trong quá trình tiếp quỹ</tspan>
-                            <tspan x="200" dy="24">• Check-in không thành công hoặc thiếu thành phần tham gia</tspan>
-                        </text>
+                <svg class="flowchart-svg" viewBox="0 0 1200 380" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <marker id="arrowhead-light-ai" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+                            <path d="M 1 1 L 9 5 L 1 9 Z" fill="rgba(255,255,255,0.6)" stroke="rgba(255,255,255,0.6)" stroke-width="0.8"/>
+                        </marker>
+                    </defs>
 
-                        <!-- Right column bullets -->
-                        <text x="760" y="385" text-anchor="start" fill="#fff" font-size="15" font-weight="600" font-family="Segoe UI, Arial">
-                            <tspan x="760" dy="0">• Không thực hiện check-in</tspan>
-                            <tspan x="760" dy="24">• Thời gian hoạt động bất thường</tspan>
-                        </text>
-                    </svg>
-                </div>
+                    <!-- Circle đầu -->
+                    <circle cx="85" cy="140" r="58" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.25)" stroke-width="2.5"/>
+                    <text x="85" y="132" text-anchor="middle" fill="#fff" font-size="34">🏢</text>
+                    <text x="85" y="155" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">CBVC & KSV</text>
+                    <text x="85" y="169" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="11">mang cassette</text>
+
+                    <!-- Arrow 1 -->
+                    <path d="M 143 140 L 173 140" stroke="rgba(255,255,255,0.6)" stroke-width="2.2" fill="none" marker-end="url(#arrowhead-light-ai)"/>
+
+                    <!-- Box 1 - AI DETECT -->
+                    <rect x="173" y="100" width="138" height="80" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                    <rect x="182" y="86" width="85" height="24" rx="12" fill="rgba(243,156,18,0.85)"/>
+                    <text x="224.5" y="103" text-anchor="middle" fill="#000" font-size="12" font-weight="bold">AI DETECT</text>
+                    <text x="242" y="133" text-anchor="middle" fill="#fff" font-size="30">🤖</text>
+                    <text x="242" y="160" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">Check-in</text>
+                    <text x="242" y="174" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">khuôn mặt</text>
+
+                    <!-- Arrow 2 -->
+                    <path d="M 311 140 L 341 140" stroke="rgba(255,255,255,0.6)" stroke-width="2.2" fill="none" marker-end="url(#arrowhead-light-ai)"/>
+
+                    <!-- Box 2 -->
+                    <rect x="341" y="100" width="128" height="80" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                    <text x="405" y="133" text-anchor="middle" fill="#fff" font-size="30">🔓</text>
+                    <text x="405" y="160" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">KSV mở</text>
+                    <text x="405" y="174" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">nắp máy</text>
+
+                    <!-- Arrow 3 -->
+                    <path d="M 469 140 L 499 140" stroke="rgba(255,255,255,0.6)" stroke-width="2.2" fill="none" marker-end="url(#arrowhead-light-ai)"/>
+
+                    <!-- Box 3 - AI MONITOR -->
+                    <rect x="499" y="94" width="158" height="92" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                    <rect x="508" y="80" width="92" height="24" rx="12" fill="rgba(243,156,18,0.85)"/>
+                    <text x="554" y="97" text-anchor="middle" fill="#000" font-size="12" font-weight="bold">AI MONITOR</text>
+                    <text x="578" y="127" text-anchor="middle" fill="#fff" font-size="30">💰</text>
+                    <text x="578" y="152" text-anchor="middle" fill="#fff" font-size="12.5" font-weight="bold">KSV, CBVC mở khoá</text>
+                    <text x="578" y="167" text-anchor="middle" fill="#fff" font-size="12.5" font-weight="bold">két tiền & tiếp quỹ</text>
+
+                    <!-- Arrow 4 -->
+                    <path d="M 657 140 L 687 140" stroke="rgba(255,255,255,0.6)" stroke-width="2.2" fill="none" marker-end="url(#arrowhead-light-ai)"/>
+
+                    <!-- Box 4 - AI VERIFY -->
+                    <rect x="687" y="100" width="138" height="80" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                    <rect x="696" y="86" width="82" height="24" rx="12" fill="rgba(243,156,18,0.85)"/>
+                    <text x="737" y="103" text-anchor="middle" fill="#000" font-size="12" font-weight="bold">AI VERIFY</text>
+                    <text x="756" y="133" text-anchor="middle" fill="#fff" font-size="30">📊</text>
+                    <text x="756" y="160" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">Giám sát cassette</text>
+                    <text x="756" y="174" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">& ATM mở bụng</text>
+
+                    <!-- Arrow 5 -->
+                    <path d="M 825 140 L 855 140" stroke="rgba(255,255,255,0.6)" stroke-width="2.2" fill="none" marker-end="url(#arrowhead-light-ai)"/>
+
+                    <!-- Box 5 -->
+                    <rect x="855" y="100" width="128" height="80" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                    <text x="919" y="133" text-anchor="middle" fill="#fff" font-size="30">🔒</text>
+                    <text x="919" y="160" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">Khoá két &</text>
+                    <text x="919" y="174" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">mang về</text>
+
+                    <!-- Arrow 6 -->
+                    <path d="M 983 140 L 1023 140" stroke="rgba(255,255,255,0.6)" stroke-width="2.2" fill="none" marker-end="url(#arrowhead-light-ai)"/>
+
+                    <!-- Circle cuối -->
+                    <circle cx="1081" cy="140" r="58" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.25)" stroke-width="2.5"/>
+                    <text x="1081" y="138" text-anchor="middle" fill="#fff" font-size="34">✅</text>
+                    <text x="1081" y="158" text-anchor="middle" fill="#fff" font-size="13" font-weight="bold">Kết thúc</text>
+
+                    <!-- Banner cảnh báo -->
+                    <rect x="30" y="230" width="1140" height="120" rx="12" fill="rgba(192,57,43,0.18)" stroke="rgba(231,76,60,0.4)" stroke-width="2"/>
+                    
+                    <!-- Banner Title -->
+                    <text x="600" y="258" text-anchor="middle" fill="#fff" font-size="19" font-weight="bold">🚨 CẢNH BÁO TỰ ĐỘNG REALTIME</text>
+                    <text x="600" y="277" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="13" font-weight="600">
+                        Hệ thống tự động gửi cảnh báo khi xảy ra các tình huống sau
+                    </text>
+
+                    <!-- Banner Left Content -->
+                    <text x="210" y="305" text-anchor="start" fill="#fff" font-size="14.5" font-weight="600">
+                        <tspan x="210" dy="0">• Số lượng thành phần không đủ trong quá trình tiếp quỹ</tspan>
+                        <tspan x="210" dy="22">• Check-in không thành công hoặc thiếu thành phần tham gia</tspan>
+                    </text>
+
+                    <!-- Banner Right Content -->
+                    <text x="770" y="305" text-anchor="start" fill="#fff" font-size="14.5" font-weight="600">
+                        <tspan x="770" dy="0">• Không thực hiện check-in</tspan>
+                        <tspan x="770" dy="22">• Thời gian hoạt động bất thường</tspan>
+                    </text>
+                </svg>
             </div>
         </div>
     </div>
+</div>
+
+
+<!-- ======================== PHẦN 2: TIẾN ĐỘ ======================== -->
+    <div class="slide slide-journey">
+        <div class="slide-header">
+            <div class="slide-number"> </div>
+            <h2 class="slide-title" style="text-align: center; margin-top: 20px;">PHẦN 2: BÁO CÁO TIẾN ĐỘ</h2>
+        </div>
+    </div>    
+
+
     <div class="slide slide-3">
         <div class="slide-header">
             <div class="slide-number">02</div>
-            <h2 class="slide-title">🛠️ GIAI ĐOẠN PHÁT TRIỂN</h2>
-            <p class="slide-subtitle">Hoàn thành các mô hình AI nhận diện hành vi</p>
+            <h2 class="slide-title">GIAI ĐOẠN PHÁT TRIỂN</h2>
+            <p class="slide-subtitle">Hoàn thành các mô hình AI nhận diện hành vi, xây dựng quy trình & kịch bản triển khai</p>
         </div>
+    
 
         <div class="details-grid">
             <div class="detail-card"><div class="icon">🤖</div><div class="title">Xây dựng 04 mô hình AI</div><div class="text">Định danh, đếm người, ATM mở bụng, nhận diện cassette</div></div>
@@ -848,11 +1055,12 @@
         </div>
     </div>
 
+
     <!-- Slide 4: Giai đoạn thí điểm -->
     <div class="slide slide-4">
         <div class="slide-header">
             <div class="slide-number">03</div>
-            <h2 class="slide-title">🚀 THÍ ĐIỂM TẠI SGD</h2>
+            <h2 class="slide-title">THÍ ĐIỂM TẠI VCBC & SGD</h2>
             <p class="slide-subtitle">Xây dựng hệ thống theo dõi & cảnh báo realtime</p>
         </div>
 
@@ -865,27 +1073,145 @@
         </div>
     </div>
 
-    <!-- Slide 5: Customer Journey -->
-    <!-- Slide X: Kết quả dự kiến thí điểm -->
+    <!-- Slide 5: Kết quả dự kiến thí điểm -->
     <div class="slide slide-8">
         <div class="slide-header">
             <div class="slide-number">04</div>
-            <h2 class="slide-title">🏁 KẾT QUẢ DỰ KIẾN GIAI ĐOẠN THÍ ĐIỂM</h2>
-            <p class="slide-subtitle">Mục tiêu & kết quả mong đợi sau 03 tháng</p>
+            <h2 class="slide-title">CÔNG VIỆC GIAI ĐOẠN THÍ ĐIỂM</h2>
+            <p class="slide-subtitle">Mục tiêu & kết quả mong đợi sau giai đoạn thí điểm</p>
         </div>
 
         <div class="details-grid">
-            <div class="detail-card"><div class="icon">⏱️</div><div class="title">Triển khai trong 3 tháng</div><div class="text">Hoàn thiện hệ thống giám sát và triển khai tại SGD trong khung thời gian 03 tháng.</div></div>
-            <div class="detail-card"><div class="icon">🧰</div><div class="title">Hạ tầng & Kết nối</div><div class="text">Hoàn tất cấp phát hạ tầng, kết nối mạng và các thành phần cần thiết cho hoạt động realtime.</div></div>
-            <div class="detail-card"><div class="icon">📦</div><div class="title">Tính năng chính</div><div class="text">Xây dựng và bàn giao: Lưu trữ tự động, Cảnh báo tự động, và mô-đun Quản lý tập trung.</div></div>
-            <div class="detail-card"><div class="icon">🔍</div><div class="title">Đánh giá & Đề xuất</div><div class="text">Đánh giá tổng thể hạ tầng & kết nối ở giai đoạn thí điểm và đề xuất phương án cho triển khai mở rộng.</div></div>
+            <div class="detail-card"><div class="icon">⏱️</div><div class="title">Triển khai thí điểm giải pháp</div><div class="text">Hoàn thiện giải pháp giám sát và triển khai tại SGD theo thời gian thực (realtime). </div></div>
+            <div class="detail-card"><div class="icon">🧰</div><div class="title">Hạ tầng & Kết nối</div><div class="text">Hoàn tất cấp phát hạ tầng (bao gồm PC cấu hình cao & hạ tầng ảo), mở kết nối cần thiết đến các hệ thống.</div></div>
+            <div class="detail-card"><div class="icon">📦</div><div class="title">Chương trình quản lý ngân quỹ</div><div class="text">Xây dựng chương trình quản lý với các tính năng quản lý tập trung như: (1) Quản lý video, (2) Quản lý cán bộ, (3) Thống kê, (4) Quản lý chi nhánh/camera,...</div></div>
+            <div class="detail-card"><div class="icon">🔍</div><div class="title">Đánh giá & Đề xuất</div><div class="text">Đánh giá tổng thể kết quả, hạ tầng sử dụng & kết nối ở giai đoạn thí điểm; Đề xuất phương án cho triển khai mở rộng.</div></div>
         </div>
     </div>
+
+    <!-- ======================== PHẦN 3: KẾT QUẢ ======================== -->
+    <div class="slide slide-journey">
+        <div class="slide-header">
+            <div class="slide-number"> </div>
+            <h2 class="slide-title" style="text-align: center; margin-top: 20px;">PHẦN 3: KẾT QUẢ</h2>
+        </div>
+    </div>    
+
+<!-- Slide mới: Tính năng & Đối tượng người dùng -->
+    <div class="slide slide-5">
+        <div class="slide-header" style="margin-bottom: 15px;">
+            <div class="slide-number">05</div>
+            <h2 class="slide-title" style="font-size: 2.8em;">TÍNH NĂNG & ĐỐI TƯỢNG NGƯỜI DÙNG</h2>
+            <p class="slide-subtitle" style="font-size: 1.1em;">Giải pháp phục vụ đa dạng nhu cầu quản lý & giám sát</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; max-width: 1400px; margin: 0 auto;">
+            <!-- Cột trái: Tính năng -->
+            <div>
+                <div style="background: linear-gradient(135deg, rgba(52, 152, 219, 0.2), rgba(41, 128, 185, 0.15)); padding: 18px; border-radius: 14px; border: 2px solid rgba(52, 152, 219, 0.3); margin-bottom: 15px;">
+                    <h3 style="color: white; font-size: 1.5em; margin: 0; text-align: center;">🛠️ TÍNH NĂNG CHÍNH</h3>
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 14px; border-radius: 12px; border-left: 4px solid #3498db;">
+                        <div style="display: flex; align-items: flex-start; gap: 12px;">
+                            <div style="font-size: 1.8em; line-height: 1;">🔍</div>
+                            <div>
+                                <div style="font-size: 1.05em; font-weight: 700; color: white; margin-bottom: 4px;">Phát hiện hoạt động ngân quỹ</div>
+                                <div style="font-size: 0.95em; color: rgba(255,255,255,0.9); line-height: 1.3;">Tự động nhận diện hoạt động tiếp quỹ theo thời thực & lưu trữ video tiếp quỹ</div>
+                            </div>
+                        </div>
+                    </div>
+                                     
+                    <div style="background: rgba(255,255,255,0.1); padding: 14px; border-radius: 12px; border-left: 4px solid #3498db;">
+                        <div style="display: flex; align-items: flex-start; gap: 12px;">
+                            <div style="font-size: 1.8em; line-height: 1;">⚠️</div>
+                            <div>
+                                <div style="font-size: 1.05em; font-weight: 700; color: white; margin-bottom: 4px;">Cảnh báo sai quy trình</div>
+                                <div style="font-size: 0.95em; color: rgba(255,255,255,0.9); line-height: 1.3;">Phát hiện thiếu người tham gia quy trình, không check-in, thời gian ra vào bất thường</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 14px; border-radius: 12px; border-left: 4px solid #3498db;">
+                        <div style="display: flex; align-items: flex-start; gap: 12px;">
+                            <div style="font-size: 1.8em; line-height: 1;">🔔</div>
+                            <div>
+                                <div style="font-size: 1.05em; font-weight: 700; color: white; margin-bottom: 4px;">Thông báo real-time</div>
+                                <div style="font-size: 0.95em; color: rgba(255,255,255,0.9); line-height: 1.3;">Gửi cảnh báo theo thời gian thực qua email ngay sau khi hoạt động kết thúc</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.1); padding: 14px; border-radius: 12px; border-left: 4px solid #3498db;">
+                        <div style="display: flex; align-items: flex-start; gap: 12px;">
+                            <div style="font-size: 1.8em; line-height: 1;">📊</div>
+                            <div>
+                                <div style="font-size: 1.05em; font-weight: 700; color: white; margin-bottom: 4px;">Chương trình quản lý ngân quỹ</div>
+                                <div style="font-size: 0.95em; color: rgba(255,255,255,0.9); line-height: 1.3;">Tổng hợp toàn bộ hoạt động ngân quỹ & báo cáo trực quan tự động phục vụ quản lý</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cột phải: Đối tượng người dùng -->
+            <div>
+                <div style="background: linear-gradient(135deg, rgba(46, 204, 113, 0.2), rgba(39, 174, 96, 0.15)); padding: 18px; border-radius: 14px; border: 2px solid rgba(46, 204, 113, 0.3); margin-bottom: 15px;">
+                    <h3 style="color: white; font-size: 1.5em; margin: 0; text-align: center;">👥 ĐỐI TƯỢNG NGƯỜI DÙNG</h3>
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 14px; border-radius: 12px; border-left: 4px solid #2ecc71;">
+                        <div style="display: flex; align-items: flex-start; gap: 12px;">
+                            <div style="font-size: 1.8em; line-height: 1;">👔</div>
+                            <div>
+                                <div style="font-size: 1.05em; font-weight: 700; color: white; margin-bottom: 4px;">Lãnh đạo VCBC/Chi nhánh</div>
+                                <div style="font-size: 0.95em; color: rgba(255,255,255,0.9); line-height: 1.3;">Theo dõi tổng thể, đưa ra quyết định/chính sách chiến lược</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 14px; border-radius: 12px; border-left: 4px solid #2ecc71;">
+                        <div style="display: flex; align-items: flex-start; gap: 12px;">
+                            <div style="font-size: 1.8em; line-height: 1;">👨‍💼</div>
+                            <div>
+                                <div style="font-size: 1.05em; font-weight: 700; color: white; margin-bottom: 4px;">Lãnh đạo Phòng thuộc VCBC/Chi nhánh</div>
+                                <div style="font-size: 0.95em; color: rgba(255,255,255,0.9); line-height: 1.3;">Giám sát hoạt động định kỳ, phê duyệt yêu cầu & xử lý các trường hợp khẩn cấp</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 14px; border-radius: 12px; border-left: 4px solid #2ecc71;">
+                        <div style="display: flex; align-items: flex-start; gap: 12px;">
+                            <div style="font-size: 1.8em; line-height: 1;">💼</div>
+                            <div>
+                                <div style="font-size: 1.05em; font-weight: 700; color: white; margin-bottom: 4px;">Cán bộ chuyên trách</div>
+                                <div style="font-size: 0.95em; color: rgba(255,255,255,0.9); line-height: 1.3;">Quản lý toàn bộ hoạt động ngân quỹ, phân loại và xác nhận sự kiện</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 14px; border-radius: 12px; border-left: 4px solid #2ecc71;">
+                        <div style="display: flex; align-items: flex-start; gap: 12px;">
+                            <div style="font-size: 1.8em; line-height: 1;">🔎</div>
+                            <div>
+                                <div style="font-size: 1.05em; font-weight: 700; color: white; margin-bottom: 4px;">Đơn vị kiểm tra, kiểm soát</div>
+                                <div style="font-size: 0.95em; color: rgba(255,255,255,0.9); line-height: 1.3;">Truy xuất dữ liệu dễ dàng, nhanh chóng, minh bạch</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
         <!-- Inserted: User Journey (overview) placed after results slide -->
-        <div class="slide slide-journey">
+        <!-- <div class="slide slide-journey">
             <div class="slide-header">
                 <div class="slide-number"> </div>
-                <h2 class="slide-title">🛣️ HÀNH TRÌNH NGƯỜI DÙNG (User Journey)</h2>
+                <h2 class="slide-title">HÀNH TRÌNH NGƯỜI DÙNG (User Journey)</h2>
                 <p class="slide-subtitle">Tổng quan các bước chính trước khi vào chi tiết</p>
             </div>
 
@@ -916,31 +1242,555 @@
                     <div class="step-sub">Tổng hợp & phân tích</div>
                 </div>
             </div>
-        </div>
-    <!-- Replaced Customer Journey with detailed step slides from index2 -->
-    <!-- Step 1: Chuẩn bị & Check-in -->
-    <div class="slide slide-2">
+        </div> -->
+
+<div class="slide slide-journey">
+    <div class="slide-header" style="margin-bottom: 10px;">
+        <div class="slide-number"> </div>
+        <h2 class="slide-title">QUY TRÌNH VẬN HÀNH HỆ THỐNG</h2>
+        <p class="slide-subtitle">Luồng xử lý tự động từ phát hiện đến báo cáo</p>
+    </div>
+
+    <div style="display: flex; justify-content: center; align-items: center; margin-top: 10px;">
+        <svg viewBox="0 0 1400 400" xmlns="http://www.w3.org/2000/svg" style="max-width: 1400px; width: 100%;">
+            <!-- Marker arrows -->
+            <defs>
+                <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                    <path d="M 0 0 L 8 4 L 0 8 Z" fill="rgba(255,255,255,0.8)" />
+                </marker>
+            </defs>
+
+            <!-- Node 1: Center Left -->
+            <g transform="translate(200, 200)">
+                <rect x="-120" y="-55" width="240" height="110" rx="18" fill="rgba(52,152,219,0.25)" stroke="rgba(52,152,219,0.6)" stroke-width="3"/>
+                <text x="0" y="-5" text-anchor="middle" fill="#fff" font-size="42">🔍</text>
+                <text x="0" y="25" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">Phát hiện HĐ Ngân quỹ</text>
+                <circle cx="110" cy="-45" r="18" fill="rgba(52,152,219,0.9)"/>
+                <text x="110" y="-39" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">1</text>
+            </g>
+
+            <!-- Node 2: Upper Middle -->
+            <g transform="translate(700, 110)">
+                <rect x="-130" y="-55" width="260" height="110" rx="18" fill="rgba(155,89,182,0.25)" stroke="rgba(155,89,182,0.6)" stroke-width="3"/>
+                <text x="0" y="-10" text-anchor="middle" fill="#fff" font-size="42">✍️</text>
+                <text x="0" y="25" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">Gán nhãn & Phê duyệt</text>
+                <circle cx="115" cy="-45" r="18" fill="rgba(155,89,182,0.9)"/>
+                <text x="115" y="-39" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">2</text>
+            </g>
+
+            <!-- Node 3: Lower Middle -->
+            <g transform="translate(700, 295)">
+                <rect x="-130" y="-55" width="260" height="110" rx="18" fill="rgba(230,126,34,0.25)" stroke="rgba(230,126,34,0.6)" stroke-width="3"/>
+                <text x="0" y="-10" text-anchor="middle" fill="#fff" font-size="40">🛡️</text>
+                <text x="0" y="25" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">Kiểm soát HĐ Ngân quỹ</text>
+                <circle cx="115" cy="-45" r="18" fill="rgba(230,126,34,0.9)"/>
+                <text x="115" y="-39" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">3</text>
+            </g>
+
+            <!-- Node 4: Center Right -->
+            <g transform="translate(1150, 200)">
+                <rect x="-130" y="-55" width="260" height="110" rx="18" fill="rgba(46,204,113,0.25)" stroke="rgba(46,204,113,0.6)" stroke-width="3"/>
+                <text x="0" y="-5" text-anchor="middle" fill="#fff" font-size="44">📊</text>
+                <text x="0" y="28" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">Báo cáo & Phân tích</text>
+                <circle cx="120" cy="-45" r="18" fill="rgba(46,204,113,0.9)"/>
+                <text x="120" y="-39" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">4</text>
+            </g>
+
+            <!-- Arrows -->
+            <line x1="320" y1="200" x2="567" y2="110" stroke="rgba(255,255,255,0.75)" stroke-width="2.5" marker-end="url(#arrowhead)" />
+            <line x1="320" y1="200" x2="567" y2="295" stroke="rgba(255,255,255,0.75)" stroke-width="2.5" marker-end="url(#arrowhead)" />
+            <line x1="830" y1="110" x2="1017" y2="190" stroke="rgba(255,255,255,0.75)" stroke-width="2.5" marker-end="url(#arrowhead)" />
+            <line x1="830" y1="295" x2="1017" y2="210" stroke="rgba(255,255,255,0.75)" stroke-width="2.5" marker-end="url(#arrowhead)" />
+        </svg>
+    </div>
+</div>
+
+
+<div class="slide slide-journey">
         <div class="slide-header">
             <div class="slide-number">01</div>
-            <h2 class="slide-title">🔐 CHUẨN BỊ & CHECK-IN</h2>
-            <p class="slide-subtitle">Thực hiện: KSV & CBVC</p>
+            <h2 class="slide-title">HOẠT ĐỘNG TIẾP QUỸ ATM</h2>
+            <p class="slide-subtitle">Quy trình giám sát thông minh với AI Vision</p>
         </div>
-        <div class="slide-description">
-            Cán bộ di chuyển đến ATM/quầy tiếp quỹ và thực hiện check-in. Hệ thống AI tự động nhận diện khuôn mặt và xác minh thông tin.
-        </div>
-        <div class="details-grid">
-            <div class="detail-card"><div class="icon">✅</div><div class="title">Nhận diện tự động</div><div class="text">AI xác định KSV & CBVC khi bắt đầu ca trực</div></div>
-            <div class="detail-card"><div class="icon">📅</div><div class="title">Kiểm tra lịch</div><div class="text">So sánh với lịch đăng ký trước đó</div></div>
-            <div class="detail-card"><div class="icon">👥</div><div class="title">Xác thực danh sách</div><div class="text">Đảm bảo thành phần và số lượng theo quy định</div></div>
-            <div class="detail-card"><div class="icon">🚨</div><div class="title">Cảnh báo</div><div class="text">Thông báo ngay nếu phát hiện sai quy trình hoặc thiếu người</div></div>
+        
+        <div class="journey-container">
+            <svg viewBox="0 0 1850 600" xmlns="http://www.w3.org/2000/svg">
+                <!-- Định nghĩa -->
+                <defs>
+                    <!-- Mũi tên trắng -->
+                    <marker id="arrow-white" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                        <path d="M 0 0 L 10 5 L 0 10 Z" fill="rgba(255,255,255,0.8)" />
+                    </marker>
+                    
+                    <!-- Mũi tên đỏ cho cảnh báo -->
+                    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                        <path d="M 0 0 L 10 5 L 0 10 Z" fill="rgba(231,76,60,0.9)" />
+                    </marker>
+                    
+                    <!-- Shadow -->
+                    <filter id="shadow">
+                        <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.3"/>
+                    </filter>
+                    
+                    <!-- Glow effect -->
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+
+                <!-- BƯỚC 1: Cán bộ đến ATM -->
+                <g transform="translate(100, 150)">
+                    <circle cx="0" cy="0" r="75" 
+                            fill="rgba(255,255,255,0.15)" 
+                            stroke="rgba(255,255,255,0.3)" 
+                            stroke-width="3"
+                            filter="url(#shadow)"/>
+                    <text x="0" y="-15" text-anchor="middle" fill="#fff" font-size="48">🏃</text>
+                    <text x="0" y="22" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">Cán bộ</text>
+                    <text x="0" y="42" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="15">đến ATM</text>
+                    
+                    <!-- Badge số -->
+                    <circle cx="58" cy="-58" r="20" fill="rgba(52,152,219,0.9)" stroke="#fff" stroke-width="2.5"/>
+                    <text x="58" y="-50" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold">1</text>
+                </g>
+
+                <!-- Arrow 1 to 2 -->
+                <line x1="175" y1="150" x2="225" y2="150" 
+                      stroke="rgba(255,255,255,0.6)" 
+                      stroke-width="3"
+                      marker-end="url(#arrow-white)" />
+
+                <!-- BƯỚC 2: Check-in -->
+                <g transform="translate(330, 150)">
+                    <rect x="-90" y="-75" width="180" height="150" rx="18" 
+                          fill="rgba(255,255,255,0.15)" 
+                          stroke="rgba(255,255,255,0.3)" 
+                          stroke-width="3"
+                          filter="url(#shadow)"/>
+                    <text x="0" y="-15" text-anchor="middle" fill="#fff" font-size="48">📱</text>
+                    <text x="0" y="22" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">Thực hiện</text>
+                    <text x="0" y="42" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">Check-in</text>
+                    
+                    <!-- Badge số -->
+                    <circle cx="80" cy="-63" r="20" fill="rgba(155,89,182,0.9)" stroke="#fff" stroke-width="2.5"/>
+                    <text x="80" y="-55" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold">2</text>
+                </g>
+
+                <!-- Arrow 2 to 3 -->
+                <line x1="420" y1="150" x2="470" y2="150" 
+                      stroke="rgba(255,255,255,0.6)" 
+                      stroke-width="3"
+                      marker-end="url(#arrow-white)" />
+
+                <!-- BƯỚC 3: AI Vision định danh -->
+                <g transform="translate(590, 150)">
+                    <rect x="-105" y="-75" width="210" height="150" rx="18" 
+                          fill="rgba(255,255,255,0.15)" 
+                          stroke="rgba(255,255,255,0.3)" 
+                          stroke-width="3"
+                          filter="url(#shadow)"/>
+                    
+                    <!-- AI Vision Badge -->
+                    <rect x="-65" y="-96" width="130" height="32" rx="16" 
+                          fill="rgba(243,156,18,0.5)" 
+                          stroke="rgba(243,156,18,0.9)" 
+                          stroke-width="2.5"
+                          filter="url(#glow)"/>
+                    <text x="0" y="-73" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">🤖 AI VISION</text>
+                    
+                    <text x="0" y="-12" text-anchor="middle" fill="#fff" font-size="46">🔍</text>
+                    <text x="0" y="25" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">Định danh</text>
+                    <text x="0" y="45" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">cán bộ</text>
+                    
+                    <!-- Badge số -->
+                    <circle cx="95" cy="-63" r="20" fill="rgba(243,156,18,0.9)" stroke="#fff" stroke-width="2.5"/>
+                    <text x="95" y="-55" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold">3</text>
+                </g>
+
+                <!-- Warning 1: Không check-in -->
+                <line x1="590" y1="225" x2="590" y2="290" 
+                      stroke="rgba(231,76,60,0.8)" 
+                      stroke-width="3"
+                      stroke-dasharray="8,5"
+                      marker-end="url(#arrow-red)" />
+                
+                <g transform="translate(590, 345)">
+                    <rect x="-100" y="-38" width="200" height="76" rx="14" 
+                          fill="rgba(192,57,43,0.25)" 
+                          stroke="rgba(231,76,60,0.7)" 
+                          stroke-width="3"
+                          filter="url(#shadow)"/>
+                    <text x="0" y="-8" text-anchor="middle" fill="#fff" font-size="32">⚠️</text>
+                    <text x="0" y="16" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Không check-in hoặc</text>
+                    <text x="0" y="34" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">thiếu thành phần</text>
+                </g>
+
+                <!-- Arrow 3 to 4 -->
+                <line x1="695" y1="150" x2="745" y2="150" 
+                      stroke="rgba(255,255,255,0.6)" 
+                      stroke-width="3"
+                      marker-end="url(#arrow-white)" />
+
+                <!-- BƯỚC 4: Đối soát lịch -->
+                <g transform="translate(850, 150)">
+                    <rect x="-90" y="-75" width="180" height="150" rx="18" 
+                          fill="rgba(255,255,255,0.15)" 
+                          stroke="rgba(255,255,255,0.3)" 
+                          stroke-width="3"
+                          filter="url(#shadow)"/>
+                    <text x="0" y="-15" text-anchor="middle" fill="#fff" font-size="48">📅</text>
+                    <text x="0" y="22" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">Đối soát</text>
+                    <text x="0" y="42" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">với lịch</text>
+                    
+                    <!-- Badge số -->
+                    <circle cx="80" cy="-63" r="20" fill="rgba(52,152,219,0.9)" stroke="#fff" stroke-width="2.5"/>
+                    <text x="80" y="-55" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold">4</text>
+                </g>
+
+                <!-- Warning 2: Sai lịch -->
+                <line x1="850" y1="225" x2="850" y2="290" 
+                      stroke="rgba(231,76,60,0.8)" 
+                      stroke-width="3"
+                      stroke-dasharray="8,5"
+                      marker-end="url(#arrow-red)" />
+                
+                <g transform="translate(850, 345)">
+                    <rect x="-100" y="-38" width="200" height="76" rx="14" 
+                          fill="rgba(192,57,43,0.25)" 
+                          stroke="rgba(231,76,60,0.7)" 
+                          stroke-width="3"
+                          filter="url(#shadow)"/>
+                    <text x="0" y="-8" text-anchor="middle" fill="#fff" font-size="32">⚠️</text>
+                    <text x="0" y="16" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Sai lịch hoặc không</text>
+                    <text x="0" y="34" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">có lịch đăng ký</text>
+                </g>
+
+                <!-- Arrow 4 to 5 -->
+                <line x1="940" y1="150" x2="990" y2="150" 
+                      stroke="rgba(255,255,255,0.6)" 
+                      stroke-width="3"
+                      marker-end="url(#arrow-white)" />
+
+                <!-- BƯỚC 5: Thực hiện quy trình -->
+                <g transform="translate(1095, 150)">
+                    <rect x="-90" y="-75" width="180" height="150" rx="18" 
+                          fill="rgba(255,255,255,0.15)" 
+                          stroke="rgba(255,255,255,0.3)" 
+                          stroke-width="3"
+                          filter="url(#shadow)"/>
+                    <text x="0" y="-15" text-anchor="middle" fill="#fff" font-size="48">⚙️</text>
+                    <text x="0" y="22" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">Thực hiện</text>
+                    <text x="0" y="42" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">quy trình</text>
+                    
+                    <!-- Badge số -->
+                    <circle cx="80" cy="-63" r="20" fill="rgba(155,89,182,0.9)" stroke="#fff" stroke-width="2.5"/>
+                    <text x="80" y="-55" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold">5</text>
+                </g>
+
+                <!-- Warning 3: Thiếu cán bộ -->
+                <line x1="1095" y1="225" x2="1095" y2="290" 
+                      stroke="rgba(231,76,60,0.8)" 
+                      stroke-width="3"
+                      stroke-dasharray="8,5"
+                      marker-end="url(#arrow-red)" />
+                
+                <g transform="translate(1095, 345)">
+                    <rect x="-100" y="-38" width="200" height="76" rx="14" 
+                          fill="rgba(192,57,43,0.25)" 
+                          stroke="rgba(231,76,60,0.7)" 
+                          stroke-width="3"
+                          filter="url(#shadow)"/>
+                    <text x="0" y="-8" text-anchor="middle" fill="#fff" font-size="32">⚠️</text>
+                    <text x="0" y="16" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Số lượng cán bộ</text>
+                    <text x="0" y="34" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">ít hơn quy định</text>
+                </g>
+
+                <!-- Arrow 5 to 6 -->
+                <line x1="1185" y1="150" x2="1235" y2="150" 
+                      stroke="rgba(255,255,255,0.6)" 
+                      stroke-width="3"
+                      marker-end="url(#arrow-white)" />
+
+                <!-- BƯỚC 6: Khóa kết -->
+                <g transform="translate(1340, 150)">
+                    <rect x="-90" y="-75" width="180" height="150" rx="18" 
+                          fill="rgba(255,255,255,0.15)" 
+                          stroke="rgba(255,255,255,0.3)" 
+                          stroke-width="3"
+                          filter="url(#shadow)"/>
+                    <text x="0" y="-15" text-anchor="middle" fill="#fff" font-size="48">🔐</text>
+                    <text x="0" y="22" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">Khóa kết &</text>
+                    <text x="0" y="42" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">Đóng cửa</text>
+                    
+                    <!-- Badge số -->
+                    <circle cx="80" cy="-63" r="20" fill="rgba(46,204,113,0.9)" stroke="#fff" stroke-width="2.5"/>
+                    <text x="80" y="-55" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold">6</text>
+                </g>
+
+                <!-- Arrow 6 to 7 -->
+                <line x1="1430" y1="150" x2="1480" y2="150" 
+                      stroke="rgba(255,255,255,0.6)" 
+                      stroke-width="3"
+                      marker-end="url(#arrow-white)" />
+
+                <!-- BƯỚC 7: Hoàn thành -->
+                <g transform="translate(1580, 150)">
+                    <circle cx="0" cy="0" r="75" 
+                            fill="rgba(255,255,255,0.15)" 
+                            stroke="rgba(255,255,255,0.3)" 
+                            stroke-width="3"
+                            filter="url(#shadow)"/>
+                    <text x="0" y="-15" text-anchor="middle" fill="#fff" font-size="48">✅</text>
+                    <text x="0" y="22" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">Hoàn thành</text>
+                    <text x="0" y="42" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="15">& gửi email</text>
+                    
+                    <!-- Badge số -->
+                    <circle cx="58" cy="-58" r="20" fill="rgba(46,204,113,0.9)" stroke="#fff" stroke-width="2.5"/>
+                    <text x="58" y="-50" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold">7</text>
+                </g>
+
+                <!-- Legend/Note Box -->
+                <g transform="translate(925, 490)">
+                    <rect x="-550" y="0" width="1100" height="95" rx="18" 
+                          fill="rgba(255,255,255,0.1)" 
+                          stroke="rgba(255,255,255,0.25)" 
+                          stroke-width="2.5"
+                          filter="url(#shadow)"/>
+                    
+                    <text x="0" y="32" text-anchor="middle" fill="#fff" font-size="20" font-weight="bold">💡 LƯU Ý</text>
+                    
+                    <text x="0" y="58" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="17">
+                        Hệ thống AI Vision giám sát liên tục và tự động cảnh báo qua Email ngay lập tức hoạt động tiếp quỹ ATM kết thúc.
+                    </text>
+                </g>
+            </svg>
         </div>
     </div>
 
+<!-- NEW SLIDE: Kiểm soát hoạt động ngân quỹ -->
+<div class="slide slide-journey">
+    <div class="slide-header">
+        <div class="slide-number"></div>
+        <h2 class="slide-title">KIỂM SOÁT HOẠT ĐỘNG NGÂN QUỸ</h2>
+        <p class="slide-subtitle">Quy trình quản lý từ đăng ký đến báo cáo tự động</p>
+    </div>
+    
+    <div class="journey-container">
+        <svg viewBox="0 0 1850 600" xmlns="http://www.w3.org/2000/svg">
+            <!-- Định nghĩa -->
+            <defs>
+                <!-- Mũi tên trắng -->
+                <marker id="arrow-white-control" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                    <path d="M 0 0 L 10 5 L 0 10 Z" fill="rgba(255,255,255,0.8)" />
+                </marker>
+                
+                <!-- Mũi tên đỏ cho cảnh báo -->
+                <marker id="arrow-red-control" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                    <path d="M 0 0 L 10 5 L 0 10 Z" fill="rgba(231,76,60,0.9)" />
+                </marker>
+                
+                <!-- Shadow -->
+                <filter id="shadow-control">
+                    <feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity="0.3"/>
+                </filter>
+                
+                <!-- Glow effect -->
+                <filter id="glow-control">
+                    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                    <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+
+            <!-- BƯỚC 1: Lãnh đạo Phòng đăng ký lịch -->
+            <g transform="translate(120, 150)">
+                <rect x="-95" y="-75" width="190" height="150" rx="18" 
+                      fill="rgba(255,255,255,0.15)" 
+                      stroke="rgba(255,255,255,0.3)" 
+                      stroke-width="3"
+                      filter="url(#shadow-control)"/>
+                <text x="0" y="-15" text-anchor="middle" fill="#fff" font-size="48">📋</text>
+                <text x="0" y="22" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">Lãnh đạo Phòng</text>
+                <text x="0" y="42" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">đăng ký lịch</text>
+                
+                <!-- Badge số -->
+                <circle cx="85" cy="-63" r="20" fill="rgba(52,152,219,0.9)" stroke="#fff" stroke-width="2.5"/>
+                <text x="85" y="-55" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold">1</text>
+            </g>
+
+            <!-- Arrow 1 to 2 -->
+            <line x1="215" y1="150" x2="265" y2="150" 
+                  stroke="rgba(255,255,255,0.6)" 
+                  stroke-width="3"
+                  marker-end="url(#arrow-white-control)" />
+
+            <!-- BƯỚC 2: Hoạt động ngân quỹ -->
+            <g transform="translate(385, 150)">
+                <rect x="-105" y="-75" width="210" height="150" rx="18" 
+                      fill="rgba(255,255,255,0.15)" 
+                      stroke="rgba(255,255,255,0.3)" 
+                      stroke-width="3"
+                      filter="url(#shadow-control)"/>
+                
+                <!-- AI Vision Badge -->
+                <rect x="-65" y="-96" width="130" height="32" rx="16" 
+                      fill="rgba(243,156,18,0.5)" 
+                      stroke="rgba(243,156,18,0.9)" 
+                      stroke-width="2.5"
+                      filter="url(#glow-control)"/>
+                <text x="0" y="-73" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">🤖 AI VISION</text>
+                
+                <text x="0" y="-12" text-anchor="middle" fill="#fff" font-size="46">💰</text>
+                <text x="0" y="25" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">Hoạt động</text>
+                <text x="0" y="45" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">ngân quỹ</text>
+                
+                <!-- Badge số -->
+                <circle cx="95" cy="-63" r="20" fill="rgba(243,156,18,0.9)" stroke="#fff" stroke-width="2.5"/>
+                <text x="95" y="-55" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold">2</text>
+            </g>
+
+            <!-- Arrow 2 to 3 -->
+            <line x1="490" y1="150" x2="540" y2="150" 
+                  stroke="rgba(255,255,255,0.6)" 
+                  stroke-width="3"
+                  marker-end="url(#arrow-white-control)" />
+
+            <!-- BƯỚC 3: Gửi thông báo/cảnh báo -->
+            <g transform="translate(660, 150)">
+                <rect x="-105" y="-75" width="210" height="150" rx="18" 
+                      fill="rgba(255,255,255,0.15)" 
+                      stroke="rgba(255,255,255,0.3)" 
+                      stroke-width="3"
+                      filter="url(#shadow-control)"/>
+                <text x="0" y="-15" text-anchor="middle" fill="#fff" font-size="48">📧</text>
+                <text x="0" y="22" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">Gửi thông báo/</text>
+                <text x="0" y="42" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">cảnh báo</text>
+                
+                <!-- Badge số -->
+                <circle cx="95" cy="-63" r="20" fill="rgba(155,89,182,0.9)" stroke="#fff" stroke-width="2.5"/>
+                <text x="95" y="-55" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold">3</text>
+            </g>
+
+            <!-- Arrow 3 to 4 -->
+            <line x1="765" y1="150" x2="815" y2="150" 
+                  stroke="rgba(255,255,255,0.6)" 
+                  stroke-width="3"
+                  marker-end="url(#arrow-white-control)" />
+
+            <!-- BƯỚC 4: Cán bộ nhận email & xử lý -->
+            <g transform="translate(945, 150)">
+                <rect x="-115" y="-75" width="230" height="150" rx="18" 
+                      fill="rgba(255,255,255,0.15)" 
+                      stroke="rgba(255,255,255,0.3)" 
+                      stroke-width="3"
+                      filter="url(#shadow-control)"/>
+                <text x="0" y="-15" text-anchor="middle" fill="#fff" font-size="48">👨‍💼</text>
+                <text x="0" y="15" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">Cán bộ chuyên trách</text>
+                <text x="0" y="35" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">kiểm tra & gán nhãn</text>
+                <text x="0" y="52" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="13">(trong 30 phút)</text>
+                
+                <!-- Badge số -->
+                <circle cx="105" cy="-63" r="20" fill="rgba(52,152,219,0.9)" stroke="#fff" stroke-width="2.5"/>
+                <text x="105" y="-55" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold">4</text>
+            </g>
+
+            <!-- Warning: Quá thời gian 30 phút -->
+            <line x1="945" y1="225" x2="945" y2="290" 
+                  stroke="rgba(231,76,60,0.8)" 
+                  stroke-width="3"
+                  stroke-dasharray="8,5"
+                  marker-end="url(#arrow-red-control)" />
+            
+            <g transform="translate(945, 345)">
+                <rect x="-110" y="-38" width="220" height="76" rx="14" 
+                      fill="rgba(192,57,43,0.25)" 
+                      stroke="rgba(231,76,60,0.7)" 
+                      stroke-width="3"
+                      filter="url(#shadow-control)"/>
+                <text x="0" y="-8" text-anchor="middle" fill="#fff" font-size="32">⚠️</text>
+                <text x="0" y="16" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">Quá thời gian xử lý</text>
+                <text x="0" y="34" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">(30 phút)</text>
+            </g>
+
+            <!-- Arrow 4 to 5 -->
+            <line x1="1060" y1="150" x2="1110" y2="150" 
+                  stroke="rgba(255,255,255,0.6)" 
+                  stroke-width="3"
+                  marker-end="url(#arrow-white-control)" />
+
+            <!-- BƯỚC 5: Lãnh đạo Phòng phê duyệt -->
+            <g transform="translate(1220, 150)">
+                <rect x="-95" y="-75" width="190" height="150" rx="18" 
+                      fill="rgba(255,255,255,0.15)" 
+                      stroke="rgba(255,255,255,0.3)" 
+                      stroke-width="3"
+                      filter="url(#shadow-control)"/>
+                <text x="0" y="-15" text-anchor="middle" fill="#fff" font-size="48">✅</text>
+                <text x="0" y="22" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">Lãnh đạo Phòng</text>
+                <text x="0" y="42" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">phê duyệt</text>
+                
+                <!-- Badge số -->
+                <circle cx="85" cy="-63" r="20" fill="rgba(155,89,182,0.9)" stroke="#fff" stroke-width="2.5"/>
+                <text x="85" y="-55" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold">5</text>
+            </g>
+
+            <!-- Arrow 5 to 6 -->
+            <line x1="1315" y1="150" x2="1365" y2="150" 
+                  stroke="rgba(255,255,255,0.6)" 
+                  stroke-width="3"
+                  marker-end="url(#arrow-white-control)" />
+
+            <!-- BƯỚC 6: Báo cáo tự động -->
+            <g transform="translate(1485, 150)">
+                <rect x="-105" y="-75" width="210" height="150" rx="18" 
+                      fill="rgba(255,255,255,0.15)" 
+                      stroke="rgba(255,255,255,0.3)" 
+                      stroke-width="3"
+                      filter="url(#shadow-control)"/>
+                <text x="0" y="-15" text-anchor="middle" fill="#fff" font-size="48">📊</text>
+                <text x="0" y="22" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">Tổng hợp &</text>
+                <text x="0" y="42" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">Báo cáo tự động</text>
+                
+                <!-- Badge số -->
+                <circle cx="95" cy="-63" r="20" fill="rgba(46,204,113,0.9)" stroke="#fff" stroke-width="2.5"/>
+                <text x="95" y="-55" text-anchor="middle" fill="#fff" font-size="18" font-weight="bold">6</text>
+            </g>
+
+            <!-- Arrow 6 to End -->
+            <line x1="1590" y1="150" x2="1640" y2="150" 
+                  stroke="rgba(255,255,255,0.6)" 
+                  stroke-width="3"
+                  marker-end="url(#arrow-white-control)" />
+
+            <!-- Circle cuối: Hoàn thành -->
+            <g transform="translate(1720, 150)">
+                <circle cx="0" cy="0" r="65" 
+                        fill="rgba(255,255,255,0.15)" 
+                        stroke="rgba(255,255,255,0.3)" 
+                        stroke-width="3"
+                        filter="url(#shadow-control)"/>
+                <text x="0" y="-12" text-anchor="middle" fill="#fff" font-size="42">🎯</text>
+                <text x="0" y="22" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">Hoàn tất</text>
+                <text x="0" y="40" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="14">kiểm soát</text>
+            </g>
+
+        </svg>
+    </div>
+</div>
+
+
+    
     <!-- Step 2: Giám sát thời gian thực -->
-    <div class="slide slide-3">
+    <!-- <div class="slide slide-3">
         <div class="slide-header">
             <div class="slide-number">02</div>
-            <h2 class="slide-title">👁️ GIÁM SÁT THỜI GIAN THỰC <span class="badge badge-alert">24/7 AUTO</span></h2>
+            <h2 class="slide-title">GIÁM SÁT THỜI GIAN THỰC <span class="badge badge-alert">24/7 AUTO</span></h2>
             <p class="slide-subtitle">Hệ thống: AI Vision tự động</p>
         </div>
         <div class="slide-description">
@@ -953,13 +1803,13 @@
             <div class="detail-card"><div class="icon">🎯</div><div class="title">Zero delay</div><div class="text">Hành động trong thời gian vàng để giảm thiệt hại</div></div>
         </div>
     </div>
-    
+     -->
 
     <!-- Step 3: Phân loại & Xác nhận -->
-    <div class="slide slide-4">
+    <!-- <div class="slide slide-4">
         <div class="slide-header">
             <div class="slide-number">03</div>
-            <h2 class="slide-title">✍️ PHÂN LOẠI & XÁC NHẬN</h2>
+            <h2 class="slide-title">PHÂN LOẠI & XÁC NHẬN</h2>
             <p class="slide-subtitle">Thực hiện: Cán bộ chuyên trách VCBC/Chi nhánh</p>
         </div>
         <div class="slide-description">
@@ -972,13 +1822,13 @@
 </div></div>
             <div class="detail-card"><div class="icon">⚠️</div><div class="title">Cảnh báo khẩn</div><div class="text">Kích hoạt khi phát hiện dấu hiệu gian lận</div></div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Step 4: Phê duyệt & Đối soát -->
-    <div class="slide slide-5">
+    <!-- <div class="slide slide-5">
         <div class="slide-header">
             <div class="slide-number">04</div>
-            <h2 class="slide-title">✔️ PHÊ DUYỆT & ĐỐI SOÁT</h2>
+            <h2 class="slide-title">PHÊ DUYỆT & ĐỐI SOÁT</h2>
             <p class="slide-subtitle">Thực hiện: Lãnh đạo Phòng</p>
         </div>
         <div class="slide-description">
@@ -990,13 +1840,13 @@
             <div class="detail-card"><div class="icon">🔄</div><div class="title">Đối soát 3 lớp</div><div class="text">Lịch đăng ký vs Thực tế vs Thành phần tham gia</div></div>
             <div class="detail-card"><div class="icon">🚀</div><div class="title">Xử lý</div><div class="text">Chỉ đạo kịp thời khi phát hiện vấn đề nghiêm trọng</div></div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Step 5: Báo cáo & Kiểm soát -->
-    <div class="slide slide-6">
+    <!-- <div class="slide slide-6">
         <div class="slide-header">
             <div class="slide-number">05</div>
-            <h2 class="slide-title">📈 BÁO CÁO & KIỂM SOÁT <span class="badge badge-alert">AUTO REPORT</span></h2>
+            <h2 class="slide-title">BÁO CÁO & KIỂM SOÁT <span class="badge badge-alert">AUTO REPORT</span></h2>
             <p class="slide-subtitle">Thực hiện: Lãnh đạo VCBC/CN & Đơn vị kiểm soát rủi ro</p>
         </div>
         <div class="slide-description">
@@ -1008,20 +1858,20 @@
             <div class="detail-card"><div class="icon">🔍</div><div class="title">Kiểm tra</div><div class="text">Truy xuất video minh chứng bất kỳ lúc nào</div></div>
             <div class="detail-card"><div class="icon">💡</div><div class="title">Khuyến nghị</div><div class="text">Đề xuất cải tiến dựa trên phân tích</div></div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Benefits -->
-    <div class="slide slide-7">
-        <h2 class="slide-title">🎯 HIỆU QUẢ VƯỢT TRỘI</h2>
+    <!-- <div class="slide slide-7">
+        <h2 class="slide-title">TĂNG CƯỜNG HIỆU QUẢ QUẢN LÝ</h2>
         <div class="benefits-grid">
-            <div class="benefit-card"><div class="icon">🤖</div><div class="title">Tự động hóa 80%</div><div class="text">Giảm thao tác thủ công từ nhận diện đến báo cáo</div></div>
-            <div class="benefit-card"><div class="icon">⚡</div><div class="title">Phát hiện tức thì</div><div class="text">Cảnh báo nhanh trong 10 giây</div></div>
-            <div class="benefit-card"><div class="icon">🔄</div><div class="title">Đối soát thông minh</div><div class="text">So sánh lịch vs thực tế tự động</div></div>
-            <div class="benefit-card"><div class="icon">🎥</div><div class="title">Minh bạch 100%</div><div class="text">Video lưu trữ đầy đủ, truy xuất dễ dàng</div></div>
+            <div class="benefit-card"><div class="icon">🤖</div><div class="title">Tự động hóa</div><div class="text">Giảm thao tác thủ công từ giám sát, nhận diện đến báo cáo</div></div>
+            <div class="benefit-card"><div class="icon">⚡</div><div class="title">Phát hiện nhanh</div><div class="text">Cảnh báo nhanh các hoạt động ngân quỹ ngay sau khi kết thúc hoạt động</div></div>
+            <div class="benefit-card"><div class="icon">🔄</div><div class="title">Đối soát thông minh</div><div class="text">So sánh lịch lãnh đạo đăng ký với thực tế hoạt động</div></div>
+            <div class="benefit-card"><div class="icon">🎥</div><div class="title">Minh bạch</div><div class="text">Video lưu trữ đầy đủ, truy xuất dễ dàng trên chương trình quản lý</div></div>
                             <div class="benefit-card">
                     <div class="icon">🛡️</div>
                     <div class="title">Giảm rủi ro</div>
-                    <div class="text">Phát hiện gian lận trước khi xảy ra thiệt hại tài chính</div>
+                    <div class="text">Phát hiện các hoạt động sai quy trình & xử lý nhanh chóng trước khi xảy ra thiệt hại</div>
                 </div>
                 <div class="benefit-card">
                     <div class="icon">💰</div>
@@ -1029,13 +1879,56 @@
                     <div class="text">Giảm đáng kể nhân lực giám sát thủ công, tiết kiệm thời gian</div>
                 </div>
         </div>
+    </div> -->
+
+
+    <!-- Benefits -->
+<div class="slide slide-7">
+    <div class="slide-header">
+        <div class="slide-number"></div>
+        <h2 class="slide-title">TĂNG CƯỜNG HIỆU QUẢ QUẢN LÝ</h2>
+        <p class="slide-subtitle">Lợi ích vượt trội từ giải pháp AI Vision</p>
     </div>
+    
+    <div class="benefits-grid">
+        <div class="benefit-card">
+            <div class="icon">🤖</div>
+            <div class="title">Tự động hóa</div>
+            <div class="text">Giảm thao tác thủ công từ giám sát, nhận diện đến báo cáo</div>
+        </div>
+        <div class="benefit-card">
+            <div class="icon">⚡</div>
+            <div class="title">Phát hiện nhanh</div>
+            <div class="text">Cảnh báo nhanh các hoạt động ngân quỹ ngay sau khi kết thúc</div>
+        </div>
+        <div class="benefit-card">
+            <div class="icon">🔄</div>
+            <div class="title">Đối soát thông minh</div>
+            <div class="text">So sánh lịch lãnh đạo đăng ký với thực tế hoạt động</div>
+        </div>
+        <div class="benefit-card">
+            <div class="icon">🎥</div>
+            <div class="title">Minh bạch</div>
+            <div class="text">Video lưu trữ đầy đủ, truy xuất dễ dàng trên chương trình quản lý</div>
+        </div>
+        <div class="benefit-card">
+            <div class="icon">🛡️</div>
+            <div class="title">Giảm rủi ro</div>
+            <div class="text">Phát hiện các hoạt động sai quy trình & xử lý nhanh chóng</div>
+        </div>
+        <div class="benefit-card">
+            <div class="icon">💰</div>
+            <div class="title">Tối ưu chi phí</div>
+            <div class="text">Giảm đáng kể nhân lực giám sát thủ công, tiết kiệm thời gian</div>
+        </div>
+    </div>
+</div>
 
     <!-- Slide 6: Kết quả thực tế -->
     <div class="slide slide-6">
         <div class="slide-header">
             <div class="slide-number">05</div>
-            <h2 class="slide-title">📈 KẾT QUẢ THỰC TẾ</h2>
+            <h2 class="slide-title">KẾT QUẢ THỰC TẾ</h2>
             <p class="slide-subtitle">Đánh giá mức độ chính xác của chương trình nhận diện</p>
         </div>
         <!-- make a two-column area: image/chart is primary, stats are secondary -->
@@ -1058,7 +1951,7 @@
 
     <!-- Slide 7: Chức năng hệ thống -->
     <div class="slide slide-7">
-        <h2 class="slide-title">🖥️ CHỨC NĂNG ỨNG DỤNG QUẢN LÝ</h2>
+        <h2 class="slide-title">CHỨC NĂNG ỨNG DỤNG QUẢN LÝ</h2>
         <div class="ui-features-grid">
         <div class="ui-screenshot">
             <img 
@@ -1076,20 +1969,6 @@
                 <div class="feature"><div class="icon">📊</div><div><div class="f-title">Thống kê</div><div class="f-text">Báo cáo hiệu suất, chỉ số phát hiện và lịch sử.</div></div></div>
                 <div class="feature"><div class="icon">🧾</div><div><div class="f-title">Quản lý Log</div><div class="f-text">Lưu trữ, truy xuất và phân tích log hoạt động để tra soát.</div></div></div>
             </div>
-        </div>
-    </div>
-
-    <!-- Slide 8: Khó khăn -->
-    <div class="slide slide-5">
-        <div class="slide-header">
-            <div class="slide-number">06</div>
-            <h2 class="slide-title">⚠️ KHÓ KHĂN & VƯỚNG MẮC</h2>
-            <p class="slide-subtitle">Các vấn đề chính trong triển khai</p>
-        </div>
-        <div class="details-grid">
-            <div class="detail-card"><div class="icon">👥</div><div class="title">Thiếu nhân sự</div><div class="text">Chưa có BA, UI, UX</div></div>
-            <div class="detail-card"><div class="icon">🛠️</div><div class="title">Nguồn lực CNTT còn hạn chế</div><div class="text">Không có cán bộ thuộc TT CNTT chuyên trách dự án</div></div>
-            <div class="detail-card"><div class="icon">💻</div><div class="title">Thiết bị chậm</div><div class="text">GPU, hạ tầng triển khai chưa sẵn sàng</div></div>
         </div>
     </div>
 
@@ -1222,94 +2101,44 @@
                         <div style="color: rgba(255,255,255,0.8); font-size: 0.85em;">Không hài lòng</div>
                     </div>
                 </div>
-            </div>    <!-- Slide 10: Kết quả khảo sát -->
-    <div class="slide slide-3">
-        <div class="slide-header" style="margin-bottom: 15px;">
-            <div class="slide-number"></div>
-            <h2 class="slide-title" style="font-size: 2.8em; margin-bottom: 8px;">📊 KẾT QUẢ KHẢO SÁT</h2>
-            <p class="slide-subtitle" style="font-size: 1.2em;">ATM Tông Đản • 11 phản hồi (18-21/11/2025)</p>
+            </div>    
         </div>
+    </div>  
 
-        <!-- Main stats in 2 columns -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 1200px; margin-bottom: 18px;">
-            <!-- Stat 1 -->
-            <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); padding: 18px; border-radius: 12px; border-left: 4px solid #2ecc71;">
-                <div style="font-size: 1em; color: rgba(255,255,255,0.85); margin-bottom: 10px; font-weight: 600;">Có gặp khó khăn không?</div>
-                <div style="display: flex; align-items: center; gap: 25px;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.2em;">✅</div>
-                        <div style="font-size: 2em; font-weight: bold; color: white;">82%</div>
-                        <div style="color: rgba(255,255,255,0.8); font-size: 0.85em;">Không khó khăn</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.2em;">⚠️</div>
-                        <div style="font-size: 2em; font-weight: bold; color: white;">18%</div>
-                        <div style="color: rgba(255,255,255,0.8); font-size: 0.85em;">Có khó khăn</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Stat 2 -->
-            <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); padding: 18px; border-radius: 12px; border-left: 4px solid #3498db;">
-                <div style="font-size: 1em; color: rgba(255,255,255,0.85); margin-bottom: 10px; font-weight: 600;">Check-in có mất thời gian?</div>
-                <div style="display: flex; align-items: center; gap: 25px;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.2em;">👍</div>
-                        <div style="font-size: 2em; font-weight: bold; color: white;">91%</div>
-                        <div style="color: rgba(255,255,255,0.8); font-size: 0.85em;">Không</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2.2em;">⏱️</div>
-                        <div style="font-size: 2em; font-weight: bold; color: white;">9%</div>
-                        <div style="color: rgba(255,255,255,0.8); font-size: 0.85em;">Có chút</div>
-                    </div>
-                </div>
-            </div>
+    
+    <!-- ======================== PHẦN 4: KHÓ KHĂN ======================== -->
+    <div class="slide slide-journey">
+        <div class="slide-header">
+            <div class="slide-number"> </div>
+            <h2 class="slide-title" style="text-align: center; margin-top: 20px;">PHẦN 4: KHÓ KHĂN</h2>
         </div>
+    </div>    
 
-        <!-- Highlight: Risk reduction -->
-        <div style="background: linear-gradient(135deg, rgba(46, 204, 113, 0.25), rgba(39, 174, 96, 0.15)); backdrop-filter: blur(10px); padding: 22px; border-radius: 14px; max-width: 1200px; border: 2px solid rgba(46, 204, 113, 0.3); margin-bottom: 18px;">
-            <div style="text-align: center;">
-                <div style="font-size: 1.15em; color: rgba(255,255,255,0.9); margin-bottom: 12px; font-weight: 600;">💡 Có giúp giảm thiểu rủi ro không?</div>
-                <div style="display: flex; align-items: center; justify-content: center; gap: 45px;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 3.2em; margin-bottom: 5px;">✅</div>
-                        <div style="font-size: 3em; font-weight: bold; color: white; text-shadow: 0 3px 8px rgba(0,0,0,0.3);">91%</div>
-                        <div style="color: white; font-size: 1.15em; font-weight: 600; margin-top: 5px;">ĐỒNG Ý</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 3.2em; margin-bottom: 5px;">❓</div>
-                        <div style="font-size: 3em; font-weight: bold; color: white; text-shadow: 0 3px 8px rgba(0,0,0,0.3);">9%</div>
-                        <div style="color: white; font-size: 1.15em; font-weight: 600; margin-top: 5px;">KHÔNG</div>
-                    </div>
-                </div>
-            </div>
+    <!-- Slide 8: Khó khăn -->
+    <div class="slide slide-5">
+        <div class="slide-header">
+            <div class="slide-number">06</div>
+            <h2 class="slide-title">KHÓ KHĂN</h2>
+            <p class="slide-subtitle">Các vấn đề chính trong triển khai</p>
         </div>
-
-        <!-- Key insights - compact -->
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; max-width: 1200px;">
-            <div style="background: rgba(46, 204, 113, 0.15); padding: 15px; border-radius: 10px; border-left: 4px solid #2ecc71;">
-                <div style="font-size: 1.5em; margin-bottom: 6px;">✨</div>
-                <div style="color: white; font-weight: bold; font-size: 1em; margin-bottom: 5px;">Dễ sử dụng</div>
-                <div style="color: rgba(255,255,255,0.85); font-size: 0.85em; line-height: 1.35;">82% không gặp khó khăn</div>
-            </div>
-            <div style="background: rgba(52, 152, 219, 0.15); padding: 15px; border-radius: 10px; border-left: 4px solid #3498db;">
-                <div style="font-size: 1.5em; margin-bottom: 6px;">⚡</div>
-                <div style="color: white; font-weight: bold; font-size: 1em; margin-bottom: 5px;">Không ảnh hưởng</div>
-                <div style="color: rgba(255,255,255,0.85); font-size: 0.85em; line-height: 1.35;">91% check-in không mất thời gian</div>
-            </div>
-            <div style="background: rgba(241, 196, 15, 0.15); padding: 15px; border-radius: 10px; border-left: 4px solid #f1c40f;">
-                <div style="font-size: 1.5em; margin-bottom: 6px;">🎯</div>
-                <div style="color: white; font-weight: bold; font-size: 1em; margin-bottom: 5px;">Hiệu quả cao</div>
-                <div style="color: rgba(255,255,255,0.85); font-size: 0.85em; line-height: 1.35;">91% tin tưởng giảm rủi ro</div>
-            </div>
+        <div class="details-grid">
+            <div class="detail-card"><div class="icon">👥</div><div class="title">Thiếu nhân sự</div><div class="text">Chưa có BA, UI, UX</div></div>
+            <div class="detail-card"><div class="icon">🛠️</div><div class="title">Nguồn lực CNTT còn hạn chế</div><div class="text">Không có cán bộ thuộc TT CNTT chuyên trách dự án</div></div>
+            <div class="detail-card"><div class="icon">💻</div><div class="title">Thiết bị chậm</div><div class="text">GPU, hạ tầng triển khai, kết nối chưa sẵn sàng</div></div>
         </div>
     </div>
 
+    <!-- ======================== PHẦN 5: KẾ HOẠCH TRIỂN KHAI MỞ RỘNG ======================== -->
+    <div class="slide slide-journey">
+        <div class="slide-header">
+            <div class="slide-number"> </div>
+            <h2 class="slide-title" style="text-align: center; margin-top: 20px;">PHẦN 5: KẾ HOẠCH TRIỂN KHAI MỞ RỘNG</h2>
+        </div>
+    </div>  
 
     <!-- Slide 11: Cảm ơn -->
     <div class="slide slide-7">
-        <h2 class="slide-title">🎉 XIN CẢM ƠN!</h2>
+        <h2 class="slide-title">XIN CẢM ƠN!</h2>
         <!-- <p style="text-align:center; color:white; font-size:1.5em;">Câu hỏi & thảo luận</p> -->
     </div>
 
