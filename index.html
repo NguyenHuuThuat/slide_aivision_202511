@@ -2105,6 +2105,136 @@
         </div>
     </div>  
 
+
+        <!-- Slide 7: Tài nguyên thực tế sử dụng -->
+    <div class="slide slide-5">
+        <div class="slide-header">
+            <div class="slide-number">06</div>
+            <h2 class="slide-title">TÀI NGUYÊN THỰC TẾ SỬ DỤNG</h2>
+            <p class="slide-subtitle">Hạ tầng pilot: 1 camera (720p, 25fps, chuẩn H264, băng thông yêu cầu 2 Mbps); Thời gian pilot: 2 tháng</p>
+        </div>
+
+        <!-- Resource Table -->
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border-radius: 14px; overflow: hidden; border: 2px solid rgba(255,255,255,0.2);">
+                
+                <!-- Table Header -->
+                <div style="display: grid; grid-template-columns: 200px repeat(4, 1fr) 1.5fr; background: rgba(255,255,255,0.15); padding: 16px; font-weight: bold; color: white; border-bottom: 2px solid rgba(255,255,255,0.25); gap: 12px;">
+                    <div></div>
+                    <div style="text-align: center;">GPU sử dụng</div>
+                    <div style="text-align: center;">CPU sử dụng</div>
+                    <div style="text-align: center;">Ổ cứng sử dụng</div>
+                    <div style="text-align: center;">RAM sử dụng</div>
+                    <div style="text-align: center;">Băng thông sử dụng</div>
+                </div>
+
+                <!-- Row 1: Object Storage -->
+                <div style="display: grid; grid-template-columns: 200px repeat(4, 1fr) 1.5fr; padding: 18px 16px; border-bottom: 1px solid rgba(255,255,255,0.1); align-items: center; gap: 12px;">
+                    <div style="color: white; font-weight: 600; font-size: 1em;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.5em;">💾</span>
+                            <span>Object Storage</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9);">—</div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9);">—</div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(52,152,219,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">15 GB</div>
+                    </div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9);">—</div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9);">—</div>
+                </div>
+
+                <!-- Row 2: AI Inference Server -->
+                <div style="display: grid; grid-template-columns: 200px repeat(4, 1fr) 1.5fr; padding: 18px 16px; border-bottom: 1px solid rgba(255,255,255,0.1); align-items: center; gap: 12px;">
+                    <div style="color: white; font-weight: 600; font-size: 1em;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.5em;">🤖</span>
+                            <span>AI Inference Server</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(155,89,182,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">30% trên RTX 4060</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(46,204,113,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">Full 2 vcore</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(52,152,219,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">50 GB</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(230,126,34,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">10 GB</div>
+                    </div>
+                    <div style="color: rgba(255,255,255,0.9); font-size: 0.95em; line-height: 1.4; padding-left: 8px;">
+                        • Pull stream từ Milestone: 2Mb/s<br>
+                        • Push video và image lên object storage: 200 MB video trong 10s
+                    </div>
+                </div>
+
+                <!-- Row 3: Management Portal -->
+                <div style="display: grid; grid-template-columns: 200px repeat(4, 1fr) 1.5fr; padding: 18px 16px; border-bottom: 1px solid rgba(255,255,255,0.1); align-items: center; gap: 12px;">
+                    <div style="color: white; font-weight: 600; font-size: 1em;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.5em;">🖥️</span>
+                            <span>Management Portal</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9);">—</div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(46,204,113,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">Full 2 vcore</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(52,152,219,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">50 GB</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(230,126,34,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">2 GB</div>
+                    </div>
+                    <div style="color: rgba(255,255,255,0.9); font-size: 0.95em; line-height: 1.4; padding-left: 8px;">
+                        • Pull video và image từ Object Storage: 200 MB trong 10s<br>
+                        • Push video và image lên object storage: 200 MB trong 10s
+                    </div>
+                </div>
+
+                <!-- Row 4: Message Hub -->
+                <div style="display: grid; grid-template-columns: 200px repeat(4, 1fr) 1.5fr; padding: 18px 16px; align-items: center; gap: 12px;">
+                    <div style="color: white; font-weight: 600; font-size: 1em;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.5em;">📨</span>
+                            <span>Message Hub</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9);">—</div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(46,204,113,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">Full 2 vcore</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(52,152,219,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">50 GB</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(230,126,34,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">4 GB</div>
+                    </div>
+                    <div style="color: rgba(255,255,255,0.9); font-size: 0.95em; line-height: 1.4; padding-left: 8px;">
+                        • Gửi và nhận ở mức 50,000 messages/s
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Note -->
+        <div style="max-width: 1400px; margin: 25px auto 0 auto;">
+            <div style="background: linear-gradient(135deg, rgba(52,152,219,0.2), rgba(41,128,185,0.15)); padding: 18px 24px; border-radius: 12px; border: 2px solid rgba(52,152,219,0.3);">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <span style="font-size: 2em;">💡</span>
+                    <div>
+                        <div style="color: white; font-weight: bold; font-size: 1.1em; margin-bottom: 6px;">Lưu ý về hạ tầng</div>
+                        <div style="color: rgba(255,255,255,0.9); font-size: 0.95em; line-height: 1.5;">
+                            Hệ thống đã được tối ưu để sử dụng hiệu quả tài nguyên. GPU chỉ sử dụng 30% RTX 4060 cho 1 camera, cho phép mở rộng lên nhiều camera trên cùng một thiết bị.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <!-- ======================== PHẦN 4: KHÓ KHĂN ======================== -->
     <div class="slide slide-journey">
@@ -2332,6 +2462,264 @@
         </div>
     </div>
 
+
+        <!-- Slide: Yêu cầu tài nguyên 10 điểm tác nghiệp -->
+    <div class="slide slide-3">
+        <div class="slide-header">
+            <div class="slide-number"></div>
+            <h2 class="slide-title">YÊU CẦU TÀI NGUYÊN 10 ĐIỂM TÁC NGHIỆP</h2>
+            <p class="slide-subtitle">Phục vụ ~10 cameras trong 1 năm (12 tháng)</p>
+        </div>
+
+        <!-- Resource Table -->
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border-radius: 14px; overflow: hidden; border: 2px solid rgba(255,255,255,0.2);">
+                
+                <!-- Table Header -->
+                <div style="display: grid; grid-template-columns: 200px repeat(4, 1fr) 1.5fr; background: rgba(255,255,255,0.15); padding: 16px; font-weight: bold; color: white; border-bottom: 2px solid rgba(255,255,255,0.25); gap: 12px;">
+                    <div></div>
+                    <div style="text-align: center;">GPU</div>
+                    <div style="text-align: center;">CPU</div>
+                    <div style="text-align: center;">Ổ cứng</div>
+                    <div style="text-align: center;">RAM</div>
+                    <div style="text-align: center;">Băng thông</div>
+                </div>
+
+                <!-- Row 1: Object Storage -->
+                <div style="display: grid; grid-template-columns: 200px repeat(4, 1fr) 1.5fr; padding: 18px 16px; border-bottom: 1px solid rgba(255,255,255,0.1); align-items: center; gap: 12px;">
+                    <div style="color: white; font-weight: 600; font-size: 1em;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.5em;">💾</span>
+                            <span>Object Storage</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9);">—</div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9);">—</div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(52,152,219,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">900 GB</div>
+                    </div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9);">—</div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9);">—</div>
+                </div>
+
+                <!-- Row 2: AI Inference Server -->
+                <div style="display: grid; grid-template-columns: 200px repeat(4, 1fr) 1.5fr; padding: 18px 16px; border-bottom: 1px solid rgba(255,255,255,0.1); align-items: center; gap: 12px;">
+                    <div style="color: white; font-weight: 600; font-size: 1em;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.5em;">🤖</span>
+                            <span>AI Inference Server</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(155,89,182,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">100% trên 1 RTX 4050</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(46,204,113,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">Full 10 vcore</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(52,152,219,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">400 GB</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(230,126,34,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">30 GB</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(241,196,15,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">160 Mb/s</div>
+                    </div>
+                </div>
+
+                <!-- Row 3: Management Portal -->
+                <div style="display: grid; grid-template-columns: 200px repeat(4, 1fr) 1.5fr; padding: 18px 16px; border-bottom: 1px solid rgba(255,255,255,0.1); align-items: center; gap: 12px;">
+                    <div style="color: white; font-weight: 600; font-size: 1em;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.5em;">🖥️</span>
+                            <span>Management Portal</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9);">—</div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(46,204,113,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">Full 4 vcore</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(52,152,219,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">150 GB</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(230,126,34,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">10 GB</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(241,196,15,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">160 Mb/s</div>
+                    </div>
+                </div>
+
+                <!-- Row 4: Message Hub -->
+                <div style="display: grid; grid-template-columns: 200px repeat(4, 1fr) 1.5fr; padding: 18px 16px; align-items: center; gap: 12px;">
+                    <div style="color: white; font-weight: 600; font-size: 1em;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.5em;">📨</span>
+                            <span>Message Hub</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9);">—</div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(46,204,113,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">Full 4 vcore</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(52,152,219,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">100 GB</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(230,126,34,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">10 GB</div>
+                    </div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9); font-size: 0.95em;">
+                        Gửi và nhận ở mức 50,000 messages/s
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Note -->
+        <div style="max-width: 1400px; margin: 25px auto 0 auto;">
+            <div style="background: linear-gradient(135deg, rgba(52,152,219,0.2), rgba(41,128,185,0.15)); padding: 18px 24px; border-radius: 12px; border: 2px solid rgba(52,152,219,0.3);">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <span style="font-size: 2em;">💡</span>
+                    <div>
+                        <div style="color: white; font-weight: bold; font-size: 1.1em; margin-bottom: 6px;">Tổng quan tài nguyên</div>
+                        <div style="color: rgba(255,255,255,0.9); font-size: 0.95em; line-height: 1.5;">
+                            Cấu hình phù hợp cho việc giám sát 10 điểm camera đồng thời, đảm bảo xử lý realtime và lưu trữ video trong 12 tháng.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide: Yêu cầu tài nguyên 20 điểm tác nghiệp -->
+    <div class="slide slide-4">
+        <div class="slide-header">
+            <div class="slide-number"></div>
+            <h2 class="slide-title">YÊU CẦU TÀI NGUYÊN 20 ĐIỂM TÁC NGHIỆP</h2>
+            <p class="slide-subtitle">Phục vụ ~20 cameras trong 1 năm (12 tháng)</p>
+        </div>
+
+        <!-- Resource Table -->
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <div style="background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); border-radius: 14px; overflow: hidden; border: 2px solid rgba(255,255,255,0.2);">
+                
+                <!-- Table Header -->
+                <div style="display: grid; grid-template-columns: 200px repeat(4, 1fr) 1.5fr; background: rgba(255,255,255,0.15); padding: 16px; font-weight: bold; color: white; border-bottom: 2px solid rgba(255,255,255,0.25); gap: 12px;">
+                    <div></div>
+                    <div style="text-align: center;">GPU</div>
+                    <div style="text-align: center;">CPU</div>
+                    <div style="text-align: center;">Ổ cứng</div>
+                    <div style="text-align: center;">RAM</div>
+                    <div style="text-align: center;">Băng thông</div>
+                </div>
+
+                <!-- Row 1: Object Storage -->
+                <div style="display: grid; grid-template-columns: 200px repeat(4, 1fr) 1.5fr; padding: 18px 16px; border-bottom: 1px solid rgba(255,255,255,0.1); align-items: center; gap: 12px;">
+                    <div style="color: white; font-weight: 600; font-size: 1em;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.5em;">💾</span>
+                            <span>Object Storage</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9);">—</div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9);">—</div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(52,152,219,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">1800 GB</div>
+                    </div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9);">—</div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9);">—</div>
+                </div>
+
+                <!-- Row 2: AI Inference Server -->
+                <div style="display: grid; grid-template-columns: 200px repeat(4, 1fr) 1.5fr; padding: 18px 16px; border-bottom: 1px solid rgba(255,255,255,0.1); align-items: center; gap: 12px;">
+                    <div style="color: white; font-weight: 600; font-size: 1em;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.5em;">🤖</span>
+                            <span>AI Inference Server</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(155,89,182,0.3); display: inline-block; padding: 6px 12px; border-radius: 8px; color: white; font-weight: 600; font-size: 0.9em; line-height: 1.3;">
+                            100% trên 1 card RTX 4050<br>+ 50% trên card RTX thứ 2
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(46,204,113,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">Full 20 vcore</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(52,152,219,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">400 GB</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(230,126,34,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">30 GB</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(241,196,15,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">160 Mb/s</div>
+                    </div>
+                </div>
+
+                <!-- Row 3: Management Portal -->
+                <div style="display: grid; grid-template-columns: 200px repeat(4, 1fr) 1.5fr; padding: 18px 16px; border-bottom: 1px solid rgba(255,255,255,0.1); align-items: center; gap: 12px;">
+                    <div style="color: white; font-weight: 600; font-size: 1em;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.5em;">🖥️</span>
+                            <span>Management Portal</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9);">—</div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(46,204,113,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">Full 6 vcore</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(52,152,219,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">200 GB</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(230,126,34,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">14 GB</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(241,196,15,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">160 Mb/s</div>
+                    </div>
+                </div>
+
+                <!-- Row 4: Message Hub -->
+                <div style="display: grid; grid-template-columns: 200px repeat(4, 1fr) 1.5fr; padding: 18px 16px; align-items: center; gap: 12px;">
+                    <div style="color: white; font-weight: 600; font-size: 1em;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.5em;">📨</span>
+                            <span>Message Hub</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9);">—</div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(46,204,113,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">Full 6 vcore</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(52,152,219,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">150 GB</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="background: rgba(230,126,34,0.3); display: inline-block; padding: 6px 14px; border-radius: 8px; color: white; font-weight: 600;">12 GB</div>
+                    </div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.9); font-size: 0.95em;">
+                        Gửi và nhận ở mức 100,000 messages/s
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Note -->
+        <div style="max-width: 1400px; margin: 25px auto 0 auto;">
+            <div style="background: linear-gradient(135deg, rgba(155,89,182,0.2), rgba(142,68,173,0.15)); padding: 18px 24px; border-radius: 12px; border: 2px solid rgba(155,89,182,0.3);">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <span style="font-size: 2em;">💡</span>
+                    <div>
+                        <div style="color: white; font-weight: bold; font-size: 1.1em; margin-bottom: 6px;">Tổng quan tài nguyên</div>
+                        <div style="color: rgba(255,255,255,0.9); font-size: 0.95em; line-height: 1.5;">
+                            Cấu hình mở rộng cho 20 điểm camera, sử dụng 1.5 GPU card (1 card full + 50% card thứ 2) để đảm bảo xử lý realtime và lưu trữ 12 tháng.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
